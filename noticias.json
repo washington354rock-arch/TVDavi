@@ -1,35 +1,62 @@
 [
   {
-    "titulo": "Inflação volta ao teto da meta: IPCA‑15 sobe 0,20% em novembro",
-    "descricao": "O índice prévio de inflação no Brasil teve alta de 0,20%, acumulando 4,50% em 12 meses — o que coloca a inflação dentro do limite superior da meta do Banco Central. Especialistas avaliam impacto sobre juros e consumo. IBGE / IPCA-15",
+    "titulo": "Inflação volta ao teto da meta",
+    "descricao": "O IPCA-15 sobe 0,20% em novembro, acumulando 4,50% em 12 meses.",
     "link": "https://www.cnnbrasil.com.br/economia/macroeconomia/previa-da-inflacao-ipca-15-sobe-020-em-novembro-acima-do-esperado/",
-    "imagem": "https://images.pexels.com/photos/4386374/pexels-photo-4386374.jpeg"
+    "imagem": "/imagens/noticia1.jpg"
+  },
+  {
+    "titulo": "Desmatamento na Amazônia dispara",
+    "descricao": "Relatórios apontam aumento recorde no desmatamento da Amazônia em 2025.",
+    "link": "https://news.mongabay.com/2025/07/amazon-deforestation-spikes-as-brazil-blames-criminal-fires/",
+    "imagem": "/imagens/noticia2.jpg"
+  },
+  {
+    "titulo": "Ministra do Meio Ambiente recebe aplausos na COP30",
+    "descricao": "Marina Silva é ovacionada ao defender compromisso climático do Brasil na conferência.",
+    "link": "https://www.reuters.com/sustainability/cop/brazil-environment-minister-climate-summit-star-faces-political-struggle-home-2025-11-26/",
+    "imagem": "/imagens/noticia3.jpg"
+  },
+  {
+    "titulo": "Incêndio paralisa parte da COP30 em Belém",
+    "descricao": "Um fogo atingiu o pavilhão principal da conferência climática, atrasando negociações decisivas.",
+    "link": "https://conteudos.xpi.com.br/esg/incendio-na-cop30-interrompe-negociacoes-com-retomada-esperada-para-hoje-cafe-com-esg-21-11/",
+    "imagem": "/imagens/noticia4.jpg"
+  },
+  {
+    "titulo": "Bolsa de valores reage positivamente ao IPCA-15",
+    "descricao": "O Ibovespa opera em alta, puxado por setores como energia e bancos, após dados de inflação.",
+    "link": "https://www.infomoney.com.br/mercados/ibovespa-hoje-bolsa-de-valores-ao-vivo-26112025/",
+    "imagem": "/imagens/noticia5.jpg"
+  },
+  {
+    "titulo": "Brasil propõe fundo global para preservação de florestas tropicais",
+    "descricao": "O governo brasileiro propôs o Fundo Florestas Tropicais para Sempre na COP30.",
+    "link": "https://en.wikipedia.org/wiki/Fundo_Florestas_Tropicais_para_Sempre",
+    "imagem": "/imagens/noticia6.jpg"
+  },
+  {
+    "titulo": "A questão indígena se destaca em protestos na COP30",
+    "descricao": "Indígenas exigem voz ativa nas decisões e denunciam pressões por terras tradicionais.",
+    "link": "https://www.theguardian.com/environment/2025/nov/26/five-key-images-cop30-climate-change-conference-united-nations",
+    "imagem": "/imagens/noticia7.jpg"
+  },
+  {
+    "titulo": "Custo de vida pressiona inflação de 2025",
+    "descricao": "Despesas com saúde e transporte lideram altas do IPCA-15, afetando orçamento familiar.",
+    "link": "https://br.investing.com/news/economic-indicators/ipca15-sobe-020-em-novembro-diz-ibge-1758627",
+    "imagem": "/imagens/noticia8.jpg"
+  },
+  {
+    "titulo": "Expectativa de corte de juros cresce com queda da inflação",
+    "descricao": "Analistas preveem possível corte na taxa básica de juros no começo de 2026.",
+    "link": "https://www.reuters.com/world/americas/brazils-annual-inflation-back-within-target-range-first-time-since-january-2025-11-26/",
+    "imagem": "/imagens/noticia9.jpg"
   },
   {
     "titulo": "Inflação de 2025 pode fechar abaixo do teto, projeta mercado",
-    "descricao": "De acordo com o Boletim Focus, a previsão para a inflação oficial de 2025 no Brasil está abaixo do teto da meta — mesmo com a alta recente do IPCA. Expectativa de crescimento do PIB permanece em 2,16%.",
+    "descricao": "Boletim Focus prevê inflação oficial abaixo do teto da meta, mesmo após alta recente do IPCA.",
     "link": "https://agenciabrasil.ebc.com.br/economia/noticia/2025-11/inflação-de-2025-ficará-abaixo-do-teto-da-meta-em-445",
-    "imagem": "https://images.pexels.com/photos/4386468/pexels-photo-4386468.jpeg"
-  },
-  {
-    "titulo": "Ministra do Meio Ambiente recebe aplausos na COP30, mas enfrenta resistência em Brasília",
-    "descricao": "A Marina Silva foi ovacionada ao defender compromisso climático do Brasil na COP30, mas agora lida com pressão de grupos que tentam enfraquecer regras ambientais no Congresso.",
-    "link": "https://www.reuters.com/sustainability/cop/brazil-environment-minister-climate-summit-star-faces-political-struggle-home-2025-11-26/",
-    "imagem": "https://static.reuters.com/resources/r/?m=02&d=20251126&t=2&i=1690549684&r=LYNXMPEJAJ04Z\n"
-  },
-  {
-    "titulo": "Incêndio na Zona Azul paralisa parte das negociações da COP30 em Belém",
-    "descricao": "Um fogo atingiu o pavilhão principal da conferência climática, obrigando a evacuação e atrasando negociações decisivas sobre clima e financiamento climático para países vulneráveis.",
-    "link": "https://conteudos.xpi.com.br/esg/incendio-na-cop30-interrompe-negociacoes-com-retomada-esperada-para-hoje-cafe-com-esg-21-11/",
-    "imagem": "https://images.pexels.com/photos/7197802/pexels-photo-7197802.jpeg"
-  },
-  {
-    "titulo": "Desmatamento na Amazônia dispara em 2025 após anos de queda",
-    "descricao": "Relatórios recentes apontam um aumento recorde no desmatamento da Amazônia — um desafio para o governo brasileiro, que tenta conciliar preservação ambiental e desenvolvimento.",
-    "link": "https://news.mongabay.com/2025/07/amazon-deforestation-spikes-as-brazil-blames-criminal-fires/",
-    "imagem": "https://images.pexels.com/photos/7551358/pexels-photo-7551358.jpeg"
-  },
-  {
-    "titulo": "Bolsa de valores reage positivamente ao IPCA‑15 e expectativas de corte de juros nos EUA",
-    "descricao": "Com a prévia da inflação no Brasil e o movimento de mercado nos EUA, o Ibovespa opera em alta, puxado por setores como energia e bancos — cenário que impacta investimentos e crédito no país.",
-    "link": "https://www.infomoney.com.br/mercados/ibovespa-hoje-bolsa-de-valores-ao-
+    "imagem": "/imagens/noticia10.jpg"
+  }
+]
