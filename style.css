@@ -1,59 +1,62 @@
-/* Reset básico */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Card de notícia */
+.noticia {
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    display: flex;
+    flex-direction: column;
 }
 
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f2f5;
-    color: #333;
+/* Imagem da notícia */
+.noticia-img {
+    width: 100%;        /* ocupa toda a largura do card */
+    height: 200px;      /* altura fixa */
+    object-fit: cover;  /* mantém proporção e corta o excesso */
+    border-bottom: 1px solid #ddd;
 }
 
-/* Header e navegação */
-header {
-    background-color: #1e90ff;
-    color: white;
-    padding: 15px 20px;
+/* Conteúdo da notícia */
+.noticia-content {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
 }
 
-header h1 {
+.noticia h3 {
+    color: #1e90ff;
     margin-bottom: 10px;
 }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
+.noticia p {
+    flex-grow: 1;
+    margin-bottom: 10px;
 }
 
-nav ul li a {
-    color: white;
+.noticia a {
+    color: #1e90ff;
     text-decoration: none;
     font-weight: bold;
 }
 
-nav ul li a:hover {
+.noticia a:hover {
     text-decoration: underline;
 }
 
-/* Main e container de notícias */
-main {
-    max-width: 1200px;
-    margin: 20px auto;
-    padding: 0 20px;
+/* Footer */
+footer {
+    background-color: #1e90ff;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 40px;
 }
 
-h2 {
-    margin-bottom: 20px;
+/* Responsividade */
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+    }
 }
 
-/* Container de cards */
-#noticias-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-}
-
-/* Card de notí*
