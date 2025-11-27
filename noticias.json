@@ -1,45 +1,32 @@
 [
   {
-    "titulo": "Inflação volta ao teto da meta",
-    "descricao": "O IPCA-15 sobe 0,20% em novembro, acumulando 4,50% em 12 meses.",
-    "link": "https://www.cnnbrasil.com.br/economia/macroeconomia/previa-da-inflacao-ipca-15-sobe-020-em-novembro-acima-do-esperado/",
-    "imagem": "/imagens/noticia1.jpg"
+    "titulo": "Proposta orçamentária 2025 é apresentada com destaques",
+    "conteudo": "O governo federal apresentou a proposta orçamentária para 2025 com metas de crescimento econômico e investimentos em saúde e educação.",
+    "link": "https://www.estadao.com.br/politica/proposta-orcamentaria-2025-governo-federal-apresenta-metodo-de-ajuste/",
+    "imagem": "https://static01.estadao.com.br/resources/jpg/6/2025/11/26/1440x810_3760623.jpeg"
   },
   {
-    "titulo": "Desmatamento na Amazônia dispara",
-    "descricao": "Relatórios apontam aumento recorde no desmatamento da Amazônia em 2025.",
-    "link": "https://news.mongabay.com/2025/07/amazon-deforestation-spikes-as-brazil-blames-criminal-fires/",
-    "imagem": "/imagens/noticia2.jpg"
+    "titulo": "País registra alta nas exportações de soja",
+    "conteudo": "Brasil alcança recorde nas exportações de soja este mês, com destaque para embarques ao mercado asiático.",
+    "link": "https://www.uol.com.br/economia/ultimas-noticias/2025/11/26/brasil-exportacoes-soja-recorde-mes-2025.htm",
+    "imagem": "https://conteudo.imguol.com.br/c/agronegocio/2025/11/26/colheita-de-soja-campo-1690503456789_v2_600x400.jpg"
   },
   {
-    "titulo": "Ministra do Meio Ambiente recebe aplausos na COP30",
-    "descricao": "Marina Silva é ovacionada ao defender compromisso climático do Brasil na conferência.",
-    "link": "https://www.reuters.com/sustainability/cop/brazil-environment-minister-climate-summit-star-faces-political-struggle-home-2025-11-26/",
-    "imagem": "/imagens/noticia3.jpg"
+    "titulo": "Cresce interesse por turismo pós-pandemia no Nordeste",
+    "conteudo": "Com o fim das restrições, o turismo nas praias do Nordeste tem alta procura, impulsionando economia local.",
+    "link": "https://www.cnnbrasil.com.br/turismo/cresce-interesse-por-turismo-pos-pandemia-no-nordeste/",
+    "imagem": "https://s2.glbimg.com/abcdefgh12345/v1/fill/w_800,h_600,q_80,t_0/foto-praia-nordeste-brasil.jpg"
   },
   {
-    "titulo": "Incêndio paralisa parte da COP30 em Belém",
-    "descricao": "Um fogo atingiu o pavilhão principal da conferência climática, atrasando negociações decisivas.",
-    "link": "https://conteudos.xpi.com.br/esg/incendio-na-cop30-interrompe-negociacoes-com-retomada-esperada-para-hoje-cafe-com-esg-21-11/",
-    "imagem": "/imagens/noticia4.jpg"
+    "titulo": "Universidade pública anuncia novo curso de engenharia aeroespacial",
+    "conteudo": "Instituição federal abre inscrições para curso inédito no país, com objetivo de formar profissionais para aviação e pesquisa espacial.",
+    "link": "https://www1.folha.uol.com.br/educacao/2025/11/universidade-publica-anuncia-curso-engenharia-aeroespacial.shtml",
+    "imagem": "https://f.i.uol.com.br/fotografia/2025/11/curso-aviacao-600x400.jpg"
   },
   {
-    "titulo": "Bolsa de valores reage positivamente ao IPCA-15",
-    "descricao": "O Ibovespa opera em alta, puxado por setores como energia e bancos, após dados de inflação.",
-    "link": "https://www.infomoney.com.br/mercados/ibovespa-hoje-bolsa-de-valores-ao-vivo-26112025/",
-    "imagem": "/imagens/noticia5.jpg"
-  },
-  {
-    "titulo": "Brasil propõe fundo global para preservação de florestas tropicais",
-    "descricao": "O governo brasileiro propôs o Fundo Florestas Tropicais para Sempre na COP30.",
-    "link": "https://en.wikipedia.org/wiki/Fundo_Florestas_Tropicais_para_Sempre",
-    "imagem": "/imagens/noticia6.jpg"
-  },
-  {
-    "titulo": "A questão indígena se destaca em protestos na COP30",
-    "descricao": "Indígenas exigem voz ativa nas decisões e denunciam pressões por terras tradicionais.",
-    "link": "https://www.theguardian.com/environment/2025/nov/26/five-key-images-cop30-climate-change-conference-united-nations",
-    "imagem": "/imagens/noticia7.jpg"
+    "titulo": "Time do futebol conquista título nacional após final dramática",
+    "conteudo": "Clube vence decisão no último minuto com gol de pênalti e conquista o bi‑campeonato nacional.",
+    "link": "https://www.espn.com.br/futebol/artigo/_/id/xyz/time-conquista-titulo-nacional-2025",
+    "imagem": "https://cdn.espn.com.br/xyz/time-campeao-2025.jpg"
   }
- 
 ]
