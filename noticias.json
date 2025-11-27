@@ -1,32 +1,35 @@
 [
   {
-    "titulo": "Proposta orçamentária 2025 é apresentada com destaques",
-    "conteudo": "O governo federal apresentou a proposta orçamentária para 2025 com metas de crescimento econômico e investimentos em saúde e educação.",
-    "link": "https://www.estadao.com.br/politica/proposta-orcamentaria-2025-governo-federal-apresenta-metodo-de-ajuste/",
-    "imagem": "https://static01.estadao.com.br/resources/jpg/6/2025/11/26/1440x810_3760623.jpeg"
+    "titulo": "Inflação volta ao teto da meta: IPCA‑15 sobe 0,20% em novembro",
+    "descricao": "O índice prévio de inflação no Brasil teve alta de 0,20%, acumulando 4,50% em 12 meses — o que coloca a inflação dentro do limite superior da meta do Banco Central. Especialistas avaliam impacto sobre juros e consumo. IBGE / IPCA-15",
+    "link": "https://www.cnnbrasil.com.br/economia/macroeconomia/previa-da-inflacao-ipca-15-sobe-020-em-novembro-acima-do-esperado/",
+    "imagem": "https://images.pexels.com/photos/4386374/pexels-photo-4386374.jpeg"
   },
   {
-    "titulo": "País registra alta nas exportações de soja",
-    "conteudo": "Brasil alcança recorde nas exportações de soja este mês, com destaque para embarques ao mercado asiático.",
-    "link": "https://www.uol.com.br/economia/ultimas-noticias/2025/11/26/brasil-exportacoes-soja-recorde-mes-2025.htm",
-    "imagem": "https://conteudo.imguol.com.br/c/agronegocio/2025/11/26/colheita-de-soja-campo-1690503456789_v2_600x400.jpg"
+    "titulo": "Inflação de 2025 pode fechar abaixo do teto, projeta mercado",
+    "descricao": "De acordo com o Boletim Focus, a previsão para a inflação oficial de 2025 no Brasil está abaixo do teto da meta — mesmo com a alta recente do IPCA. Expectativa de crescimento do PIB permanece em 2,16%.",
+    "link": "https://agenciabrasil.ebc.com.br/economia/noticia/2025-11/inflação-de-2025-ficará-abaixo-do-teto-da-meta-em-445",
+    "imagem": "https://images.pexels.com/photos/4386468/pexels-photo-4386468.jpeg"
   },
   {
-    "titulo": "Cresce interesse por turismo pós-pandemia no Nordeste",
-    "conteudo": "Com o fim das restrições, o turismo nas praias do Nordeste tem alta procura, impulsionando economia local.",
-    "link": "https://www.cnnbrasil.com.br/turismo/cresce-interesse-por-turismo-pos-pandemia-no-nordeste/",
-    "imagem": "https://s2.glbimg.com/abcdefgh12345/v1/fill/w_800,h_600,q_80,t_0/foto-praia-nordeste-brasil.jpg"
+    "titulo": "Ministra do Meio Ambiente recebe aplausos na COP30, mas enfrenta resistência em Brasília",
+    "descricao": "A Marina Silva foi ovacionada ao defender compromisso climático do Brasil na COP30, mas agora lida com pressão de grupos que tentam enfraquecer regras ambientais no Congresso.",
+    "link": "https://www.reuters.com/sustainability/cop/brazil-environment-minister-climate-summit-star-faces-political-struggle-home-2025-11-26/",
+    "imagem": "https://static.reuters.com/resources/r/?m=02&d=20251126&t=2&i=1690549684&r=LYNXMPEJAJ04Z\n"
   },
   {
-    "titulo": "Universidade pública anuncia novo curso de engenharia aeroespacial",
-    "conteudo": "Instituição federal abre inscrições para curso inédito no país, com objetivo de formar profissionais para aviação e pesquisa espacial.",
-    "link": "https://www1.folha.uol.com.br/educacao/2025/11/universidade-publica-anuncia-curso-engenharia-aeroespacial.shtml",
-    "imagem": "https://f.i.uol.com.br/fotografia/2025/11/curso-aviacao-600x400.jpg"
+    "titulo": "Incêndio na Zona Azul paralisa parte das negociações da COP30 em Belém",
+    "descricao": "Um fogo atingiu o pavilhão principal da conferência climática, obrigando a evacuação e atrasando negociações decisivas sobre clima e financiamento climático para países vulneráveis.",
+    "link": "https://conteudos.xpi.com.br/esg/incendio-na-cop30-interrompe-negociacoes-com-retomada-esperada-para-hoje-cafe-com-esg-21-11/",
+    "imagem": "https://images.pexels.com/photos/7197802/pexels-photo-7197802.jpeg"
   },
   {
-    "titulo": "Time do futebol conquista título nacional após final dramática",
-    "conteudo": "Clube vence decisão no último minuto com gol de pênalti e conquista o bi‑campeonato nacional.",
-    "link": "https://www.espn.com.br/futebol/artigo/_/id/xyz/time-conquista-titulo-nacional-2025",
-    "imagem": "https://cdn.espn.com.br/xyz/time-campeao-2025.jpg"
-  }
-]
+    "titulo": "Desmatamento na Amazônia dispara em 2025 após anos de queda",
+    "descricao": "Relatórios recentes apontam um aumento recorde no desmatamento da Amazônia — um desafio para o governo brasileiro, que tenta conciliar preservação ambiental e desenvolvimento.",
+    "link": "https://news.mongabay.com/2025/07/amazon-deforestation-spikes-as-brazil-blames-criminal-fires/",
+    "imagem": "https://images.pexels.com/photos/7551358/pexels-photo-7551358.jpeg"
+  },
+  {
+    "titulo": "Bolsa de valores reage positivamente ao IPCA‑15 e expectativas de corte de juros nos EUA",
+    "descricao": "Com a prévia da inflação no Brasil e o movimento de mercado nos EUA, o Ibovespa opera em alta, puxado por setores como energia e bancos — cenário que impacta investimentos e crédito no país.",
+    "link": "https://www.infomoney.com.br/mercados/ibovespa-hoje-bolsa-de-valores-ao-
