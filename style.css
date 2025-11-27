@@ -1,10 +1,17 @@
-body {
-    font-family: Arial, sans-serif;
+/* Reset básico */
+* {
     margin: 0;
     padding: 0;
-    background-color: #f0f2f5;
+    box-sizing: border-box;
 }
 
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+}
+
+/* Header e navegação */
 header {
     background-color: #1e90ff;
     color: white;
@@ -12,13 +19,11 @@ header {
 }
 
 header h1 {
-    margin: 0;
+    margin-bottom: 10px;
 }
 
 nav ul {
     list-style: none;
-    padding: 0;
-    margin: 10px 0 0 0;
     display: flex;
     gap: 20px;
 }
@@ -33,6 +38,7 @@ nav ul li a:hover {
     text-decoration: underline;
 }
 
+/* Main e container de notícias */
 main {
     max-width: 1200px;
     margin: 20px auto;
@@ -40,10 +46,14 @@ main {
 }
 
 h2 {
-    color: #333;
     margin-bottom: 20px;
 }
 
+/* Container de cards */
 #noticias-container {
     display: grid;
-    grid-template-columns: repeat(aut
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* Card de notí*
