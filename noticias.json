@@ -1,32 +1,14 @@
 [
   {
     "titulo": "Russia mantém exportação de petróleo apesar das sanções",
-    "conteudo": "Uma frota fantasma de petroleiros da Rússia continua exportando petróleo, burlando sanções internacionais.",
+    "conteudo": "Relatórios recentes indicam que uma frota fantasma de petroleiros da Rússia continua exportando petróleo, burlando sanções internacionais.",
     "link": "https://delawarepublic.org/npr-headlines/2025-11-26/russias-shadow-fleet-lets-it-avoid-sanctions-and-keep-exporting-oil",
-    "imagem": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Oil_tanker_in_port.jpg"
+    "imagem": "https://www.example.com/imagem1.jpg"
   },
   {
     "titulo": "Militares anunciam tomada de governo na Guiné‑Bissau",
     "conteudo": "Soldados apareceram na TV estatal informando que assumiram o controle do país, horas após derrubar o governo.",
     "link": "https://kunr.org/world-headlines/2025-11-26/soldiers-in-guinea-bissau-announce-their-government-takeover-on-state-tv",
-    "imagem": "https://upload.wikimedia.org/wikipedia/commons/8/8a/Flag_of_Guinea-Bissau.svg"
-  },
-  {
-    "titulo": "Budget 2025: principais medidas anunciadas no Reino Unido",
-    "conteudo": "O orçamento 2025 no Reino Unido apresenta mudanças em impostos, investimentos e serviços públicos.",
-    "link": "https://www.theguardian.com/uk-news/2025/nov/26/budget-2025-key-points-rachel-reeves",
-    "imagem": "https://upload.wikimedia.org/wikipedia/commons/5/5e/UK_Parliament_2007.jpg"
-  },
-  {
-    "titulo": "Ataque a membros da Guarda Nacional perto da Casa Branca",
-    "conteudo": "Dois soldados foram baleados perto da Casa Branca, gerando mobilização policial e suspensão de voos no aeroporto próximo.",
-    "link": "https://apnews.com/article/51e9df682208be5da949335b819675d3",
-    "imagem": "https://upload.wikimedia.org/wikipedia/commons/4/4f/White_House_from_Lafayette_Square.jpg"
-  },
-  {
-    "titulo": "Novas descobertas científicas no espaço",
-    "conteudo": "Astrônomos identificaram novos exoplanetas que podem abrigar vida, ampliando nosso conhecimento do universo.",
-    "link": "https://www.nasa.gov/press-release/novas-descobertas-exoplanetas",
-    "imagem": "https://upload.wikimedia.org/wikipedia/commons/9/97/Exoplanet_artist_concept.jpg"
+    "imagem": "https://www.example.com/imagem2.jpg"
   }
 ]
