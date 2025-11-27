@@ -1,14 +1,32 @@
 [
   {
-    "titulo": "Russia mantém exportação de petróleo apesar das sanções",
-    "conteudo": "Relatórios recentes indicam que uma frota fantasma de petroleiros da Rússia continua exportando petróleo, burlando sanções internacionais.",
-    "link": "https://delawarepublic.org/npr-headlines/2025-11-26/russias-shadow-fleet-lets-it-avoid-sanctions-and-keep-exporting-oil",
-    "imagem": "https://www.example.com/imagem1.jpg"
+    "titulo": "Incêndio em complexo habitacional em Hong Kong deixa ao menos 36 mortos",
+    "conteudo": "Um incêndio devastador atingiu um grande conjunto residencial em Hong Kong — é o mais mortal dos últimos anos, com dezenas de vítimas e dezenas de edifícios atingidos. Autoridades alertam para risco de colapso nas investigações.",
+    "link": "https://www.hindustantimes.com/world-news/how-hong-kong-mega-housing-complex-was-engulfed-in-flames-killing-13-raising-major-questions-101764174362439.html",
+    "imagem": ""
   },
   {
-    "titulo": "Militares anunciam tomada de governo na Guiné‑Bissau",
-    "conteudo": "Soldados apareceram na TV estatal informando que assumiram o controle do país, horas após derrubar o governo.",
-    "link": "https://kunr.org/world-headlines/2025-11-26/soldiers-in-guinea-bissau-announce-their-government-takeover-on-state-tv",
-    "imagem": "https://www.example.com/imagem2.jpg"
+    "titulo": "Mudanças no orçamento 2025 do Reino Unido vazam antes do anúncio oficial",
+    "conteudo": "Detalhes do novo orçamento britânico foram revelados por engano antes da apresentação oficial, provocando turbulência nos mercados financeiros. A libra e os rendimentos dos títulos reacenderam debate sobre estabilidade econômica.",
+    "link": "https://www.theguardian.com/uk-news/2025/nov/26/how-rachel-reeves-budget-was-leaked-40-minutes-early",
+    "imagem": ""
+  },
+  {
+    "titulo": "Tensão na guerra Rússia‑Ucrânia: plano de paz negociado pelos EUA gera críticas na Europa",
+    "conteudo": "Líderes europeus criticam proposta de paz intermediada pelos EUA para o conflito entre Rússia e Ucrânia, apontando que o plano favoreceria interesses geopolíticos e não assegura estabilidade duradoura.",
+    "link": "https://www.theguardian.com/world/live/2025/nov/26/russia-ukraine-war-peace-plan-europe-latest-news-updates",
+    "imagem": ""
+  },
+  {
+    "titulo": "Aviões de combate são acionados após drone invadir espaço aéreo da Romênia, diz OTAN",
+    "conteudo": "Forças da OTAN foram mobilizadas depois que um drone cruza o espaço aéreo romeno perto da fronteira ucraniana — episódio eleva alerta de segurança e preocupação com novas tensões na região.",
+    "link": "https://saachibaat.com/international-news/international-world-news-26-november-2025/",
+    "imagem": ""
+  },
+  {
+    "titulo": "Mercados asiáticos sobem com expectativa de corte de juros nos EUA",
+    "conteudo": "Ações na Ásia avançam após indicadores financeiros apontarem possibilidade de redução da taxa de juros pelo Federal Reserve, o que renovou otimismo entre investidores globais.",
+    "link": "https://br.advfn.com/jornal/2025/11/abertura-estados-unidos-quarta-feira-26-11-2025",
+    "imagem": ""
   }
 ]
