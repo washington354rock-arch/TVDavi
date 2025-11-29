@@ -3,73 +3,36 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-  background-color: #f4f4f9;
+  background-color: #f2f3f5;
   color: #333;
   padding: 20px;
 }
 
-/* Container das notícias */
+/* Container de notícias em grid responsivo */
 #noticias-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
 }
 
-/* Card de cada notícia */
+/* Card de notícia */
 .card {
   background-color: #fff;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  padding: 20px;
+  border-radius: 10px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
-/* Título da notícia */
-.card h3 {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
-  color: #1e90ff; /* azul destaque */
-}
-
-/* Descrição */
-.card p {
-  font-size: 0.95rem;
-  line-height: 1.4;
-  margin-bottom: 15px;
-  color: #555;
-}
-
-/* Link para a notícia */
-.card a {
-  text-decoration: none;
-  color: #fff;
-  background-color: #1e90ff;
-  padding: 8px 12px;
-  border-radius: 6px;
-  align-self: flex-start;
-  transition: background-color 0.2s;
-}
-
-.card a:hover {
-  background-color: #1c7cd6;
-}
-
-/* Se você quiser separar cards com cores diferentes baseado em índice */
-.card:nth-child(odd) {
-  border-left: 5px solid #1e90ff;
-}
-.card:nth-child(even) {
-  border-left: 5px solid #ff6347; /* laranja */
-}
-
+/* Imagem da notícia*
