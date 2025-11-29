@@ -1,4 +1,6 @@
-/* Reset básico */
+/* =====================
+   RESET BÁSICO
+===================== */
 * {
   margin: 0;
   padding: 0;
@@ -6,14 +8,16 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-/* Página */
 body {
   background-color: #ffffff;
   color: #000000;
   padding: 20px;
+  transition: background 0.3s, color 0.3s;
 }
 
-/* Título principal */
+/* =====================
+   TÍTULO PRINCIPAL
+===================== */
 .titulo-site {
   background-color: white;
   color: #1e90ff;
@@ -22,29 +26,61 @@ body {
   font-weight: bold;
   padding: 15px 20px;
   border-radius: 10px;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
+
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
+
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  transition: background .3s, color .3s;
 }
 
-/* Container das notícias */
+/* =====================
+   BOTÃO MODO ESCURO
+===================== */
+#modo-btn {
+  display: block;
+  margin: 10px auto 30px;
+  background: #1e90ff;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 20px;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+  transition: background 0.3s, transform .2s;
+}
+
+#modo-btn:hover {
+  background: #1666c1;
+  transform: scale(1.05);
+}
+
+/* =====================
+   GRID DAS NOTÍCIAS
+===================== */
 #noticias-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
   gap: 25px;
 }
 
-/* Card */
+/* =====================
+   CARD DE NOTÍCIA
+===================== */
 .card {
   background-color: white;
   border-radius: 10px;
   overflow: hidden;
+
   display: flex;
   flex-direction: column;
+
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-  transition: transform .3s, box-shadow .3s;
+
+  transition: transform 0.3s, box-shadow 0.3s;
 
   opacity: 0;
   transform: translateY(10px);
@@ -56,7 +92,6 @@ body {
   box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
 
-/* Imagem */
 .card img {
   width: 100%;
   height: 180px;
@@ -64,7 +99,9 @@ body {
   display: block;
 }
 
-/* Conteúdo */
+/* =====================
+   CONTEÚDO DO CARD
+===================== */
 .card-content {
   padding: 15px 20px;
   display: flex;
@@ -72,39 +109,41 @@ body {
   flex-grow: 1;
 }
 
-/* Título da notícia */
 .card h3 {
   font-size: 1.2rem;
   margin-bottom: 10px;
   color: #1e90ff;
+  line-height: 1.3;
 }
 
-/* Texto */
 .card p {
-  color: #555555;
-  line-height: 1.5;
+  color: #555;
   font-size: .95rem;
+  line-height: 1.5;
   flex-grow: 1;
   margin-bottom: 15px;
 }
 
-/* Link */
 .card a {
   background-color: #1e90ff;
   color: white;
   padding: 10px;
   border-radius: 6px;
+
   text-decoration: none;
   text-align: center;
   font-weight: 600;
-  transition: background-color .3s;
+
+  transition: background .3s;
 }
 
 .card a:hover {
   background-color: #1666c1;
 }
 
-/* Bordas alternadas */
+/* =====================
+   BORDA ALTERNADA
+===================== */
 .card:nth-child(odd) {
   border-left: 5px solid #1e90ff;
 }
@@ -113,17 +152,64 @@ body {
   border-left: 5px solid #ff6347;
 }
 
-/* Responsivo */
+/* =====================
+   RESPONSIVO
+===================== */
 @media (max-width: 600px) {
   .card img {
     height: 200px;
   }
 }
 
-/* Animação */
-@keyframes fadeIn
-
-.titulo-site {
-  background: red !important;
-  color: white !important;
+/* =====================
+   ANIMAÇÃO
+===================== */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
+
+/* =====================
+   🌙 MODO ESCURO
+===================== */
+
+body.dark {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+body.dark .titulo-site {
+  background-color: #1f1f1f;
+  color: #00aaff;
+}
+
+body.dark .card {
+  background-color: #1f1f1f;
+}
+
+body.dark .card p {
+  color: #dddddd;
+}
+
+body.dark .card h3 {
+  color: #00aaff;
+}
+
+body.dark .card a {
+  background-color: #00aaff;
+}
+
+body.dark .card a:hover {
+  background-color: #0088cc;
+}
+
+body.dark #modo-btn {
+  background-color: #00aaff;
+}
+
+body.dark #modo-btn:hover {
+  background-color: #0088cc;
+}
+
