@@ -1,10 +1,5 @@
 [
   
-  
-  
-  
-  
-  
   {
     "titulo": "Congresso derruba vetos de Lula e flexibiliza licenciamento ambiental",
     "descricao": "Parlamentares rejeitaram vetos presidenciais e restabeleceram pontos da lei que tornam o licenciamento ambiental mais flexível. Ambientalistas criticam a medida.",
@@ -39,6 +34,15 @@
   },
   {
     "titulo": "Brasil defende criação de fundo global para florestas tropicais",
+    "descricao": "Proposta apresentada na COP30 visa financiar ações de preservação das florestas tropicais em países em desenvolvimento.",
+    "link": "https://en.wikipedia.org/wiki/Fundo_Florestas_Tropicais_para_Sempre",
+    "imagem": "https://cdn.pixabay.com/photo/2017/05/10/22/52/rainforest-2308700_1280.jpg",
+    "botaoTexto": "Leia mais",
+    "targetBlank": true
+  }
+
+  {
+  "titulo": "Torcedor do Palmeiras morre em Lima às vésperas da final da Libertadores… - Veja mais em https://www.uol.com.br/esporte/futebol/ultimas-noticias/2025/11/28/torcedor-do-palmeiras-morre-em-lima-as-vesperas-da-final-da-libertadores.htm?cmpid=copiaecola",
     "descricao": "Proposta apresentada na COP30 visa financiar ações de preservação das florestas tropicais em países em desenvolvimento.",
     "link": "https://en.wikipedia.org/wiki/Fundo_Florestas_Tropicais_para_Sempre",
     "imagem": "https://cdn.pixabay.com/photo/2017/05/10/22/52/rainforest-2308700_1280.jpg",
