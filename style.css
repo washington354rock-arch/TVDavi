@@ -213,4 +213,97 @@ body.dark #modo-btn {
 body.dark #modo-btn:hover {
   background-color: #0088cc;
 }
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 
+* { margin: 0 }
+
+/* grid everything! */
+html, body, header, h2, .rect { display: grid }
+
+html {
+	--hlc: #e09d4d;
+	height: 100%;
+	/* only to highlight transparency around image shape */
+	background: 
+		repeating-linear-gradient(45deg, #dedede 0 3px, #ededed 0 14px)
+}
+
+body { font-size: round(clamp(.5em, 1vw + 1vh, 1.25em), 1px) }
+
+/* the svg is functionally the same as a style here
+ * doesn't contain any graphics, just the filters, 
+ * so take it out of the document flow */
+svg[aria-hidden='true'] { position: fixed }
+
+header {
+	box-sizing: border-box;
+	overflow: hidden;
+	margin: 0 auto;
+	padding: 0 1em;
+	width: min(100% - 2em, 52.5em);
+	box-shadow: 0 0 1px 2px dodgerblue;
+	height: 100vh;
+}
+
+h2 {
+	box-sizing: border-box;
+	grid-template-rows: subgrid;
+	grid-area: 1/ 1/ span 2;
+	position: relative;
+	margin: calc(-2*var(--r)) 0;
+	font: 400 3em/ 1.3 playfair display, serif;
+	
+	.rect {
+		grid-area: 1/ 1/ span 2;
+		grid-template-rows: subgrid;
+		padding-right: 2em;
+	}
+	
+	.wrap {
+		grid-row: 2;
+		max-width: 15em;
+	}
+	
+	span:not([class]) {
+		padding-right: .375em;
+		box-decoration-break: clone
+	}
+	
+	.hl { color: var(--hlc) }
+	
+	&[aria-hidden='true'] {
+		filter: url(#extr);
+
+		&::before {
+			position: absolute;
+			inset: 0;
+			z-index: -1;
+			opacity: .5;
+			background: 
+				/* background-image, change as needed */
+				url(https://images.unsplash.com/photo-1426170042593-200f250dfdaf?w=1400) 
+				/* make it cover available area without distortion 
+				* + restrict to content-box */
+				50%/ cover content-box;
+			content: ''
+		}
+		
+		.rect {
+			outline: solid 1em #000;
+			filter: url(#rond)
+		}
+		
+		span:not([class]) { background: #000 }
+	}
+}
+
+.tag {
+	grid-area: 1/ 1;
+	place-self: end start;
+	z-index: 2;
+	margin: .75em;
+	padding: .75em;
+	border-radius: 1em;
+	background: grey;
+	font: 1.25em/ 1 sans-serif
+}
