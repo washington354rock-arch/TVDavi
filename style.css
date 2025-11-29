@@ -35,4 +35,88 @@ body {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
-/* Imagem da notícia*
+/* Imagem da notícia */
+.card img {
+  width: 100%;
+  height: 180px;         /* Altura fixa para todos os cards */
+  object-fit: cover;     /* Preenche o card sem deformar */
+  display: block;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  margin-bottom: 10px;
+}
+
+/* Conteúdo dentro do card */
+.card-content {
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* Título da notícia */
+.card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  color: #1e90ff;
+  line-height: 1.3;
+}
+
+/* Descrição da notícia */
+.card p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #555;
+  flex-grow: 1;
+  margin-bottom: 15px;
+}
+
+/* Botão/Link da notícia */
+.card a {
+  text-decoration: none;
+  color: #fff;
+  background-color: #1e90ff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-weight: 500;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+.card a:hover {
+  background-color: #1666c1;
+}
+
+/* Destaque de borda para o card (opcional) */
+.card:nth-child(odd) {
+  border-left: 5px solid #1e90ff;
+}
+.card:nth-child(even) {
+  border-left: 5px solid #ff6347;
+}
+
+/* Responsividade extra */
+@media (max-width: 768px) {
+  #noticias-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .card img {
+    height: 200px;
+  }
+}
+
+/* Pequena animação de fade-in para cada card */
+.card {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInUp 0.5s forwards;
+  animation-delay: 0.1s;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
