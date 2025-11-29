@@ -1,62 +1,75 @@
-/* Card de notícia */
-.noticia {
-    background-color: #fff;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    display: flex;
-    flex-direction: column;
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
-/* Imagem da notícia */
-.noticia-img {
-    width: 100%;        /* ocupa toda a largura do card */
-    height: 200px;      /* altura fixa */
-    object-fit: cover;  /* mantém proporção e corta o excesso */
-    border-bottom: 1px solid #ddd;
+body {
+  background-color: #f4f4f9;
+  color: #333;
+  padding: 20px;
 }
 
-/* Conteúdo da notícia */
-.noticia-content {
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
+/* Container das notícias */
+#noticias-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
 }
 
-.noticia h3 {
-    color: #1e90ff;
-    margin-bottom: 10px;
+/* Card de cada notícia */
+.card {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
-.noticia p {
-    flex-grow: 1;
-    margin-bottom: 10px;
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
 }
 
-.noticia a {
-    color: #1e90ff;
-    text-decoration: none;
-    font-weight: bold;
+/* Título da notícia */
+.card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #1e90ff; /* azul destaque */
 }
 
-.noticia a:hover {
-    text-decoration: underline;
+/* Descrição */
+.card p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  margin-bottom: 15px;
+  color: #555;
 }
 
-/* Footer */
-footer {
-    background-color: #1e90ff;
-    color: white;
-    text-align: center;
-    padding: 15px;
-    margin-top: 40px;
+/* Link para a notícia */
+.card a {
+  text-decoration: none;
+  color: #fff;
+  background-color: #1e90ff;
+  padding: 8px 12px;
+  border-radius: 6px;
+  align-self: flex-start;
+  transition: background-color 0.2s;
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
-    nav ul {
-        flex-direction: column;
-    }
+.card a:hover {
+  background-color: #1c7cd6;
+}
+
+/* Se você quiser separar cards com cores diferentes baseado em índice */
+.card:nth-child(odd) {
+  border-left: 5px solid #1e90ff;
+}
+.card:nth-child(even) {
+  border-left: 5px solid #ff6347; /* laranja */
 }
 
