@@ -122,3 +122,8 @@ body {
 
 /* Animação */
 @keyframes fadeIn
+
+.titulo-site {
+  background: red !important;
+  color: white !important;
+}
