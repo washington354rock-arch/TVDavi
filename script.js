@@ -19,3 +19,18 @@ fetch('noticias.json')
     const container = document.getElementById('noticias-container');
     container.innerHTML = "<p>Não foi possível carregar as notícias.</p>";
   });
+// =============================
+// BOTÃO MODO ESCURO
+// =============================
+
+const botaoModo = document.getElementById("modo-btn");
+
+botaoModo.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+
+  if (document.body.classList.contains("dark")) {
+    botaoModo.textContent = "☀️ Modo claro";
+  } else {
+    botaoModo.textContent = "🌙 Modo escuro";
+  }
+});
