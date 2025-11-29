@@ -1,4 +1,4 @@
-# TVDavi - Site de Notícias
+# TVDavi - O seu Site de Notícias
 
 Este é um site de notícias simples, criado em HTML, CSS e JavaScript puro.
 
