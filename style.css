@@ -26,7 +26,7 @@ body {
   font-weight: bold;
   padding: 15px 20px;
   border-radius: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 20px; /* aumentei o espaçamento */
 
   max-width: 1200px;
   margin-left: auto;
@@ -40,21 +40,23 @@ body {
    BOTÃO MODO ESCURO
 ===================== */
 #modo-btn {
-  display: block;
-  margin: 10px auto 30px;
-  background: #1e90ff;
-  color: white;
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  background-color: #1e90ff;
+  color: #ffffff;
   border: none;
-  padding: 10px 18px;
-  border-radius: 20px;
-  font-size: 16px;
+  padding: 10px 14px;
+  border-radius: 50px;
+  font-size: 14px;
   cursor: pointer;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
-  transition: background 0.3s, transform .2s;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  z-index: 9999;
+  transition: transform 0.2s, background 0.3s;
 }
 
 #modo-btn:hover {
-  background: #1666c1;
+  background-color: #1666c1;
   transform: scale(1.05);
 }
 
@@ -64,7 +66,7 @@ body {
 #noticias-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
-  gap: 25px;
+  gap: 35px; /* aumentei o espaço entre os cards */
 }
 
 /* =====================
@@ -103,25 +105,25 @@ body {
    CONTEÚDO DO CARD
 ===================== */
 .card-content {
-  padding: 15px 20px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
 }
 
 .card h3 {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
+  font-size: 1.3rem;
+  margin-bottom: 18px; /* mais espaço entre título e descrição */
   color: #1e90ff;
-  line-height: 1.3;
+  line-height: 1.4;
 }
 
 .card p {
   color: #555;
-  font-size: .95rem;
-  line-height: 1.5;
+  font-size: 1rem;
+  line-height: 1.6; /* deixa a leitura mais confortável */
   flex-grow: 1;
-  margin-bottom: 15px;
+  margin-bottom: 20px; /* espaço para o botão */
 }
 
 .card a {
@@ -174,7 +176,6 @@ body {
 /* =====================
    🌙 MODO ESCURO
 ===================== */
-
 body.dark {
   background-color: #121212;
   color: #ffffff;
@@ -211,30 +212,5 @@ body.dark #modo-btn {
 
 body.dark #modo-btn:hover {
   background-color: #0088cc;
-}
-#modo-btn {
-  position: fixed;
-  top: 15px;
-  right: 15px;
-
-  background-color: #1e90ff;
-  color: #ffffff;
-  border: none;
-
-  padding: 10px 14px;
-  border-radius: 50px;
-
-  font-size: 14px;
-  cursor: pointer;
-
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  z-index: 9999;
-
-  transition: transform 0.2s, background 0.3s;
-}
-
-#modo-btn:hover {
-  background-color: #1666c1;
-  transform: scale(1.05);
 }
 
