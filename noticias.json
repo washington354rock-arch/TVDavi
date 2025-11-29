@@ -1,22 +1,27 @@
 [
- 
   {
-    "titulo": "Governo sanciona isenção de imposto de renda para quem ganha até R$ 5 mil",
-    "conteudo": "Foi sancionada uma lei que isenta do imposto de renda pessoas com renda mensal de até R$ 5.000, beneficiando centenas de milhares de brasileiros. :contentReference[oaicite:1]{index=1}",
-    "link": "https://abcnews.go.com/International/wireStory/brazils-lula-sanctions-increase-tax-exemptions-low-income-127903515",
-    "imagem": ""
+    "titulo": "Congresso derruba vetos de Lula e flexibiliza licenciamento ambiental",
+    "descricao": "Parlamentares rejeitaram vetos presidenciais e restabeleceram pontos da lei que tornam o licenciamento ambiental mais flexível. Ambientalistas criticam a medida.",
+    "link": "https://www.cnnbrasil.com.br/politica/licenciamento-ambiental-governo-avalia-judicializar-derrubada-de-vetos/"
   },
   {
-    "titulo": "Ministra do Meio Ambiente do Brasil recebe aplausos na COP30, mas enfrenta resistência interna",
-    "conteudo": "Apesar do reconhecimento internacional em Belém, a ministra enfrenta desafios no Congresso e com pressões de desmatamento na Amazônia. :contentReference[oaicite:2]{index=2}",
-    "link": "https://www.reuters.com/sustainability/cop/brazil-environment-minister-climate-summit-star-faces-political-struggle-home-2025-11-26/",
-    "imagem": ""
+    "titulo": "Fuvest divulga notas de corte da 1ª fase do vestibular 2026",
+    "descricao": "Notas mínimas para a segunda fase foram divulgadas. Medicina segue como o curso mais concorrido, com nota de corte acima de 80 pontos.",
+    "link": "https://agenciabrasil.ebc.com.br/educacao/noticia/2025-11/fuvest-divulga-notas-de-corte-da-primeira-fase-do-vestibular-2026"
   },
- 
   {
-    "titulo": "Procuradores do Pará processam órgãos por naufrágio e risco ambiental no porto de Vila do Conde",
-    "conteudo": "Eles pedem reparação por danos ambientais e ameaça de poluição em área portuária, relacionada a um naufrágio antigo e risco contínuo de contaminação. :contentReference[oaicite:4]{index=4}",
-    "link": "https://www.reuters.com/business/environment/brazil-prosecutors-sue-agencies-over-haidar-shipwreck-environmental-risk-2025-11-26/",
-    "imagem": ""
+    "titulo": "IPCA-15 registra alta de 0,20% em novembro",
+    "descricao": "Prévia da inflação aponta pressão principalmente nos setores de saúde, transporte e despesas pessoais.",
+    "link": "https://www.cnnbrasil.com.br/economia/macroeconomia/previa-da-inflacao-ipca-15-sobe-020-em-novembro-acima-do-esperado/"
+  },
+  {
+    "titulo": "Mercado financeiro reage com alta do Ibovespa",
+    "descricao": "Bolsa opera em alta após dados de inflação no Brasil e sinais de possível corte de juros nos Estados Unidos.",
+    "link": "https://www.infomoney.com.br/mercados/ibovespa-hoje-bolsa-de-valores-ao-vivo-26112025/"
+  },
+  {
+    "titulo": "Brasil defende criação de fundo global para florestas tropicais",
+    "descricao": "Proposta apresentada na COP30 visa financiar ações de preservação das florestas tropicais em países em desenvolvimento.",
+    "link": "https://en.wikipedia.org/wiki/Fundo_Florestas_Tropicais_para_Sempre"
   }
 ]
