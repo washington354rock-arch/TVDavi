@@ -21,7 +21,7 @@ body {
 
 /* Card de notícia */
 .card {
-  background-color: #fff;
+  background-color: white;
   border-radius: 10px;
   overflow: hidden;
   display: flex;
