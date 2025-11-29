@@ -1,5 +1,4 @@
 [
-  
   {
     "titulo": "Congresso derruba vetos de Lula e flexibiliza licenciamento ambiental",
     "descricao": "Parlamentares rejeitaram vetos presidenciais e restabeleceram pontos da lei que tornam o licenciamento ambiental mais flexível. Ambientalistas criticam a medida.",
@@ -39,14 +38,13 @@
     "imagem": "https://cdn.pixabay.com/photo/2017/05/10/22/52/rainforest-2308700_1280.jpg",
     "botaoTexto": "Leia mais",
     "targetBlank": true
-  }
-
+  },
   {
-  "titulo": "Torcedor do Palmeiras morre em Lima às vésperas da final da Libertadores",
-  "descricao": "Um torcedor do Palmeiras faleceu em Lima (Peru) nesta sexta‑feira (28) durante passeio turístico; ele bateu a cabeça ao passar por baixo de uma ponte com o ônibus aberto. O clube lamentou o ocorrido. :contentReference[oaicite:0]{index=0}",
-  "link": "https://www.uol.com.br/esporte/futebol/ultimas-noticias/2025/11/28/torcedor-do-palmeiras-morre-em-lima-as-vesperas-da-final-da-libertadores.htm",
-  "imagem": "https://images.pexels.com/photos/7076764/pexels-photo-7076764.jpeg",  
-  "botaoTexto": "Leia mais",
-  "targetBlank": true
-}
+    "titulo": "Torcedor do Palmeiras morre em Lima às vésperas da final da Libertadores",
+    "descricao": "Um torcedor do Palmeiras faleceu em Lima (Peru) nesta sexta‑feira (28) durante passeio turístico; ele bateu a cabeça ao passar por baixo de uma ponte com o ônibus aberto. O clube lamentou o ocorrido.",
+    "link": "https://www.uol.com.br/esporte/futebol/ultimas-noticias/2025/11/28/torcedor-do-palmeiras-morre-em-lima-as-vesperas-da-final-da-libertadores.htm",
+    "imagem": "https://images.pexels.com/photos/7076764/pexels-photo-7076764.jpeg",
+    "botaoTexto": "Leia mais",
+    "targetBlank": true
+  }
 ]
