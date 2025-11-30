@@ -1,256 +1,29 @@
-/* =====================
-   RESET BÁSICO
-===================== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>TVDavi - Seu site de notícias</title>
 
-body {
-  background-color: #ffffff;
-  color: #000000;
-  padding: 20px;
-  transition: background 0.3s, color 0.3s;
-}
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-/* =====================
-   TÍTULO PRINCIPAL
-===================== */
-.titulo-site {
-  background-color: white;
-  color: #1e90ff;
-  text-align: center;
-  font-size: 2.3rem;
-  font-weight: bold;
-  padding: 15px 20px;
-  border-radius: 10px;
-  margin-bottom: 25px; /* mais espaçamento abaixo do título */
+<button id="modo-btn">🌙</button>
 
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+<h1 class="titulo-site">TVDavi – o seu site de notícias</h1>
 
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  transition: background .3s, color .3s;
-}
+<!-- BLOCO DO REPÓRTER -->
+<div class="reporter-box">
+  <img src="davi.jpeg" alt="Repórter Davi Bass">
+  <p class="reporter-legenda">
+    O repórter Davi Bass se destaca em fazer grandes notícias na cidade de Feira de Santana.
+  </p>
+</div>
 
-/* =====================
-   BOTÃO MODO ESCURO
-===================== */
-#modo-btn {
-  position: fixed;
-  top: 15px;
-  right: 15px;
-  background-color: #1e90ff;
-  color: #ffffff;
-  border: none;
-  padding: 10px 14px;
-  border-radius: 50px;
-  font-size: 14px;
-  cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  z-index: 9999;
-  transition: transform 0.2s, background 0.3s;
-}
+<!-- NOTÍCIAS -->
+<div id="noticias-container"></div>
 
-#modo-btn:hover {
-  background-color: #1666c1;
-  transform: scale(1.05);
-}
+<script src="script.js"></script>
 
-/* =====================
-   GRID DAS NOTÍCIAS
-===================== */
-#noticias-container {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
-  gap: 40px; /* mais espaço entre os cards */
-}
-
-/* =====================
-   CARD DE NOTÍCIA
-===================== */
-.card {
-  background-color: white;
-  border-radius: 10px;
-  overflow: hidden;
-
-  display: flex;
-  flex-direction: column;
-
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-
-  transition: transform 0.3s, box-shadow 0.3s;
-
-  opacity: 0;
-  transform: translateY(10px);
-  animation: fadeInUp .5s forwards;
-}
-
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-}
-
-.card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  display: block;
-}
-
-/* =====================
-   CONTEÚDO DO CARD
-===================== */
-.card-content {
-  padding: 25px; /* mais espaçamento interno */
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
-}
-
-.card h3 {
-  font-size: 1.3rem;
-  margin-bottom: 25px; /* mais espaço entre título e descrição */
-  color: #1e90ff;
-  line-height: 1.4;
-}
-
-.card p {
-  color: #555;
-  font-size: 1rem;
-  line-height: 1.6; /* leitura confortável */
-  flex-grow: 1;
-  margin-bottom: 25px; /* espaço para o botão */
-}
-
-.card a {
-  background-color: #1e90ff;
-  color: white;
-  padding: 12px;
-  border-radius: 6px;
-
-  text-decoration: none;
-  text-align: center;
-  font-weight: 600;
-
-  transition: background .3s;
-}
-
-.card a:hover {
-  background-color: #1666c1;
-}
-
-/* =====================
-   BORDA ALTERNADA
-===================== */
-.card:nth-child(odd) {
-  border-left: 5px solid #1e90ff;
-}
-
-.card:nth-child(even) {
-  border-left: 5px solid #ff6347;
-}
-
-/* =====================
-   RESPONSIVO
-===================== */
-@media (max-width: 600px) {
-  .card img {
-    height: 200px;
-  }
-}
-
-/* =====================
-   ANIMAÇÃO
-===================== */
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* =====================
-   🌙 MODO ESCURO
-===================== */
-body.dark {
-  background-color: #121212;
-  color: #ffffff;
-}
-
-body.dark .titulo-site {
-  background-color: #1f1f1f;
-  color: #00aaff;
-}
-
-body.dark .card {
-  background-color: #1f1f1f;
-}
-
-body.dark .card p {
-  color: #dddddd;
-}
-
-body.dark .card h3 {
-  color: #00aaff;
-}
-
-body.dark .card a {
-  background-color: #00aaff;
-}
-
-body.dark .card a:hover {
-  background-color: #0088cc;
-}
-
-body.dark #modo-btn {
-  background-color: #00aaff;
-}
-
-body.dark #modo-btn:hover {
-  background-color: #0088cc;
-}
-
-/* =====================
-   DESTAQUE DO REPÓRTER
-===================== */
-
-.reporter-box {
-  max-width: 1200px;
-  margin: 0 auto 30px auto;
-  text-align: center;
-}
-
-.reporter-box img {
-  width: 100%;
-  max-width: 400px;
-  height: auto;
-  border-radius: 12px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-}
-
-.reporter-legenda {
-  margin-top: 12px;
-  font-size: 1rem;
-  color: #555;
-  font-weight: 500;
-}
-
-/* Modo escuro */
-body.dark .reporter-legenda {
-  color: #ddd;
-}
-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-}
-
-.card img {
-  height: 180px;
-  object-fit: cover;
-}
-
+</body>
+</html>
