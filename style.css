@@ -243,3 +243,14 @@ body.dark #modo-btn:hover {
 body.dark .reporter-legenda {
   color: #ddd;
 }
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.card img {
+  height: 180px;
+  object-fit: cover;
+}
+
