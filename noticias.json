@@ -6,38 +6,7 @@
     "imagem": "https://cdn.pixabay.com/photo/2016/11/29/03/53/brazil-1867261_1280.jpg",
     "botaoTexto": "Leia mais",
     "targetBlank": true
-  },
-  {
-    "titulo": "Fuvest divulga notas de corte da 1ª fase do vestibular 2026",
-    "descricao": "Notas mínimas para a segunda fase foram divulgadas. Medicina segue como o curso mais concorrido, com nota de corte acima de 80 pontos.",
-    "link": "https://agenciabrasil.ebc.com.br/educacao/noticia/2025-11/fuvest-divulga-notas-de-corte-da-primeira-fase-do-vestibular-2026",
-    "imagem": "https://cdn.pixabay.com/photo/2016/08/12/23/26/students-1595503_1280.jpg",
-    "botaoTexto": "Leia mais",
-    "targetBlank": true
-  },
-  {
-    "titulo": "IPCA-15 registra alta de 0,20% em novembro",
-    "descricao": "Prévia da inflação aponta pressão principalmente nos setores de saúde, transporte e despesas pessoais.",
-    "link": "https://www.cnnbrasil.com.br/economia/macroeconomia/previa-da-inflacao-ipca-15-sobe-020-em-novembro-acima-do-esperado/",
-    "imagem": "https://cdn.pixabay.com/photo/2016/11/29/04/53/money-1867273_1280.jpg",
-    "botaoTexto": "Leia mais",
-    "targetBlank": true
-  },
-  {
-    "titulo": "Mercado financeiro reage com alta do Ibovespa",
-    "descricao": "Bolsa opera em alta após dados de inflação no Brasil e sinais de possível corte de juros nos Estados Unidos.",
-    "link": "https://www.infomoney.com.br/mercados/ibovespa-hoje-bolsa-de-valores-ao-vivo-26112025/",
-    "imagem": "https://cdn.pixabay.com/photo/2017/01/20/00/30/graph-1999008_1280.jpg",
-    "botaoTexto": "Leia mais",
-    "targetBlank": true
-  },
-  {
-    "titulo": "Brasil defende criação de fundo global para florestas tropicais",
-    "descricao": "Proposta apresentada na COP30 visa financiar ações de preservação das florestas tropicais em países em desenvolvimento.",
-    "link": "https://en.wikipedia.org/wiki/Fundo_Florestas_Tropicais_para_Sempre",
-    "imagem": "https://cdn.pixabay.com/photo/2017/05/10/22/52/rainforest-2308700_1280.jpg",
-    "botaoTexto": "Leia mais",
-    "targetBlank": true
-  },
+  }
+
  
 ]
