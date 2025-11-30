@@ -213,3 +213,33 @@ body.dark #modo-btn {
 body.dark #modo-btn:hover {
   background-color: #0088cc;
 }
+
+/* =====================
+   DESTAQUE DO REPÓRTER
+===================== */
+
+.reporter-box {
+  max-width: 1200px;
+  margin: 0 auto 30px auto;
+  text-align: center;
+}
+
+.reporter-box img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+.reporter-legenda {
+  margin-top: 12px;
+  font-size: 1rem;
+  color: #555;
+  font-weight: 500;
+}
+
+/* Modo escuro */
+body.dark .reporter-legenda {
+  color: #ddd;
+}
