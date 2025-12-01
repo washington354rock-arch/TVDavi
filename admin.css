@@ -1,0 +1,40 @@
+body{
+  font-family: Arial, sans-serif;
+  background:#111;
+  color:#fff;
+  text-align:center;
+  padding:30px;
+}
+
+input, textarea{
+  width:90%;
+  max-width:400px;
+  margin:10px 0;
+  padding:10px;
+  border:none;
+  border-radius:6px;
+}
+
+button{
+  background:#1e90ff;
+  border:none;
+  color:#fff;
+  padding:10px 16px;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+#login-box{
+  max-width:400px;
+  margin:auto;
+  background:#1f1f1f;
+  padding:30px;
+  border-radius:10px;
+}
+
+#form{
+  margin-top:20px;
+  background:#1f1f1f;
+  padding:20px;
+  border-radius:10px;
+}
