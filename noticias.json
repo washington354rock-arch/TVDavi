@@ -1,7 +1,4 @@
-<div id="noticias-container"></div>
-
-<script>
-const noticias = [
+[
   {
     "titulo": "Matrículas para ano letivo de 2026 em Feira de Santana serão feitas online; confira cronograma",
     "descricao": "A Secretaria Municipal da Educação (Seduc) de Feira de Santana, segunda maior cidade da Bahia, divulgou o calendário oficial de matrículas da rede municipal para o ano letivo de 2026. O processo será feito exclusivamente pela internet, tanto para novos estudantes quanto para renovação de matrícula.\n\nSegundo a Seduc, o calendário foi distribuído por etapas para facilitar o acompanhamento das famílias e identificar a demanda por vagas. O objetivo é garantir agilidade no serviço.\n\nA primeira etapa do processo, o cadastro de inscrição de novos alunos, já foi concluída. Agora, o calendário segue para a fase de confirmação e renovação de matrículas.\n\nConfira o cronograma:\n- Continuidade do cadastro de inscrição de novos alunos: até 4 de janeiro de 2026 (para estudantes da rede particular, de outros municípios ou que não participaram da etapa inicial)\n- Confirmação e renovação da matrícula dos alunos da rede: até 5 de dezembro de 2025\n- Divulgação dos contemplados nas 1ª e 2ª fases de inscrição: 9 de janeiro de 2026\n- Matrícula presencial dos alunos contemplados: de 12 a 16 de janeiro de 2026 (a matrícula só será efetivada após a entrega dos documentos na unidade escolar)\n\nA prefeitura informou que os responsáveis só precisarão comparecer às escolas no momento da entrega dos documentos para validação da matrícula.\n\nDurante todas as etapas, orientações e esclarecimento de dúvidas podem ser solicitados pelos telefones (75) 99856-6623 e (75) 93617-2677, das 8h às 17h.",
@@ -10,5 +7,5 @@ const noticias = [
     "botaoTexto": "Leia mais",
     "targetBlank": true
   }
-];
+]
 
