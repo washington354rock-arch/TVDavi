@@ -1,91 +1,42 @@
-// =============================
-// CARREGAR NOTÍCIAS DO ADM
-// =============================
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getFirestore, collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
-const noticiasADM = JSON.parse(localStorage.getItem("noticias")) || [];
+const firebaseConfig = {
+  apiKey: "AIzaSyBg6BMcZXfCPX6V0_WhTIbQf4m8pWbUCUU",
+  authDomain: "tvdavi-fd587.firebaseapp.com",
+  projectId: "tvdavi-fd587",
+  storageBucket: "tvdavi-fd587.firebasestorage.app",
+  messagingSenderId: "1908490170",
+  appId: "1:1908490170:web:475a8fc629f79883ef6783"
+};
 
-// =============================
-// CARREGAR JSON PADRÃO
-// =============================
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
-fetch('noticias.json')
-  .then(response => response.json())
-  .then(data => {
+const container = document.getElementById("noticias-container");
 
-    // Junta notícias do ADM + JSON
-    const todasNoticias = [...noticiasADM, ...data];
+async function carregarNoticias() {
+  container.innerHTML = "";
 
-    const container = document.getElementById('noticias-container');
+  const q = query(collection(db, "noticias"), orderBy("data", "desc"));
+  const snap = await getDocs(q);
 
-    // Limpa container antes de renderizar
-    container.innerHTML = "";
+  snap.forEach(doc => {
+    const n = doc.data();
 
-    todasNoticias.forEach(noticia => {
+    const card = document.createElement("article");
+    card.className = "card";
+    card.innerHTML = `
+      <img src="${n.imagem}">
+      <div class="card-content">
+        <h3>${n.titulo}</h3>
+        <p>${n.conteudo}</p>
+      </div>
+    `;
 
-      const card = document.createElement('article');
-      card.classList.add('card');
-
-      card.innerHTML = `
-        <img src="${noticia.imagem}" alt="${noticia.titulo}" class="noticia-img">
-        <div class="card-content">
-          <h3>${noticia.titulo}</h3>
-          <p>${noticia.descricao || noticia.conteudo}</p>
-          <a href="${noticia.link || '#'}" target="_blank">Leia mais</a>
-        </div>
-      `;
-
-      container.appendChild(card);
-
-    });
-
-  })
-  .catch(err => {
-    console.error('Erro ao carregar notícias:', err);
-
-    const container = document.getElementById('noticias-container');
-
-    // Mesmo se der erro no JSON, mostra as do ADM
-    if(noticiasADM.length){
-
-      noticiasADM.forEach(noticia => {
-
-        const card = document.createElement('article');
-        card.classList.add('card');
-
-        card.innerHTML = `
-          <img src="${noticia.imagem}">
-          <div class="card-content">
-            <h3>${noticia.titulo}</h3>
-            <p>${noticia.descricao}</p>
-          </div>
-        `;
-
-        container.appendChild(card);
-
-      });
-
-    } else {
-
-      container.innerHTML = "<p>Não foi possível carregar as notícias.</p>";
-
-    }
+    container.appendChild(card);
   });
+}
 
+carregarNoticias();
 
-// =============================
-// BOTÃO MODO ESCURO
-// =============================
-
-const botaoModo = document.getElementById("modo-btn");
-
-botaoModo.addEventListener("click", () => {
-
-  document.body.classList.toggle("dark");
-
-  if (document.body.classList.contains("dark")) {
-    botaoModo.textContent = "☀️ Modo claro";
-  } else {
-    botaoModo.textContent = "🌙 Modo escuro";
-  }
-
-});
