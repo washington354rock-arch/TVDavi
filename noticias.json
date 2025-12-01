@@ -15,5 +15,12 @@
   "imagem": "mansao.jpg",
   "botaoTexto": "Leia mais",
   "targetBlank": true
+},
+  {
+  "titulo": "Concurso Público: Prefeitura de Feira de Santana vai abrir mil vagas para professor",
+  "descricao": "O Idecan será a empresa responsável por todas as etapas do concurso público para o cargo de professor da rede municipal.",
+  "link": "https://www.acordacidade.com.br/empregos/concursos/concurso-publico-prefeitura-de-feira-de-santana-vai-abrir-mil-vagas-para-professor/",
+  "botaoTexto": "Leia mais",
+  "targetBlank": true
 }
 ]
