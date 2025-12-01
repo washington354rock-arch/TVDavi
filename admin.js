@@ -3,7 +3,7 @@
 // ===================================================
 
 const USER = "tvDavi";
-const PASS = "tvDavi6010#";
+const PASS = "tvDavi601039#";
 
 // pega os elementos
 const loginBox = document.getElementById("login-box");
