@@ -1,61 +1,57 @@
-// LOGIN
-document.getElementById("loginBtn").addEventListener("click", () => {
+// Firebase
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-storage.js";
 
-  const login = document.getElementById("login").value;
-  const senha = document.getElementById("senha").value;
+const firebaseConfig = {
+  apiKey: "AIzaSyBg6BMcZXfCPX6V0_WhTIbQf4m8pWbUCUU",
+  authDomain: "tvdavi-fd587.firebaseapp.com",
+  projectId: "tvdavi-fd587",
+  storageBucket: "tvdavi-fd587.firebasestorage.app",
+  messagingSenderId: "1908490170",
+  appId: "1:1908490170:web:475a8fc629f79883ef6783"
+};
 
-  if(login === "tvDavi" && senha === "Davibass6010#"){
+// Init Firebase
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+const storage = getStorage(app);
 
-    document.getElementById("login-box").style.display = "none";
-    document.getElementById("form").style.display = "block";
+// Elementos do painel
+const form = document.getElementById("form");
+const titulo = document.getElementById("titulo");
+const conteudo = document.getElementById("conteudo");
+const imagem = document.getElementById("imagem");
 
-  } else {
-    alert("Login ou senha incorretos!");
-  }
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
 
-});
-
-// FORMATA TEXTO DO EDITOR
-function formatar(cmd){
-  document.execCommand(cmd);
-}
-
-// SALVAR NOTÍCIA
-function salvarNoticia(){
-
-  const titulo = document.getElementById("titulo").value;
-  const texto = document.getElementById("conteudo").innerHTML;
-  const imagem = document.getElementById("imagem").files[0];
-
-  if(!titulo || !texto || !imagem){
-    alert("Preencha TODOS os campos!");
+  if (!titulo.value || !conteudo.value || !imagem.files[0]) {
+    alert("Preencha tudo!");
     return;
   }
 
-  const reader = new FileReader();
+  try {
+    // Upload da imagem
+    const file = imagem.files[0];
+    const imgRef = ref(storage, `imagens/${Date.now()}-${file.name}`);
+    await uploadBytes(imgRef, file);
 
-  reader.onload = function(){
+    const imgURL = await getDownloadURL(imgRef);
 
-    const novaNoticia = {
-      titulo: titulo,
-      conteudo: texto,
-      imagem: reader.result,
-      link: "#"
-    };
+    // Salvar notícia no Firebase
+    await addDoc(collection(db, "noticias"), {
+      titulo: titulo.value,
+      conteudo: conteudo.value,
+      imagem: imgURL,
+      data: new Date()
+    });
 
-    let noticias = JSON.parse(localStorage.getItem("noticias")) || [];
+    alert("✅ Notícia publicada!");
+    form.reset();
+  } catch (err) {
+    alert("Erro ao salvar notícia");
+    console.error(err);
+  }
+});
 
-    noticias.unshift(novaNoticia);
-
-    localStorage.setItem("noticias", JSON.stringify(noticias));
-
-    alert("✅ Notícia salva com sucesso!");
-
-    document.getElementById("titulo").value = "";
-    document.getElementById("conteudo").innerHTML = "";
-    document.getElementById("imagem").value = "";
-
-  };
-
-  reader.readAsDataURL(imagem);
-}
