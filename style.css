@@ -252,3 +252,11 @@ body.dark #modo-btn:hover {
 body.dark .reporter-legenda {
   color: #ddd;
 }
+#noticias-container img {
+  width: 200px;
+  height: 150px;
+  object-fit: cover; /* corta a imagem para caber no tamanho sem distorcer */
+  display: block;
+  margin: 0 auto;
+}
+
