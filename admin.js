@@ -1,38 +1,59 @@
+// ===================================================
+// LOGIN FIXADO
+// ===================================================
+
 const USER = "tvDavi";
 const PASS = "tvDavi601039#";
 
-function logar(){
-  const u = login.value;
-  const p = senha.value;
+// pega os elementos
+const loginBox = document.getElementById("login-box");
+const painel   = document.getElementById("painel");
+const erro     = document.getElementById("erro");
 
-  if(u === USER && p === PASS){
+function logar() {
+
+  const u = document.getElementById("login").value.trim();
+  const p = document.getElementById("senha").value.trim();
+
+  if (u === USER && p === PASS) {
+
     loginBox.style.display = "none";
     painel.style.display = "block";
+
   } else {
+
     erro.innerText = "Usuário ou senha incorretos ❌";
+
   }
 }
 
+
+// ===================================================
+// FORMULÁRIO NOTÍCIAS
+// ===================================================
+
 function mostrarForm(){
-  form.style.display = "block";
+  document.getElementById("form").style.display = "block";
 }
 
 function salvar(){
-  const titulo = document.getElementById("titulo").value;
-  const descricao = document.getElementById("descricao").value;
-  const file = document.getElementById("imagem").files[0];
 
-  if(!titulo || !descricao || !file){
-    alert("Preencha tudo!");
+  const titulo    = document.getElementById("titulo").value.trim();
+  const descricao = document.getElementById("descricao").value.trim();
+  const inputImg  = document.getElementById("imagem");
+
+  if(!titulo || !descricao || !inputImg.files.length){
+    alert("Preencha todos os campos!");
     return;
   }
 
   const reader = new FileReader();
 
   reader.onload = function(){
+
     const noticia = {
-      titulo,
-      descricao,
+      titulo: titulo,
+      descricao: descricao,
       imagem: reader.result,
       link: "#"
     };
@@ -44,8 +65,14 @@ function salvar(){
     localStorage.setItem("noticias", JSON.stringify(noticias));
 
     alert("✅ Notícia salva com sucesso!");
-    location.reload();
-  };
 
-  reader.readAsDataURL(file);
+    // limpa
+    document.getElementById("titulo").value = "";
+    document.getElementById("descricao").value = "";
+    inputImg.value = "";
+
+  }
+
+  reader.readAsDataURL(inputImg.files[0]);
+
 }
