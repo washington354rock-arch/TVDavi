@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Painel ADM - TVDavi</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<div id="login-box">
+  <h2>Login ADM</h2>
+  <input type="text" id="login" placeholder="Usuário">
+  <input type="password" id="senha" placeholder="Senha">
+  <button onclick="logar()">Entrar</button>
+  <p id="erro"></p>
+</div>
+
+<div id="painel" style="display:none;">
+  <h2>📊 Dashboard</h2>
+
+  <h3>Gerenciar Notícias</h3>
+
+  <button onclick="mostrarForm()">+ Novo</button>
+
+  <div id="form" style="display:none;">
+    <input type="text" id="titulo" placeholder="Título">
+    <textarea id="descricao" placeholder="Conteúdo"></textarea>
+
+    <input type="file" id="imagem" accept="image/*">
+
+    <button onclick="salvar()">Salvar</button>
+  </div>
+</div>
+
+<script src="admin.js"></script>
+</body>
+</html>
