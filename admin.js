@@ -4,7 +4,7 @@ document.getElementById("loginBtn").addEventListener("click", () => {
   const login = document.getElementById("login").value;
   const senha = document.getElementById("senha").value;
 
-  if(login === "tvDavi" && senha === "tvDavi601039#"){
+  if(login === "tvDavi" && senha === "Davibass6010#"){
 
     document.getElementById("login-box").style.display = "none";
     document.getElementById("form").style.display = "block";
