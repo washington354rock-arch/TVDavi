@@ -1,49 +1,34 @@
-// ===================================================
-// LOGIN FIXADO
-// ===================================================
+// LOGIN
+document.getElementById("loginBtn").addEventListener("click", () => {
 
-const USER = "tvDavi";
-const PASS = "tvDavi601039#";
+  const login = document.getElementById("login").value;
+  const senha = document.getElementById("senha").value;
 
-// pega os elementos
-const loginBox = document.getElementById("login-box");
-const painel   = document.getElementById("painel");
-const erro     = document.getElementById("erro");
+  if(login === "tvDavi" && senha === "tvDavi601039#"){
 
-function logar() {
-
-  const u = document.getElementById("login").value.trim();
-  const p = document.getElementById("senha").value.trim();
-
-  if (u === USER && p === PASS) {
-
-    loginBox.style.display = "none";
-    painel.style.display = "block";
+    document.getElementById("login-box").style.display = "none";
+    document.getElementById("form").style.display = "block";
 
   } else {
-
-    erro.innerText = "Usuário ou senha incorretos ❌";
-
+    alert("Login ou senha incorretos!");
   }
+
+});
+
+// FORMATA TEXTO DO EDITOR
+function formatar(cmd){
+  document.execCommand(cmd);
 }
 
+// SALVAR NOTÍCIA
+function salvarNoticia(){
 
-// ===================================================
-// FORMULÁRIO NOTÍCIAS
-// ===================================================
+  const titulo = document.getElementById("titulo").value;
+  const texto = document.getElementById("conteudo").innerHTML;
+  const imagem = document.getElementById("imagem").files[0];
 
-function mostrarForm(){
-  document.getElementById("form").style.display = "block";
-}
-
-function salvar(){
-
-  const titulo    = document.getElementById("titulo").value.trim();
-  const descricao = document.getElementById("descricao").value.trim();
-  const inputImg  = document.getElementById("imagem");
-
-  if(!titulo || !descricao || !inputImg.files.length){
-    alert("Preencha todos os campos!");
+  if(!titulo || !texto || !imagem){
+    alert("Preencha TODOS os campos!");
     return;
   }
 
@@ -51,28 +36,26 @@ function salvar(){
 
   reader.onload = function(){
 
-    const noticia = {
+    const novaNoticia = {
       titulo: titulo,
-      descricao: descricao,
+      conteudo: texto,
       imagem: reader.result,
       link: "#"
     };
 
     let noticias = JSON.parse(localStorage.getItem("noticias")) || [];
 
-    noticias.unshift(noticia);
+    noticias.unshift(novaNoticia);
 
     localStorage.setItem("noticias", JSON.stringify(noticias));
 
     alert("✅ Notícia salva com sucesso!");
 
-    // limpa
     document.getElementById("titulo").value = "";
-    document.getElementById("descricao").value = "";
-    inputImg.value = "";
+    document.getElementById("conteudo").innerHTML = "";
+    document.getElementById("imagem").value = "";
 
-  }
+  };
 
-  reader.readAsDataURL(inputImg.files[0]);
-
+  reader.readAsDataURL(imagem);
 }
