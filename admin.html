@@ -2,37 +2,19 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Painel TVDavi</title>
+  <title>Painel TVDavi - Login</title>
   <link rel="stylesheet" href="admin.css">
 </head>
 <body>
-  <h1>Painel TVDavi</h1>
 
-  <!-- Login -->
   <div id="login-box">
     <h2>Login Painel TVDavi</h2>
-    <input type="email" id="email" placeholder="Email">
-    <input type="password" id="senha" placeholder="Senha">
+    <input type="email" id="email" placeholder="E-mail" required>
+    <input type="password" id="senha" placeholder="Senha" required>
     <button id="login-btn">Entrar</button>
   </div>
 
-  <!-- Painel -->
-  <div id="painel" style="display:none;">
-    <h2>Gerenciar Notícias</h2>
-    <button id="novo-btn">+ Nova Notícia</button>
-
-    <div id="form" style="display:none;">
-      <input type="text" id="titulo" placeholder="Título da notícia">
-      <input type="text" id="imagem" placeholder="URL da imagem">
-      <textarea id="conteudo" placeholder="Conteúdo da notícia"></textarea>
-      <button id="salvar-btn">Salvar</button>
-    </div>
-
-    <div id="mensagem"></div>
-  </div>
-
-  <!-- Firebase -->
+  <!-- Firebase SDK -->
   <script type="module" src="admin.js"></script>
 </body>
 </html>
-
