@@ -2,60 +2,51 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Painel ADM - TVDavi</title>
-
+<title>Painel TVDavi</title>
 <link rel="stylesheet" href="admin.css">
+<!-- Firebase -->
+<script type="module" src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js"></script>
+<script type="module" src="https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js"></script>
+<script type="module" src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js"></script>
 </head>
 <body>
-
-<!-- LOGIN -->
 <div id="login-box">
-  <h2>Login ADM</h2>
-
-  <input type="text" id="login" placeholder="Login">
-  <input type="password" id="senha" placeholder="Senha">
-
-  <button id="loginBtn" type="button">Entrar</button>
+  <h2>Login Painel TVDavi</h2>
+  <input type="email" id="email" placeholder="E-mail">
+  <button id="login-btn">Entrar</button>
+  <p id="login-msg"></p>
 </div>
 
-<!-- PAINEL -->
-<div id="form" style="display:none">
+<div id="admin-panel" style="display:none;">
+  <aside class="menu">
+    <ul>
+      <li><button class="menu-btn" data-section="dashboard">Dashboard</button></li>
+      <li><button class="menu-btn" data-section="noticias">Notícias</button></li>
+      <li><button class="menu-btn" data-section="usuarios">Usuários</button></li>
+      <li><button class="menu-btn" data-section="config">Configurações</button></li>
+      <li><button id="logout-btn">Sair</button></li>
+    </ul>
+  </aside>
 
-  <h2>Gerenciar Notícias</h2>
+  <main class="content">
+    <section id="dashboard-section" class="section">Bem-vindo ao Painel TVDavi!</section>
 
-  <input type="text" id="titulo" placeholder="Título da notícia">
-
-  <input type="file" id="imagem" accept="image/*">
-
-  <!-- BARRA DE FORMATAÇÃO -->
-  <div style="margin:10px 0">
-    <button type="button" onclick="formatar('bold')"><b>B</b></button>
-    <button type="button" onclick="formatar('italic')"><i>I</i></button>
-    <button type="button" onclick="formatar('underline')"><u>U</u></button>
-    <button type="button" onclick="formatar('insertUnorderedList')">• Lista</button>
-  </div>
-
-  <!-- EDITOR DE TEXTO -->
-  <div id="conteudo" contenteditable="true"
-    style="
-      background:#fff;
-      color:#000;
-      border-radius:6px;
-      padding:10px;
-      min-height:150px;
-      max-width:400px;
-      margin: auto;
-    ">
-  </div>
-
-  <br>
-
-  <button onclick="salvarNoticia()">💾 Salvar notícia</button>
-
+    <section id="noticias-section" class="section" style="display:none;">
+      <h2>Gerenciar Notícias</h2>
+      <button id="nova-noticia-btn">+ Nova</button>
+      <div id="form-nova-noticia" style="display:none;">
+        <input type="text" id="noticia-titulo" placeholder="Título">
+        <input type="text" id="noticia-imagem" placeholder="URL da imagem">
+        <input type="text" id="noticia-link" placeholder="Link (opcional)">
+        <textarea id="noticia-conteudo" placeholder="Conteúdo da notícia"></textarea>
+        <button id="salvar-noticia-btn">Salvar</button>
+      </div>
+      <div id="noticias-lista"></div>
+    </section>
+  </main>
 </div>
 
-<script src="admin.js"></script>
-
+<script type="module" src="admin.js"></script>
 </body>
 </html>
 
