@@ -1,7 +1,11 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.2.1/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.2.1/firebase-auth.js";
+// =============================
+// INICIALIZAÇÃO DO FIREBASE
+// =============================
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.24.0/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.24.0/firebase-auth.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.24.0/firebase-firestore.js";
 
-// Configuração do Firebase
+// Config do Firebase
 const firebaseConfig = {
   apiKey: "AIzaSyBg6BMcZXfCPX6V0_WhTIbQf4m8pWbUCUU",
   authDomain: "tvdavi-fd587.firebaseapp.com",
@@ -11,27 +15,54 @@ const firebaseConfig = {
   appId: "1:1908490170:web:475a8fc629f79883ef6783"
 };
 
-// Inicializa Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const db = getFirestore(app);
 
-// Elementos do login
-const entrarBtn = document.getElementById("entrar");
-const emailInput = document.getElementById("email");
-const senhaInput = document.getElementById("senha");
-const erroTxt = document.getElementById("erro");
+// =============================
+// LOGIN
+// =============================
+const loginForm = document.getElementById("login-form");
+if (loginForm) {
+  loginForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("senha").value;
 
-entrarBtn.addEventListener("click", () => {
-  const email = emailInput.value;
-  const senha = senhaInput.value;
-
-  signInWithEmailAndPassword(auth, email, senha)
-    .then((userCredential) => {
-      // Login bem-sucedido
-      window.location.href = "dashboard.html"; // redireciona para painel
-    })
-    .catch((error) => {
+    try {
+      const userCredential = await signInWithEmailAndPassword(auth, email, password);
+      alert(`Bem-vindo, ${userCredential.user.email}!`);
+      window.location.href = "dashboard.html"; // Redireciona para dashboard do painel
+    } catch (error) {
       console.error(error);
-      erroTxt.textContent = "E-mail ou senha inválidos!";
-    });
-});
+      alert("Erro ao entrar: " + error.message);
+    }
+  });
+}
+
+// =============================
+// ADICIONAR NOTÍCIAS
+// =============================
+const noticiaForm = document.getElementById("noticia-form");
+if (noticiaForm) {
+  noticiaForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const titulo = document.getElementById("titulo").value;
+    const conteudo = document.getElementById("conteudo").value;
+    const imagem = document.getElementById("imagem").value; // URL da imagem
+
+    try {
+      await addDoc(collection(db, "noticias"), {
+        titulo: titulo,
+        conteudo: conteudo,
+        imagem: imagem,
+        criadoEm: new Date()
+      });
+      alert("Notícia adicionada com sucesso!");
+      noticiaForm.reset();
+    } catch (error) {
+      console.error(error);
+      alert("Erro ao adicionar notícia: " + error.message);
+    }
+  });
+}
