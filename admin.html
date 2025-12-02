@@ -1,52 +1,38 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<title>Painel TVDavi</title>
-<link rel="stylesheet" href="admin.css">
-<!-- Firebase -->
-<script type="module" src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js"></script>
-<script type="module" src="https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js"></script>
-<script type="module" src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js"></script>
+  <meta charset="UTF-8">
+  <title>Painel TVDavi</title>
+  <link rel="stylesheet" href="admin.css">
 </head>
 <body>
-<div id="login-box">
-  <h2>Login Painel TVDavi</h2>
-  <input type="email" id="email" placeholder="E-mail">
-  <button id="login-btn">Entrar</button>
-  <p id="login-msg"></p>
-</div>
+  <h1>Painel TVDavi</h1>
 
-<div id="admin-panel" style="display:none;">
-  <aside class="menu">
-    <ul>
-      <li><button class="menu-btn" data-section="dashboard">Dashboard</button></li>
-      <li><button class="menu-btn" data-section="noticias">Notícias</button></li>
-      <li><button class="menu-btn" data-section="usuarios">Usuários</button></li>
-      <li><button class="menu-btn" data-section="config">Configurações</button></li>
-      <li><button id="logout-btn">Sair</button></li>
-    </ul>
-  </aside>
+  <!-- Login -->
+  <div id="login-box">
+    <h2>Login Painel TVDavi</h2>
+    <input type="email" id="email" placeholder="Email">
+    <input type="password" id="senha" placeholder="Senha">
+    <button id="login-btn">Entrar</button>
+  </div>
 
-  <main class="content">
-    <section id="dashboard-section" class="section">Bem-vindo ao Painel TVDavi!</section>
+  <!-- Painel -->
+  <div id="painel" style="display:none;">
+    <h2>Gerenciar Notícias</h2>
+    <button id="novo-btn">+ Nova Notícia</button>
 
-    <section id="noticias-section" class="section" style="display:none;">
-      <h2>Gerenciar Notícias</h2>
-      <button id="nova-noticia-btn">+ Nova</button>
-      <div id="form-nova-noticia" style="display:none;">
-        <input type="text" id="noticia-titulo" placeholder="Título">
-        <input type="text" id="noticia-imagem" placeholder="URL da imagem">
-        <input type="text" id="noticia-link" placeholder="Link (opcional)">
-        <textarea id="noticia-conteudo" placeholder="Conteúdo da notícia"></textarea>
-        <button id="salvar-noticia-btn">Salvar</button>
-      </div>
-      <div id="noticias-lista"></div>
-    </section>
-  </main>
-</div>
+    <div id="form" style="display:none;">
+      <input type="text" id="titulo" placeholder="Título da notícia">
+      <input type="text" id="imagem" placeholder="URL da imagem">
+      <textarea id="conteudo" placeholder="Conteúdo da notícia"></textarea>
+      <button id="salvar-btn">Salvar</button>
+    </div>
 
-<script type="module" src="admin.js"></script>
+    <div id="mensagem"></div>
+  </div>
+
+  <!-- Firebase -->
+  <script type="module" src="admin.js"></script>
 </body>
 </html>
 
