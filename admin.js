@@ -1,4 +1,3 @@
-// Importar Firebase
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.2.1/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.2.1/firebase-auth.js";
 
@@ -16,19 +15,23 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-// Evento de login
-document.getElementById("login-btn").addEventListener("click", () => {
-  const email = document.getElementById("email").value;
-  const senha = document.getElementById("senha").value;
+// Elementos do login
+const entrarBtn = document.getElementById("entrar");
+const emailInput = document.getElementById("email");
+const senhaInput = document.getElementById("senha");
+const erroTxt = document.getElementById("erro");
+
+entrarBtn.addEventListener("click", () => {
+  const email = emailInput.value;
+  const senha = senhaInput.value;
 
   signInWithEmailAndPassword(auth, email, senha)
     .then((userCredential) => {
-      alert("Login realizado com sucesso!");
-      // Redireciona para a página do painel
-      window.location.href = "painel.html";
+      // Login bem-sucedido
+      window.location.href = "dashboard.html"; // redireciona para painel
     })
     .catch((error) => {
       console.error(error);
-      alert("Erro ao entrar: " + error.message);
+      erroTxt.textContent = "E-mail ou senha inválidos!";
     });
 });
