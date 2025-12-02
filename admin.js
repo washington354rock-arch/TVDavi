@@ -1,78 +1,76 @@
-// =====================
-// Inicializar Firebase
-// =====================
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
-import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+// Import Firebase
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.1/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.6.1/firebase-auth.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.6.1/firebase-firestore.js";
 
+// Firebase config
 const firebaseConfig = {
   apiKey: "AIzaSyBg6BMcZXfCPX6V0_WhTIbQf4m8pWbUCUU",
   authDomain: "tvdavi-fd587.firebaseapp.com",
   projectId: "tvdavi-fd587",
-  storageBucket: "tvdavi-fd587.firebasestorage.app",
+  storageBucket: "tvdavi-fd587.appspot.com",
   messagingSenderId: "1908490170",
   appId: "1:1908490170:web:475a8fc629f79883ef6783"
 };
 
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-// =====================
-// LOGIN
-// =====================
-const loginForm = document.getElementById("login-form");
-const loginEmail = document.getElementById("login-email");
-const loginPassword = document.getElementById("login-password");
+// Elements
 const loginBox = document.getElementById("login-box");
-const painelBox = document.getElementById("painel-box");
+const painel = document.getElementById("painel");
+const loginBtn = document.getElementById("login-btn");
+const novoBtn = document.getElementById("novo-btn");
+const form = document.getElementById("form");
+const salvarBtn = document.getElementById("salvar-btn");
+const mensagem = document.getElementById("mensagem");
 
-loginForm.addEventListener("submit", async (e) => {
-  e.preventDefault();
-  try {
-    const userCredential = await signInWithEmailAndPassword(auth, loginEmail.value, loginPassword.value);
-    console.log("Logado como:", userCredential.user.email);
-    loginBox.style.display = "none";
-    painelBox.style.display = "block";
-  } catch (error) {
-    alert("Erro no login: " + error.message);
-  }
-});
+// Login
+loginBtn.addEventListener("click", () => {
+  const email = document.getElementById("email").value;
+  const senha = document.getElementById("senha").value;
 
-// =====================
-// LOGOUT
-// =====================
-const logoutBtn = document.getElementById("logout-btn");
-logoutBtn.addEventListener("click", async () => {
-  await signOut(auth);
-  loginBox.style.display = "block";
-  painelBox.style.display = "none";
-});
-
-// =====================
-// ADICIONAR NOTÍCIA
-// =====================
-const noticiaForm = document.getElementById("noticia-form");
-const tituloInput = document.getElementById("titulo");
-const conteudoInput = document.getElementById("conteudo");
-const imagemInput = document.getElementById("imagem");
-const linkInput = document.getElementById("link");
-
-noticiaForm.addEventListener("submit", async (e) => {
-  e.preventDefault();
-
-  try {
-    const docRef = await addDoc(collection(db, "noticias"), {
-      titulo: tituloInput.value,
-      conteudo: conteudoInput.value,
-      imagem: imagemInput.value,
-      link: linkInput.value || ""
+  signInWithEmailAndPassword(auth, email, senha)
+    .then(() => {
+      loginBox.style.display = "none";
+      painel.style.display = "block";
+    })
+    .catch(error => {
+      alert("Erro ao entrar: " + error.message);
     });
-
-    alert("Notícia adicionada com sucesso!");
-    noticiaForm.reset();
-  } catch (error) {
-    alert("Erro ao adicionar notícia: " + error.message);
-  }
 });
 
+// Mostrar formulário de nova notícia
+novoBtn.addEventListener("click", () => {
+  form.style.display = "block";
+});
+
+// Salvar notícia no Firestore
+salvarBtn.addEventListener("click", async () => {
+  const titulo = document.getElementById("titulo").value;
+  const imagem = document.getElementById("imagem").value;
+  const conteudo = document.getElementById("conteudo").value;
+
+  if (!titulo || !conteudo || !imagem) {
+    alert("Preencha todos os campos!");
+    return;
+  }
+
+  try {
+    await addDoc(collection(db, "noticias"), {
+      titulo: titulo,
+      conteudo: conteudo,
+      imagem: imagem,
+      link: ""
+    });
+    mensagem.textContent = "Notícia salva com sucesso!";
+    form.style.display = "none";
+    document.getElementById("titulo").value = "";
+    document.getElementById("imagem").value = "";
+    document.getElementById("conteudo").value = "";
+  } catch (err) {
+    alert("Erro ao salvar notícia: " + err.message);
+  }
+});
