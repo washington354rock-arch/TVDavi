@@ -1,40 +1,17 @@
-body{
-  font-family: Arial, sans-serif;
-  background:#111;
-  color:#fff;
-  text-align:center;
-  padding:30px;
-}
+body { font-family: Arial, sans-serif; background:#111; color:#fff; }
+input, textarea { width:90%; max-width:400px; margin:10px 0; padding:10px; border:none; border-radius:6px; }
+button { background:#1e90ff; border:none; color:#fff; padding:10px 16px; border-radius:6px; cursor:pointer; }
+#login-box { max-width:400px; margin:100px auto; background:#1f1f1f; padding:30px; border-radius:10px; text-align:center; }
+#login-msg { color: #f55; margin-top:10px; }
 
-input, textarea{
-  width:90%;
-  max-width:400px;
-  margin:10px 0;
-  padding:10px;
-  border:none;
-  border-radius:6px;
-}
-
-button{
-  background:#1e90ff;
-  border:none;
-  color:#fff;
-  padding:10px 16px;
-  border-radius:6px;
-  cursor:pointer;
-}
-
-#login-box{
-  max-width:400px;
-  margin:auto;
-  background:#1f1f1f;
-  padding:30px;
-  border-radius:10px;
-}
-
-#form{
-  margin-top:20px;
-  background:#1f1f1f;
-  padding:20px;
-  border-radius:10px;
-}
+#admin-panel { display:flex; height:100vh; }
+.menu { width:200px; background:#1f1f1f; padding:20px; }
+.menu ul { list-style:none; padding:0; }
+.menu ul li { margin:15px 0; }
+.menu ul li button { width:100%; background:#333; }
+.content { flex:1; padding:20px; overflow-y:auto; }
+.section { display:block; }
+#form-nova-noticia { background:#222; padding:20px; margin-top:20px; border-radius:10px; }
+textarea { height:120px; }
+#noticias-lista { margin-top:20px; }
+.noticia-item { background:#333; padding:10px; margin-bottom:10px; border-radius:6px; }
