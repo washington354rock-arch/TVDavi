@@ -1,42 +1,62 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-import { getFirestore, collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+// =============================
+// INICIALIZAÇÃO DO FIREBASE
+// =============================
+import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.16.0/firebase-firestore.js";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyBg6BMcZXfCPX6V0_WhTIbQf4m8pWbUCUU",
-  authDomain: "tvdavi-fd587.firebaseapp.com",
-  projectId: "tvdavi-fd587",
-  storageBucket: "tvdavi-fd587.firebasestorage.app",
-  messagingSenderId: "1908490170",
-  appId: "1:1908490170:web:475a8fc629f79883ef6783"
-};
+// db já foi inicializado no index.html e está disponível como window.db
+const db = window.db;
 
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-const container = document.getElementById("noticias-container");
-
+// =============================
+// CARREGAR NOTÍCIAS DO FIRESTORE
+// =============================
 async function carregarNoticias() {
-  container.innerHTML = "";
+  try {
+    const container = document.getElementById('noticias-container');
+    container.innerHTML = ""; // limpa antes de carregar
 
-  const q = query(collection(db, "noticias"), orderBy("data", "desc"));
-  const snap = await getDocs(q);
+    // Seleciona a coleção 'noticias'
+    const querySnapshot = await getDocs(collection(db, "noticias"));
 
-  snap.forEach(doc => {
-    const n = doc.data();
+    querySnapshot.forEach((doc) => {
+      const noticia = doc.data(); // pega os dados do documento
 
-    const card = document.createElement("article");
-    card.className = "card";
-    card.innerHTML = `
-      <img src="${n.imagem}">
-      <div class="card-content">
-        <h3>${n.titulo}</h3>
-        <p>${n.conteudo}</p>
-      </div>
-    `;
+      // Cria o card da notícia
+      const card = document.createElement('article');
+      card.classList.add('card'); // usa seu CSS de card
 
-    container.appendChild(card);
-  });
+      card.innerHTML = `
+        <img src="${noticia.imagem}" alt="${noticia.titulo}" class="noticia-img">
+        <div class="card-content">
+          <h3>${noticia.titulo}</h3>
+          <p>${noticia.conteudo}</p>
+          ${noticia.link ? `<a href="${noticia.link}" target="_blank">Leia mais</a>` : ""}
+        </div>
+      `;
+
+      container.appendChild(card);
+    });
+
+  } catch (err) {
+    console.error("Erro ao carregar notícias:", err);
+    const container = document.getElementById('noticias-container');
+    container.innerHTML = "<p>Não foi possível carregar as notícias.</p>";
+  }
 }
 
+// Chama a função para carregar notícias ao abrir a página
 carregarNoticias();
 
+// =============================
+// BOTÃO MODO ESCURO
+// =============================
+const botaoModo = document.getElementById("modo-btn");
+
+botaoModo.addEventListener("click", () => {
+  document.body.classList.toggle("dark");
+
+  if (document.body.classList.contains("dark")) {
+    botaoModo.textContent = "☀️ Modo claro";
+  } else {
+    botaoModo.textContent = "🌙 Modo escuro";
+  }
+});
