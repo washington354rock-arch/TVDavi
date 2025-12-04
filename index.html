@@ -1,16 +1,24 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <title>TVDavi - Notícias</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body>
+<script>
+fetch("noticias.json")
+  .then(res => res.json())
+  .then(noticias => {
+    const container = document.getElementById("noticias-container");
 
-<h1 class="titulo-site">📰 TVDavi – Notícias</h1>
+    noticias.forEach(n => {
+      const card = document.createElement("div");
+      card.className = "card";
 
-<div id="noticias"></div>
+      card.innerHTML = `
+        <img src="${n.imagem}" alt="">
+        <div class="card-content">
+            <h3>${n.titulo}</h3>
+            <p>${n.descricao}</p>
+            <a href="${n.link}" target="_blank">Ler notícia completa</a>
+        </div>
+      `;
 
-<script src="script.js"></script>
-</body>
-</html>
+      container.appendChild(card);
+    });
+  })
+  .catch(err => console.error("Erro ao carregar notícias:", err));
+</script>
