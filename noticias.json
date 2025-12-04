@@ -1,27 +1,29 @@
 [
-{
-  "titulo": "Matrículas para ano letivo de 2026 em Feira de Santana serão feitas online; confira cronograma",
-  "descricao": "A Secretaria Municipal da Educação (Seduc) de Feira de Santana, segunda maior cidade da Bahia",
-  "link": "https://g1.globo.com/ba/feira-de-santana-regiao/noticia/2025/11/29/matriculas-para-ano-letivo-de-2026-em-feira-de-santana.ghtml",
-  "imagem": "child.jpeg",
-  "botaoTexto": "Leia mais",
-  "targetBlank": true
-},
+  {
+    "titulo": "Nova frente fria provoca queda de temperaturas no Sul e Sudeste",
+    "descricao": "Uma nova frente fria começou a avançar pelo país nesta terça-feira (1º)...",
+    "conteudo": "Uma nova frente fria começou a avançar pelo país nesta terça-feira (1º), provocando queda acentuada nas temperaturas em regiões do Sul e Sudeste. Segundo o Instituto Nacional de Meteorologia, cidades do Paraná, Santa Catarina e Rio Grande do Sul já registram mínimas abaixo de 10°C durante as madrugadas.\n\nEm São Paulo e no sul de Minas Gerais, a previsão indica aumento da nebulosidade e possibilidade de chuva fraca ao longo do dia, com termômetros oscilando entre 13°C e 19°C.\n\nEspecialistas alertam para cuidados com a saúde, principalmente entre idosos e crianças, reforçando a importância da hidratação e de manter boa ventilação em ambientes fechados.",
+    "imagem": "https://cdn.pixabay.com/photo/2017/01/31/21/23/weather-2024004_1280.jpg"
+  },
 
   {
-  "titulo": "Mansão, carrões e esquema milionário: sete são presos por fraude e lavagem de dinheiro em Feira",
-  "descricao": "Sete pessoas foram presas por envolvimento em um esquema de fraudes fundiárias, documentos falsos e lavagem de dinheiro em Feira de Santana,",
-  "link": "https://www.correio24horas.com.br/minha-bahia/mansao-carroes-e-esquema-milionario-sete-sao-presos-por-fraude-e-lavagem-de-dinheiro-em-feira-1125",
-  "imagem": "mansao.jpg",
-  "botaoTexto": "Leia mais",
-  "targetBlank": true
-},
+    "titulo": "Turismo em Foz do Iguaçu cresce com alta na procura por viagens",
+    "descricao": "A cidade registrou aumento no número de visitantes nas últimas semanas...",
+    "conteudo": "Foz do Iguaçu registrou crescimento expressivo no fluxo de turistas nas últimas semanas. Dados do setor hoteleiro apontam ocupação média acima de 80%, impulsionada pelo turismo nacional e pela proximidade das férias escolares.\n\nOs principais atrativos continuam sendo as Cataratas do Iguaçu, o Parque das Aves e as compras em Ciudad del Este, no Paraguai.\n\nA prefeitura informou que o aumento do movimento fortalece a economia local, gerando empregos temporários e aquecendo setores como transporte, alimentação e comércio.",
+    "imagem": "https://cdn.pixabay.com/photo/2016/11/21/15/52/iguazu-falls-1840815_1280.jpg"
+  },
+
   {
-  "titulo": "Concurso Público: Prefeitura de Feira de Santana vai abrir mil vagas para professor",
-  "descricao": "O Idecan será a empresa responsável por todas as etapas do concurso público para o cargo de professor da rede municipal.",
-  "link": "https://www.acordacidade.com.br/empregos/concursos/concurso-publico-prefeitura-de-feira-de-santana-vai-abrir-mil-vagas-para-professor/",
-  "imagem": "concurso.jpg",
-  "botaoTexto": "Leia mais",
-  "targetBlank": true
-}
+    "titulo": "Dólar opera em leve queda após abertura do mercado",
+    "descricao": "A moeda norte-americana iniciou o dia em leve retração frente ao real...",
+    "conteudo": "O dólar iniciou as negociações desta terça-feira em leve queda frente ao real, refletindo o otimismo dos investidores com o cenário internacional. Às 10h, a moeda era cotada a R$ 5,04.\n\nEspecialistas afirmam que a expectativa em torno de indicadores econômicos dos Estados Unidos e a recuperação de mercados emergentes influenciam o movimento.\n\nA Bolsa de Valores também abriu em alta moderada, puxada por ações dos setores bancário e de mineração.",
+    "imagem": "https://cdn.pixabay.com/photo/2018/05/08/08/44/dollar-3384948_1280.jpg"
+  },
+
+  {
+    "titulo": "Tecnologia: lançamentos de smartphones movimentam o mercado",
+    "descricao": "O setor de tecnologia recebe novos modelos de celulares em dezembro...",
+    "conteudo": "O mercado de tecnologia está aquecido com a chegada de novos modelos de smartphones ao Brasil. Fabricantes apresentaram aparelhos com foco em câmeras avançadas, maior duração de bateria e integração com inteligência artificial.\n\nConsumidores demonstram interesse principalmente em modelos intermediários, que combinam bom desempenho com preços mais acessíveis.\n\nAnalistas avaliam que a concorrência intensa entre marcas tende a favorecer a redução de preços nos próximos meses.",
+    "imagem": "https://cdn.pixabay.com/photo/2015/09/09/21/34/smartphone-932043_1280.jpg"
+  }
 ]
