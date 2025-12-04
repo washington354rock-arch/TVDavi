@@ -169,4 +169,10 @@ body.dark .card a:hover {
 body.dark #modo-btn {
   background: #00aaff;
 }
+.perfil img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+}
 
