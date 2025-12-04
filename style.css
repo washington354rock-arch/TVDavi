@@ -1,6 +1,4 @@
-/* =====================
-   RESET BÁSICO
-===================== */
+/* RESET */
 * {
   margin: 0;
   padding: 0;
@@ -15,9 +13,7 @@ body {
   transition: background 0.3s, color 0.3s;
 }
 
-/* =====================
-   TÍTULO PRINCIPAL
-===================== */
+/* TÍTULO */
 .titulo-site {
   background-color: white;
   color: #1e90ff;
@@ -29,63 +25,49 @@ body {
   margin-bottom: 25px;
 
   max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  margin-inline: auto;
 
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  transition: background .3s, color .3s;
 }
 
-/* =====================
-   BOTÃO MODO ESCURO
-===================== */
+/* BOTÃO DARK */
 #modo-btn {
   position: fixed;
   top: 15px;
   right: 15px;
   background-color: #1e90ff;
-  color: #ffffff;
+  color: white;
   border: none;
   padding: 10px 14px;
   border-radius: 50px;
   font-size: 14px;
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-  z-index: 9999;
-  transition: transform 0.2s, background 0.3s;
+  z-index: 999;
 }
 
 #modo-btn:hover {
   background-color: #1666c1;
-  transform: scale(1.05);
 }
 
-/* =====================
-   GRID DAS NOTÍCIAS
-===================== */
+/* GRID */
 #noticias-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 40px;
 }
 
-/* =====================
-   CARD DE NOTÍCIA
-===================== */
+/* CARD */
 .card {
   background-color: white;
   border-radius: 10px;
   overflow: hidden;
-
   display: flex;
   flex-direction: column;
 
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: transform .3s, box-shadow .3s;
 
-  transition: transform 0.3s, box-shadow 0.3s;
-
-  opacity: 0;
-  transform: translateY(10px);
   animation: fadeInUp .5s forwards;
 }
 
@@ -94,44 +76,39 @@ body {
   box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
 
+/* IMG */
 .card img {
   width: 100%;
   height: 180px;
   object-fit: cover;
-  display: block;
 }
 
-/* =====================
-   CONTEÚDO DO CARD
-===================== */
+/* CONTEÚDO */
 .card-content {
   padding: 25px;
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
 }
 
 .card h3 {
   font-size: 1.3rem;
-  margin-bottom: 25px;
+  margin-bottom: 18px;
   color: #1e90ff;
-  line-height: 1.4;
 }
 
 .card p {
-  color: #555;
   font-size: 1rem;
   line-height: 1.6;
-  flex-grow: 1;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
+  color: #555;
 }
 
+/* BOTÃO LINK */
 .card a {
   background-color: #1e90ff;
   color: white;
   padding: 12px;
   border-radius: 6px;
-
   text-decoration: none;
   text-align: center;
   font-weight: 600;
@@ -143,9 +120,7 @@ body {
   background-color: #1666c1;
 }
 
-/* =====================
-   BORDA ALTERNADA
-===================== */
+/* BORDA */
 .card:nth-child(odd) {
   border-left: 5px solid #1e90ff;
 }
@@ -154,109 +129,44 @@ body {
   border-left: 5px solid #ff6347;
 }
 
-/* =====================
-   RESPONSIVO
-===================== */
-@media (max-width: 600px) {
-  .card img {
-    height: 200px;
-  }
-}
-
-/* =====================
-   ANIMAÇÃO
-===================== */
+/* ANIMAÇÃO */
 @keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* =====================
-   🌙 MODO ESCURO
-===================== */
+/* DARK MODE */
 body.dark {
-  background-color: #121212;
-  color: #ffffff;
+  background: #121212;
+  color: white;
 }
 
 body.dark .titulo-site {
-  background-color: #1f1f1f;
+  background: #1f1f1f;
   color: #00aaff;
 }
 
 body.dark .card {
-  background-color: #1f1f1f;
-}
-
-body.dark .card p {
-  color: #dddddd;
+  background: #1f1f1f;
 }
 
 body.dark .card h3 {
   color: #00aaff;
 }
 
+body.dark .card p {
+  color: #dddddd;
+}
+
 body.dark .card a {
-  background-color: #00aaff;
+  background: #00aaff;
 }
 
 body.dark .card a:hover {
-  background-color: #0088cc;
+  background: #0088cc;
 }
 
 body.dark #modo-btn {
-  background-color: #00aaff;
-}
-
-body.dark #modo-btn:hover {
-  background-color: #0088cc;
-}
-
-/* =====================
-   DESTAQUE DO REPÓRTER
-===================== */
-
-.reporter-box {
-  max-width: 200px;
-  margin: 0 auto 30px auto;
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;   /* CENTRALIZA A IMAGEM */
-  text-align: center;   /* CENTRALIZA A LEGENDA */
-}
-
-.reporter-box img {
-  width: 100%;
-  max-width: 400px;
-  height: auto;
-
-  border-radius: 12px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-
-  display: block;
-  margin: 0 auto; /* GARANTE CENTRALIZAÇÃO */
-}
-
-.reporter-legenda {
-  margin-top: 12px;
-  max-width: 400px;
-  font-size: 1rem;
-  color: #555;
-  font-weight: 500;
-}
-
-/* Modo escuro */
-body.dark .reporter-legenda {
-  color: #ddd;
-}
-#noticias-container img {
-  width: 300px;
-  height: 200px;
-  object-fit: cover; /* corta a imagem para caber no tamanho sem distorcer */
-  display: block;
-  margin: 0 auto;
+  background: #00aaff;
 }
 
