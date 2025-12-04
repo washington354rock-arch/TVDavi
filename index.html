@@ -1,3 +1,19 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>TVDavi - Seu site de notícias</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<button id="modo-btn">🌙</button>
+
+<h1 class="titulo-site">TVDavi – Seu site de notícias</h1>
+
+<div id="noticias-container"></div>
+
 <script>
 fetch("noticias.json")
   .then(res => res.json())
@@ -11,12 +27,12 @@ fetch("noticias.json")
       const card = document.createElement("div");
       card.className = "card";
 
-      // Removemos o link "Ler notícia completa" e mostramos a notícia inteira
       card.innerHTML = `
         <img src="${n.imagem}" alt="${n.titulo}">
         <div class="card-content">
             <h3>${n.titulo}</h3>
-            <p>${n.textoCompleto}</p>
+            <p>${n.descricao}</p>
+            <a href="${n.link}" target="_blank">Ler notícia completa</a>
         </div>
       `;
 
@@ -39,3 +55,6 @@ btn.addEventListener("click", () => {
     document.body.classList.toggle("dark");
 });
 </script>
+
+</body>
+</html>
