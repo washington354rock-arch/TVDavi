@@ -4,60 +4,51 @@
     <meta charset="UTF-8">
     <title>TVDavi - Seu site de notícias</title>
     <link rel="stylesheet" href="style.css">
-    <div class="perfil">
+</head>
+<body>
+
+<div class="perfil">
     <img src="davi.jpeg" alt="Repórter Davi">
     <p>
         <strong>Repórter Davi</strong><br>
         Se destaca na cobertura de grandes notícias na cidade de Feira de Santana.
     </p>
 </div>
-</head>
-
-<body>
 
 <button id="modo-btn">🌙</button>
 
 <h1 class="titulo-site">TVDavi – Seu site de notícias</h1>
 
-<div id="noticias-container"></div>
+<div id="noticias-container">
+
+  <!-- NOTÍCIA 1 -->
+  <div class="card">
+    <img src="https://cdn.pixabay.com/photo/2016/11/29/03/53/brazil-1867261_1280.jpg" alt="Licenciamento Ambiental">
+    <div class="card-content">
+      <h3>Congresso derruba vetos de Lula e flexibiliza licenciamento ambiental</h3>
+      <p>Parlamentares rejeitaram vetos presidenciais e restabeleceram pontos da lei que tornam o licenciamento ambiental mais flexível...</p>
+      <a href="noticia1.html">Ler notícia completa</a>
+    </div>
+  </div>
+
+  <!-- NOTÍCIA 2 -->
+  <div class="card">
+    <img src="https://cdn.pixabay.com/photo/2016/08/12/23/26/students-1595503_1280.jpg" alt="Fuvest 2026">
+    <div class="card-content">
+      <h3>Fuvest divulga notas de corte da 1ª fase do vestibular 2026</h3>
+      <p>Notas mínimas para a segunda fase foram divulgadas. Medicina segue como o curso mais concorrido...</p>
+      <a href="noticia2.html">Ler notícia completa</a>
+    </div>
+  </div>
+
+  <!-- MAIS NOTÍCIAS -->
+  <!-- Basta copiar o bloco acima e mudar os dados -->
+
+</div>
 
 <script>
-fetch("noticias.json")
-  .then(res => res.json())
-  .then(noticias => {
-
-    const container = document.getElementById("noticias-container");
-    container.innerHTML = "";
-
-    noticias.forEach((n) => {
-
-      const card = document.createElement("div");
-      card.className = "card";
-
-      card.innerHTML = `
-        <img src="${n.imagem}" alt="${n.titulo}">
-        <div class="card-content">
-            <h3>${n.titulo}</h3>
-            <p>${n.descricao}</p>
-            <a href="${n.link}" target="_blank">Ler notícia completa</a>
-        </div>
-      `;
-
-      container.appendChild(card);
-
-    });
-
-  })
-  .catch(err => {
-    console.error("Erro ao carregar notícias:", err);
-    document.getElementById("noticias-container").innerHTML =
-      "<p>Não foi possível carregar as notícias.</p>";
-  });
-
-
 // MODO ESCURO
 const btn = document.getElementById("modo-btn");
-
 btn.addEventListener("click", () => {
     document.body.classList.toggle("dark");
 });
