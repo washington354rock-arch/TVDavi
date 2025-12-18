@@ -55,6 +55,7 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 40px;
+  align-items: stretch; /* garante que todos os cards da linha tenham mesma altura */
 }
 
 /* CARD */
@@ -64,131 +65,9 @@ body {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-
+  height: 100%; /* ocupa toda altura disponível no grid */
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   transition: transform .3s, box-shadow .3s;
+  animation: fadeInUp .5s forwards
 
-  animation: fadeInUp .5s forwards;
-}
-
-.card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
-}
-
-/* IMG */
-.card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-}
-
-/* CONTEÚDO */
-.card-content a {
-  margin-top: auto; /* força o botão ficar sempre no final do card */
-}
-
-
-.card h3 {
-  font-size: 1.3rem;
-  margin-bottom: 18px;
-  color: #1e90ff;
-}
-
-.card p {
-  font-size: 1rem;
-  line-height: 1.6;
-  margin-bottom: 20px;
-  color: #555;
-}
-
-/* BOTÃO LINK */
-.card a {
-  background-color: #1e90ff;
-  color: white;
-  padding: 12px;
-  border-radius: 6px;
-  text-decoration: none;
-  text-align: center;
-  font-weight: 600;
-
-  transition: background .3s;
-}
-
-.card a:hover {
-  background-color: #1666c1;
-}
-
-/* BORDA */
-.card:nth-child(odd) {
-  border-left: 5px solid #1e90ff;
-}
-
-.card:nth-child(even) {
-  border-left: 5px solid #ff6347;
-}
-
-/* ANIMAÇÃO */
-@keyframes fadeInUp {
-  from { opacity: 0; transform: translateY(15px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* DARK MODE */
-body.dark {
-  background: #121212;
-  color: white;
-}
-
-body.dark .titulo-site {
-  background: #1f1f1f;
-  color: #00aaff;
-}
-
-body.dark .card {
-  background: #1f1f1f;
-}
-
-body.dark .card h3 {
-  color: #00aaff;
-}
-
-body.dark .card p {
-  color: #dddddd;
-}
-
-body.dark .card a {
-  background: #00aaff;
-}
-
-body.dark .card a:hover {
-  background: #0088cc;
-}
-
-body.dark #modo-btn {
-  background: #00aaff;
-}
-
-.perfil img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-/* =======================
-   TEXTO DAS NOTÍCIAS
-======================= */
-.noticia-texto {
-    max-width: 900px;        /* largura máxima para melhor leitura */
-    margin: 0 auto 30px auto; /* centraliza e dá espaçamento embaixo */
-    font-size: 1.1rem;       /* aumenta um pouco o tamanho do texto */
-    line-height: 1.8;        /* espaçamento entre linhas confortável */
-    text-align: justify;      /* deixa o texto justificado */
-    color: #333;             /* cor do texto */
-}
-
-.noticia-texto p {
-    margin-bottom: 20px;     /* espaço entre parágrafos */
-}
 
