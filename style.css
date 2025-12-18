@@ -210,3 +210,7 @@ body.dark #modo-btn {
     font-size: 2rem;
   }
 }
+body {
+  background: linear-gradient(180deg, #f0f4f8 0%, #ffffff 100%);
+}
+
