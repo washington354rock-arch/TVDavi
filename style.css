@@ -84,11 +84,10 @@ body {
 }
 
 /* CONTEÚDO */
-.card-content {
-  padding: 25px;
-  display: flex;
-  flex-direction: column;
+.card-content a {
+  margin-top: auto; /* força o botão ficar sempre no final do card */
 }
+
 
 .card h3 {
   font-size: 1.3rem;
