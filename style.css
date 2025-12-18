@@ -70,4 +70,11 @@ body {
   transition: transform .3s, box-shadow .3s;
   animation: fadeInUp .5s forwards
 
+.perfil img.emblema {
+    width: 80px;  /* ou outro tamanho que achar ideal */
+    height: 80px;
+    border-radius: 50%;  /* mantém circular */
+    object-fit: cover;
+    margin-right: 10px; /* se quiser espaço entre imagem e texto */
+}
 
