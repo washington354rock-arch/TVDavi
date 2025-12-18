@@ -213,4 +213,15 @@ body.dark #modo-btn {
 body {
   background: linear-gradient(180deg, #f0f4f8 0%, #ffffff 100%);
 }
+.card {
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
 
