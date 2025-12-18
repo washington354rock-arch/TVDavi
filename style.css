@@ -53,7 +53,7 @@ body {
 /* GRID */
 #noticias-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 40px;
 }
 
@@ -73,7 +73,7 @@ body {
 
 .card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
 /* IMG */
@@ -88,17 +88,18 @@ body {
   padding: 25px;
   display: flex;
   flex-direction: column;
+  height: 100%; /* Para alinhar botões no fim */
 }
 
 .card h3 {
   font-size: 1.3rem;
-  margin-bottom: 18px;
+  margin-bottom: 15px;
   color: #1e90ff;
 }
 
 .card p {
   font-size: 1rem;
-  line-height: 1.6;
+  line-height: 1.7;
   margin-bottom: 20px;
   color: #555;
 }
@@ -113,6 +114,7 @@ body {
   text-align: center;
   font-weight: 600;
 
+  margin-top: auto; /* Garante alinhamento no fim do card */
   transition: background .3s;
 }
 
@@ -120,7 +122,16 @@ body {
   background-color: #1666c1;
 }
 
-/* BORDA */
+/* VÍDEO */
+.card.video a {
+  background-color: #6a0dad;
+}
+
+.card.video a:hover {
+  background-color: #4b0082;
+}
+
+/* BORDA DIFERENCIADA */
 .card:nth-child(odd) {
   border-left: 5px solid #1e90ff;
 }
@@ -170,9 +181,32 @@ body.dark #modo-btn {
   background: #00aaff;
 }
 
+/* PERFIL / EMBLEMA */
 .perfil img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #1e90ff;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+  margin-bottom: 10px;
+}
+
+.perfil p {
+  margin-top: 5px;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* RESPONSIVO */
+@media screen and (max-width: 768px) {
+  .card-content {
+    padding: 20px;
+  }
+  .card img {
+    height: 150px;
+  }
+  .titulo-site {
+    font-size: 2rem;
+  }
 }
