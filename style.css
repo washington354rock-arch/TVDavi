@@ -169,10 +169,27 @@ body.dark .card a:hover {
 body.dark #modo-btn {
   background: #00aaff;
 }
+
 .perfil img {
     width: 120px;
     height: 120px;
     border-radius: 50%;
     object-fit: cover;
+}
+
+/* =======================
+   TEXTO DAS NOTÍCIAS
+======================= */
+.noticia-texto {
+    max-width: 900px;        /* largura máxima para melhor leitura */
+    margin: 0 auto 30px auto; /* centraliza e dá espaçamento embaixo */
+    font-size: 1.1rem;       /* aumenta um pouco o tamanho do texto */
+    line-height: 1.8;        /* espaçamento entre linhas confortável */
+    text-align: justify;      /* deixa o texto justificado */
+    color: #333;             /* cor do texto */
+}
+
+.noticia-texto p {
+    margin-bottom: 20px;     /* espaço entre parágrafos */
 }
 
