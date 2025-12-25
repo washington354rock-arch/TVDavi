@@ -2,87 +2,70 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>TVDavi - Seu site de notícias</title>
+    <title>TVDavi - Notícias 25/12/2025</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="perfil">
-    <img src="emblematv.jpg" alt="Repórter Davi">
-    <p>
-        <strong>Repórter Davi</strong><br>
-        Se destaca na cobertura de grandes notícias na cidade de Feira de Santana.
-    </p>
-</div>
-
 <button id="modo-btn">🌙</button>
 
-<h1 class="titulo-site">TVDavi – Seu site de notícias</h1>
+<h1 class="titulo-site">TVDavi – Notícias de Hoje (25/12/2025)</h1>
 
 <div id="noticias-container">
-<!-- NOTÍCIA 1 -->
-<div class="card">
-  <img src="pastel1.jpeg" alt="Pastelaria interditada em Feira de Santana">
-  <div class="card-content">
-    <h3>Pastelaria é interditada por condições insalubres em Feira de Santana</h3>
-    <p>
-      Estabelecimento foi interditado pela Vigilância Sanitária após fiscalização
-      constatar condições inadequadas de higiene e armazenamento de alimentos...
-    </p>
-    <a href="noticia1.html">Ler notícia completa</a>
+
+  <!-- NOTÍCIA 1 -->
+  <div class="card">
+    <img src="natal-feira.jpg" alt="Natal em Feira de Santana">
+    <div class="card-content">
+      <h3>Natal movimenta centros de Feira de Santana</h3>
+      <p>Famílias participam das celebrações e apresentações culturais nas principais praças da cidade...</p>
+      <a href="noticia1.html">Ler notícia completa</a>
+    </div>
   </div>
-</div>
 
-<!-- NOTÍCIA 2 -->
-<div class="card">
-  <img src="incendio.jpeg" alt="Incêndio em Feira de Santana">
-  <div class="card-content">
-    <h3>Incêndio atinge veículos na região da Marechal em Feira de Santana</h3>
-    <p>Um incêndio foi registrado na região da Marechal em Feira de Santana, Bahia. Felizmente, não houve acidentes com civis e o Corpo de Bombeiros controlou rapidamente as chamas...</p>
-    <a href="noticia2.html">Ler notícia completa</a>
+  <!-- NOTÍCIA 2 -->
+  <div class="card">
+    <img src="comercio-feira.jpg" alt="Comércio de Feira de Santana">
+    <div class="card-content">
+      <h3>Comércio local tem alta nas vendas de fim de ano</h3>
+      <p>Lojas do centro reportam grande movimento no feriado, com consumidores buscando promoções e presentes...</p>
+      <a href="noticia2.html">Ler notícia completa</a>
+    </div>
   </div>
-</div>
 
-
-<!-- NOTÍCIA 3 - VÍDEO -->
-<div class="card">
-  <img src="Davitv.jpeg" alt="Pesquisa sobre o PIX nos ônibus">
-  <div class="card-content">
-    <h3>Pesquisa: PIX pode virar pagamento nos ônibus de Feira</h3>
-    <p>TV Davi vai às ruas ouvir a população sobre a novidade no transporte público.</p>
-    <a href="noticia3.html">▶ Assistir vídeo</a>
+  <!-- NOTÍCIA 3 -->
+  <div class="card">
+    <img src="rodoviaria.jpg" alt="Rodoviária de Feira de Santana">
+    <div class="card-content">
+      <h3>Terminal rodoviário registra grande movimento</h3>
+      <p>Retorno pós-Natal faz com que o terminal fique cheio, com destinos para várias cidades da região...</p>
+      <a href="noticia3.html">Ler notícia completa</a>
+    </div>
   </div>
-</div>
 
- <!-- NOTÍCIA 4 -->
-<div class="card">
-  <img src="prefeito.jpeg" alt="Balanço das ações do Governo Municipal">
-  <div class="card-content">
-    <h3>Prefeito apresenta balanço das ações do Governo Municipal de Feira de Santana</h3>
-    <p>O prefeito José Ronaldo apresenta hoje o balanço das ações de 2025 com transmissão ao vivo...</p>
-    <a href="noticia4.html">Ler notícia completa</a>
+  <!-- NOTÍCIA 4: VÍDEO PIX NOS ÔNIBUS -->
+  <div class="card video">
+    <img src="pix-onibus.jpg" alt="PIX nos ônibus de Feira">
+    <div class="card-content">
+      <h3>Reportagem: PIX nos ônibus de Feira de Santana</h3>
+      <p>Painel vai às ruas ouvir moradores sobre proposta de pagamento digital no transporte público...</p>
+      <a href="noticia4.html">Assistir vídeo</a>
+    </div>
   </div>
-</div>
 
-
-    <!-- NOTÍCIA 5 – VÍDEO -->
-<div class="card">
-  <img src="IMG_20251207_131346.jpg" alt="Reportagem TV Davi">
-  <div class="card-content">
-    <h3>Reportagem em vídeo – Últimas notícias em Feira de Santana</h3>
-    <p>Assista à nossa reportagem sobre os acontecimentos recentes na cidade.</p>
-    <a href="noticia5.html">Assistir reportagem</a>
+  <!-- NOTÍCIA 5: VÍDEO REPÓRTER DAVI -->
+  <div class="card video">
+    <img src="davi-video-ultimas.jpeg" alt="Reportagem do Repórter Davi">
+    <div class="card-content">
+      <h3>Vídeo do Repórter Davi: Aconteceu em Feira de Santana</h3>
+      <p>Confira a mais recente reportagem em vídeo capturada pelo Repórter Davi nas ruas da cidade...</p>
+      <a href="noticia5.html">Assistir vídeo</a>
+    </div>
   </div>
-</div>
-
-
-  <!-- MAIS NOTÍCIAS -->
-  <!-- Basta copiar o bloco acima e mudar os dados -->
 
 </div>
 
 <script>
-// MODO ESCURO
 const btn = document.getElementById("modo-btn");
 btn.addEventListener("click", () => {
     document.body.classList.toggle("dark");
