@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Vídeo – Reportagem TVDavi</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button id="modo-btn">🌙</button>  
+
+<!--Bloco do perfil-->  
+<div class="perfil">
+  <img src="img/emblematv.jpg" alt="TVDavi" class="logo">
+  <p>
+    <strong>Repórter Davi</strong><br>
+    Notícias de Feira de Santana e Região
+  </p>
+</div>
+
+<!--Conteúdo centralizado-->
+<div class="conteudo">  
+  
+<h1>Reportagem em vídeo – TVDavi</h1>
+<p class="data">Publicado em 10/02/2026</p>
+<p>Ruas defasadas em São gonçalo dos Campos Bahia, ruas cheias de lama.</p>
+
+<!-- VÍDEO responsivo -->
+<div class="video-container">
+  <iframe 
+    src="https://www.https://youtube.com/embed/xKJnP3BfoPk?si=W18IFl7j-9A1vgad"
+    title="Reportagem TVDavi"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
+  </iframe>
+</div>
+
+
+<p>
+Conteúdo especial em vídeo produzido pelo Repórter Davi,
+reforçando o compromisso com a informação local.
+</p>
+
+<p><a href="index.html">⬅ Voltar para a página inicial</a></p>
+<script>
+  const btn = document.getElementById("modo-btn");
+
+  // Ativa/desativa o modo escuro
+  if (btn) {
+    btn.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      localStorage.setItem("modo", document.body.classList.contains("dark") ? "escuro" : "claro");
+    });
+  }
+
+  // Mantém o modo salvo ao abrir qualquer página
+  if (localStorage.getItem("modo") === "escuro") {
+    document.body.classList.add("dark");
+  }
+</script>
+
+</body>
+</html>

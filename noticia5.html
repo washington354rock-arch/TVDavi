@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Preso em Salvador médico suspeito de acidente com duas vítimas em Valença</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button id="modo-btn">🌙</button>  
+
+<!--Bloco do perfil-->  
+<div class="perfil">
+  <img src="img/emblematv.jpg" alt="TVDavi" class="logo">
+  <p>
+    <strong>Repórter Davi</strong><br>
+    Notícias de Feira de Santana e Região
+  </p>
+</div>
+
+<!--Conteúdo centralizado-->
+<div class="conteudo">  
+  
+<h1>Preso em Salvador médico suspeito de acidente com duas vítimas em Valença</h1>
+<p class="data">Publicado em 10/02/2026</p>
+
+<!-- VÍDEO responsivo -->
+<div class="video-container">
+  <iframe 
+    src="https://g1.globo.com/ba/bahia/videos-batv-feira-de-santana/video/preso-em-salvador-medico-suspeito-de-acidente-com-duas-vitimas-em-valenca-14331477.ghtml"
+    title="Reportagem TVDavi"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
+  </iframe>
+</div>
+
+
+
+
+<p><a href="index.html">⬅ Voltar para a página inicial</a></p>
+<script>
+  const btn = document.getElementById("modo-btn");
+
+  // Ativa/desativa o modo escuro
+  if (btn) {
+    btn.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      localStorage.setItem("modo", document.body.classList.contains("dark") ? "escuro" : "claro");
+    });
+  }
+
+  // Mantém o modo salvo ao abrir qualquer página
+  if (localStorage.getItem("modo") === "escuro") {
+    document.body.classList.add("dark");
+  }
+</script>
+
+</body>
+</html>

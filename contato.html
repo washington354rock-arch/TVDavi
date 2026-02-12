@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Contato - TV Davi</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .contato-container {
+      max-width: 800px;
+      margin: 40px auto;              /* centraliza horizontalmente */
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      text-align: center;             /* centraliza conteúdo */
+    }
+
+    .contato-container h1 {
+      color: #1e90ff;
+      margin-bottom: 20px;
+    }
+
+    .contato-container p {
+      font-size: 1rem;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    .info-contato {
+      margin-bottom: 25px;
+      line-height: 1.6;
+    }
+
+    .info-contato p {
+      margin: 8px 0;
+    }
+
+    .info-contato a {
+      color: #1e90ff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .info-contato a:hover {
+      text-decoration: underline;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;            /* centraliza os campos */
+    }
+
+    input, textarea {
+      width: 100%;
+      max-width: 500px;               /* limita largura dos campos */
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    button {
+      background-color: #1e90ff;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #1666c1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="contato-container">
+    <h1>Fale com a TV Davi</h1>
+    <p>Envie sua sugestão, denúncia, elogio ou dúvida. Nossa equipe responderá o mais breve possível.</p>
+
+    <div class="info-contato">
+      <p><strong>Email:</strong> <a href="mailto:Davibassb@gmail.com">Davibassb@gmail.com</a></p>
+      <p><strong>Telefone:</strong> +55 75 8853-7946</p>
+      <p><strong>Instagram:</strong> 
+        <a href="https://www.instagram.com/tvdavi_seu_canal?igsh=MXE5OW9jaGJkYTV5dA==" target="_blank">@tvdavi_seu_canal</a>
+      </p>
+      <p><strong>YouTube:</strong> 
+        <a href="https://www.youtube.com/@RedeTVDAVIFeiradeSantanaBahia" target="_blank">@RedeTVDAVIFeiradeSantanaBahia</a>
+      </p>
+    </div>
+
+    <!-- Formulário conectado ao Formspree -->
+    <form action="https://formspree.io/f/xgovgbbn" method="POST">
+      <input type="text" name="nome" placeholder="Seu nome" required>
+      <input type="email" name="email" placeholder="Seu e-mail" required>
+      <textarea name="mensagem" rows="6" placeholder="Escreva sua mensagem..." required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+
+</body>
+</html>

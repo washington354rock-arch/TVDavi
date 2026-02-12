@@ -1,0 +1,384 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(180deg, #f0f4f8 0%, #ffffff 100%);
+  color: #000;
+  padding: 20px;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* TÍTULO */
+.titulo-site { background-color: white; 
+  color: #1e90ff; 
+  text-align: center; 
+  font-size: 2.3rem; 
+  font-weight: bold; 
+  padding: 20px 30px; 
+  border-radius: 0;
+  margin-bottom: 25px; 
+  width: 100%; 
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15); 
+}
+
+/* BOTÃO DARK */
+#modo-btn {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  background-color: #1e90ff;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 50px;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  z-index: 999;
+}
+
+#modo-btn:hover {
+  background-color: #1666c1;
+}
+
+/* CONTAINER CENTRALIZADO — ESTILO G1 */
+#noticias-container {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  max-width: 900px;
+  margin: auto;
+  padding: 0 15px;
+}
+
+/* CARD ESTILO G1 */
+.noticia {
+  display: flex;
+  flex-direction: row;
+  gap: 15px;
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+  background: white;
+  border-radius: 0;
+  box-shadow: none;
+  width: 100%;
+}
+
+/* IMAGEM À ESQUERDA */
+.noticia img {
+  width: 180px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* TEXTO À DIREITA */
+.noticia .texto {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* TÍTULO CLICÁVEL */
+.noticia h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  color: #1e90ff;
+}
+
+.noticia a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.noticia a:hover h3 {
+  text-decoration: underline;
+}
+
+/* TOPO COM EMBLEMA */
+.topo {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: flex-start; /* alinha à esquerda */
+  padding: 10px 30px;           /* espaçamento interno */
+  background-color: white;     /* opcional: destaca o topo */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1); /* opcional: dá profundidade */
+}
+
+
+/* TAMANHO DA LOGO TV DAVI */
+.topo .logo {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+}
+
+/* TEXTO AO LADO DA LOGO */
+.topo .slogan {
+  font-size: 0.95rem;
+  color: #333;
+}
+/* TAMANHO PADRÃO DA LOGO EM QUALQUER PÁGINA */
+.topo {
+  width: 100%;              /* ocupa toda a largura */
+  margin: 0 auto 15px auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: flex-start; /* força alinhamento à esquerda */
+}
+
+.perfil img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+/* BLOCO DO PERFIL */
+.perfil {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 900px;
+  margin: 0 auto 20px auto;
+  padding: 10px 15px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.perfil img.logo {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.perfil p {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.4;
+}
+
+/* CONTEÚDO CENTRALIZADO */
+.conteudo {
+  max-width: 900px;
+  margin: auto;
+  padding: 0 15px;
+}
+
+/* TÍTULO */
+.conteudo h1 {
+  font-size: 2rem;
+  color: #1e90ff;
+  margin-bottom: 10px;
+}
+
+/* DATA */
+.data {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* IMAGEM PRINCIPAL */
+.imagem-principal {
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto;
+  display: block;
+  border-radius: 10px;
+}
+
+/* PARÁGRAFOS */
+.conteudo p {
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* LINK VOLTAR */
+.conteudo a {
+  color: #1e90ff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.conteudo a:hover {
+  text-decoration: underline;
+}
+
+/* VÍDEO RESPONSIVO */
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* proporção 16:9 */
+  height: 0;
+  overflow: hidden;
+  border-radius: 12px;
+  margin: 20px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+/* DARK MODE COMPLETO */
+body.dark {
+  background: #121212;
+  color: #e5e5e5;
+}
+
+/* topo do site */
+body.dark .titulo-site {
+  background: #1f1f1f;
+  color: #00aaff;
+}
+
+/* cards da página inicial */
+body.dark .noticia {
+  background: #1f1f1f;
+  border-bottom: 1px solid #333;
+}
+
+body.dark .noticia h3 {
+  color: #00aaff;
+}
+
+body.dark .noticia p {
+  color: #ccc;
+}
+
+/* botão */
+body.dark #modo-btn {
+  background: #00aaff;
+  color: #000;
+}
+
+/* bloco do perfil */
+body.dark .perfil {
+  background: #1f1f1f;
+  box-shadow: none;
+}
+
+body.dark .perfil p {
+  color: #ccc;
+}
+
+/* conteúdo das notícias */
+body.dark .conteudo p {
+  color: #ccc;
+}
+
+body.dark .conteudo h1 {
+  color: #00aaff;
+}
+
+/* imagem principal (mantém igual) */
+
+/* vídeo */
+body.dark .video-container {
+  box-shadow: 0 2px 8px rgba(255,255,255,0.1);
+}
+.lista-card {
+  font-size: 0.95rem;
+  color: #333;
+  line-height: 1.4;
+}
+/* MENU DE NAVEGAÇÃO */
+.menu {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1e90ff;
+  padding: 10px 30px;
+  box-sizing: border-box;
+}
+
+
+.menu ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.menu ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.2s;
+}
+
+.menu ul li a:hover {
+  color: #ffdd00;
+}
+
+/* PESQUISA */
+.menu .pesquisa {
+  display: flex;
+  gap: 8px;
+}
+
+.menu .pesquisa input {
+  padding: 6px 10px;
+  border: none;
+  border-radius: 4px;
+}
+
+.menu .pesquisa button {
+  background: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.menu .pesquisa button:hover {
+  background: #ffdd00;
+}
+
+/* DARK MODE MENU */
+body.dark .menu {
+  background: #1f1f1f;
+}
+
+body.dark .menu ul li a {
+  color: #00aaff;
+}
+
+body.dark .menu .pesquisa input {
+  background: #333;
+  color: #eee;
+}
+.item {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 12px;
+  color: #777;
+  line-height: 1.5;
+}
+
+.item::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  top: 2px;
+  font-size: 20px;
+  color: #777;
+}
+
+

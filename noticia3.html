@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Homem suspeito de importunação sexual dentro de ônibus morre após ser atropelado na Bahia</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <button id="modo-btn">🌙</button> 
+
+<!-- BLOCO DO PERFIL -->
+<div class="perfil">
+  <img src="img/emblematv.jpg" alt="TVDavi" class="logo">
+  <p>
+    <strong>Repórter Davi</strong><br>
+    Notícias de Feira de Santana e Região
+  </p>
+</div>
+
+<!-- CONTEÚDO CENTRALIZADO -->
+<div class="conteudo">
+
+  <h1>Caso ocorreu em Amélia Rodrigues. Segundo a Polícia Civil, momentos antes do atropelamento, a vítima foi acusada de praticar atos obscenos no veículo.</h1>
+  <p class="data">Publicado em 10/02/2026</p>
+
+  <!-- IMAGEM PRINCIPAL -->
+  <img src="img/pedagio.jpeg" alt="Dhpp" class="imagem-principal">
+
+ <p>
+  Um homem de 28 anos morreu após ser atropelado na noite de domingo (8), na BR-324, em <strong>Amélia Rodrigues</strong>, a 30 km de <strong>Feira de Santana</strong>. O caso aconteceu por volta das 20h20, nas proximidades do posto de pedágio. Segundo a Polícia Civil, momentos antes do atropelamento, o homem foi acusado de importunação sexual dentro de um ônibus.
+ </p>
+ <p>
+  A vítima foi identificada como <strong>Daniel Gonçalves Aguiar</strong>. De acordo com a polícia, ele era passageiro de um ônibus que saiu de Salvador com destino a Bom Jesus da Lapa e, durante o trajeto, apresentou comportamento agitado.
+ </p>
+ <p>
+  Ainda segundo a Polícia Civil, passageiros relataram que o homem praticou atos obscenos dentro do veículo e apresentava sinais de possível transtorno. Após a situação, o motorista parou o ônibus em uma praça de pedágio desativada, depois de ser acionado pelos passageiros.
+ </p>
+ <p>
+  Após a parada, o homem desceu do ônibus acompanhado da mãe. Em seguida, ele correu em direção à pista e foi atropelado por outro ônibus que trafegava pelo local. Daniel morreu no local.
+ </p>
+ <p>
+  A Superintendência da <strong>Polícia Rodoviária Federal (PRF)</strong> informou que o atropelamento envolveu um ônibus que transportava 26 passageiros.
+</p>
+<p>
+  A Delegacia Territorial (DT) de Amélia Rodrigues instaurou um inquérito para apurar as circunstâncias do caso, registrado como homicídio culposo na direção de veículo automotor. O corpo foi encaminhado para o Departamento de Polícia Técnica (DPT) de <strong>Santo Amaro</strong>, onde passou por necropsia.
+</p>
+
+  <p><a href="index.html">⬅ Voltar para a página inicial</a></p>
+  <script>
+  const btn = document.getElementById("modo-btn");
+
+  // Ativa/desativa o modo escuro
+  if (btn) {
+    btn.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      localStorage.setItem("modo", document.body.classList.contains("dark") ? "escuro" : "claro");
+    });
+  }
+
+  // Mantém o modo salvo ao abrir qualquer página
+  if (localStorage.getItem("modo") === "escuro") {
+    document.body.classList.add("dark");
+  }
+</script>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Homem morre após ser baleado na Bahia; irmão é suspeito do crime</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <button id="modo-btn">🌙</button> 
+
+<!-- BLOCO DO PERFIL -->
+<div class="perfil">
+  <img src="img/emblematv.jpg" alt="TVDavi" class="logo">
+  <p>
+    <strong>Repórter Davi</strong><br>
+    Notícias de Feira de Santana e Região
+  </p>
+</div>
+
+<!-- CONTEÚDO CENTRALIZADO -->
+<div class="conteudo">
+
+  <h1>Crime ocorreu em Cansanção. Polícia Civil investiga se crime ocorreu após uma discussão familiar, relacionada a uma agressão contra a mãe deles.</h1>
+  <p class="data">Publicado em 10/02/2026</p>
+
+  <!-- IMAGEM PRINCIPAL -->
+  <img src="img/homem.jpeg" alt="" class="imagem-principal">
+<p>
+Um homem de 26 anos, identificado como <strong>José Lucas Santos Pinto</strong>, morreu após ser baleado na tarde de segunda-feira (9), em <strong>Cansanção</strong>, no norte da Bahia. O crime aconteceu na Rua Domingos França, no bairro Tapera e segundo a Polícia Civil, o principal suspeito é o irmão dele.
+</p>
+<p>
+De acordo com a <strong>Polícia Militar</strong>, equipes foram acionadas após moradores relatarem terem ouvido tiros na região. Ao chegarem ao local, os policiais encontraram o homem ferido.
+</p>
+<p>
+Uma equipe do Serviço de Atendimento Móvel de Urgência (Samu) prestou os primeiros atendimentos, mas José Lucas não resistiu aos ferimentos e morreu no local.
+</p>
+<p>
+  Segundo a Polícia Civil, a principal linha de investigação aponta que o crime pode ter ocorrido após uma discussão familiar, relacionada a uma agressão contra a mãe deles. <u>A suspeita é de que a vítima teria tentado agredir a mãe, e o irmão teria intervindo, dando início à discussão.</u>
+</p>
+<p>
+  A Polícia Civil também investiga se houve legítima defesa. Familiares e testemunhas devem ser ouvidos para esclarecer as circunstâncias do crime.
+</p>
+<p>
+  Após o ocorrido, o suspeito fugiu e segue sendo procurado pela Polícia Civil. A arma utilizada no crime não foi encontrada, e a mãe dos envolvidos não ficou ferida.
+</p>
+<p>
+  José Lucas morava em Cansanção e deve ser enterrado no município. O corpo foi encaminhado para o Departamento de Polícia Técnica (DPT) de <strong>Senhor do Bonfim</strong>, onde passou por exames periciais.
+</p>
+  <!-- IMAGEM SECUNDARIA -->
+  <img src="img/viatura.jpeg" alt="" class="imagem-secundaria">
+  <p>Crime ocorreu no bairro Tapera, em Cansação. Vítima morreu no local — Foto: Polícia Militar</p>
+
+  <p><a href="index.html">⬅ Voltar para a página inicial</a></p>
+  <script>
+  const btn = document.getElementById("modo-btn");
+
+  // Ativa/desativa o modo escuro
+  if (btn) {
+    btn.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      localStorage.setItem("modo", document.body.classList.contains("dark") ? "escuro" : "claro");
+    });
+  }
+
+  // Mantém o modo salvo ao abrir qualquer página
+  if (localStorage.getItem("modo") === "escuro") {
+    document.body.classList.add("dark");
+  }
+</script>
+
+</div>
+
+</body>
+</html>

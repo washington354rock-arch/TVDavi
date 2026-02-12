@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>TVDavi - Notícias 10/02/2026</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<button id="modo-btn">🌙</button>
+
+<header class="topo">
+  <img src="img/emblematv.jpg" alt="TVDavi" class="logo">
+  <p class="slogan">TV Davi® Notícias de Feira de Santana e Região</p>
+</header>
+<nav class="menu">
+  <ul>
+    <li><a href="index.html">Início</a></li>
+    <li><a href="contato.html">Contato</a></li>
+  </ul>
+  <form class="pesquisa">
+    <input type="text" placeholder="Pesquisar...">
+    <button type="submit">🔍</button>
+  </form>
+</nav>
+  
+
+<h1 class="titulo-site">Últimas Notícias de Feira de Santana e região</h1>
+
+<div id="noticias-container">
+
+  <!-- NOTÍCIA 1 -->
+  <div class="card noticia">
+    <img src="img/rualagada.jpeg" alt="">
+    <div class="texto">
+      <a href="noticia1.html"><h3>Rua alagada e cheia de lixo no Bairro Fraternidade </h3></a>
+      <p>Situação de calamidade na rua Assembléa Silvana</p>
+    </div>
+  </div>
+
+  <!-- NOTÍCIA 2 -->
+  <div class="card noticia">
+    <img src="img/ruas.jpeg" alt="">
+    <div class="texto">
+      <a href="noticia2.html"><h3>Ruas defasadas em São gonçalo dos Campos Bahia.</h3></a>
+      <p>As ruas estão cheias de lama</p>
+    </div>
+  </div>
+
+  <!-- NOTÍCIA 3 -->
+  <div class="card noticia">
+    <img src="img/pedagio.jpeg" alt="">
+    <div class="texto">
+      <a href="noticia3.html"><h3>Homem suspeito de importunação sexual dentro de ônibus morre após ser atropelado na Bahia</h3></a>
+      <p>Caso ocorreu em Amélia Rodrigues. Segundo a Polícia Civil, momentos antes do atropelamento, a vítima foi acusada de praticar atos obscenos no veículo. </p>
+    </div>
+  </div>
+
+  <!-- NOTÍCIA 4 -->
+  <div class="card noticia">
+    <img src="img/homem.jpeg" alt="">
+    <div class="texto">
+      <a href="noticia4.html">
+        <h3>Homem morre após ser baleado na Bahia; irmão é suspeito do crime</h3></a>
+      <p>Crime ocorreu em Cansanção. Polícia Civil investiga se crime ocorreu após uma discussão familiar, relacionada a uma agressão contra a mãe deles.</p>
+    </div>
+  </div>
+
+  <!-- NOTÍCIA 5 -->
+  <div class="card noticia">
+    <img src="img/medico.jpeg" alt="">
+    <div class="texto">
+      <a href="noticia5.html"><h3>Preso em Salvador médico suspeito de acidente com duas vítimas em Valença</h3></a>
+      <p>Médico suspeito de matar duas pessoas em acidente na Bahia estava foragido, diz polícia</p>
+    </div>
+  </div>
+  
+<!-- NOTÍCIA 6 -->
+  <div class="card noticia">
+    <img src="img/iba.jpeg" alt="">
+    <div class="texto">
+      <a href="noticia6.html"><h3>Ifba oferta mil vagas em curso preparatório; veja lista de cidades e como se inscrever</h3></a>
+      <p class="lista-card">
+Inscrições seguem abertas até 6 de março. Curso 'PartiuIF' prepara estudantes para a seleção do instituto.
+</p>
+
+    </div>
+  </div>
+ <!-- NOTÍCIA 7 -->
+  <div class="card noticia">
+    <img src="img/defensoria.jpeg" alt="">
+    <div class="texto">
+      <a href="noticia7.html"><h3>Defensoria Pública da Bahia lança edital de concurso público para analista técnico; salários podem chegar a R$ 3,6 mil.</h3></a>
+      <p>
+        Inscrições começam nesta quinta-feira (5) e seguem até às 17h do dia 2 de março, através do site da organizadora do certame.
+      </p>
+    </div>
+  </div>
+  
+</div>
+
+<script>
+  const btn = document.getElementById("modo-btn");
+
+  // Ativa/desativa o modo escuro
+  if (btn) {
+    btn.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      localStorage.setItem("modo", document.body.classList.contains("dark") ? "escuro" : "claro");
+    });
+  }
+
+  // Mantém o modo salvo ao abrir qualquer página
+  if (localStorage.getItem("modo") === "escuro") {
+    document.body.classList.add("dark");
+  }
+</script>
+
+
+</body>
+</html>
+

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Defensoria Pública da Bahia lança edital de concurso público para analista técnico; salários podem chegar a R$ 3,6 mil</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <button id="modo-btn">🌙</button> 
+
+<!-- BLOCO DO PERFIL -->
+<div class="perfil">
+  <img src="img/emblematv.jpg" alt="TVDavi" class="logo">
+  <p>
+    <strong>Repórter Davi</strong><br>
+    Notícias de Feira de Santana e Região
+  </p>
+</div>
+
+<!-- CONTEÚDO CENTRALIZADO -->
+<div class="conteudo">
+
+  <h1>Defensoria Pública da Bahia lança edital de concurso público para analista técnico; salários podem chegar a R$ 3,6 mil</h1>
+  <p class="data">Publicado em 10/02/2026</p>
+
+  <!-- IMAGEM PRINCIPAL -->
+  <img src="img/defensoria.jpeg" alt="" class="imagem-principal">
+
+<p>
+  A Defensoria Pública do Estado da Bahia (DPE-BA) lançou edital para preenchimento imediato de 68 vagas para analista técnico mais cadastro de reserva nas unidades do órgão em todo o estado. Os salários variam entre R$ 2.777,75 e R$ 3.659,52.
+</p>
+<p>
+  As inscrições começam às 10h do dia 5 de fevereiro e vão até às 17h do dia 2 de março, <a href="https://www.fundacaocefetbahia.org.br/defensoria/2026/defensoria.asp"> Através do site da organizadora do certame.</a> A taxa de inscrição é de R$ 100, mas a dispensa do pagamento poderá ser solicitada através de requerimento disponibilizado no site da banca organizadora das 10 às 17h da quinta-feira (5)
+</p>
+  <p>
+    <strong>As oportunidades estão disponíveis para quem tem curso superior nas seguintes áreas:</strong>
+  </p>
+ <ul>
+  <li>Administração</li>
+  <li>Antropologia</li>
+  <li>Arquitetura</li>
+  <li>Biologia</li>
+  <li>Ciências Contábeis</li>
+  <li>Design</li>
+  <li>Direito</li>
+  <li>Economia</li>
+  <li>Enfermagem</li>
+  <li>Engenharias</li>
+  <li>Engenharia Ambiental</li>
+  <li>Engenharia Civil</li>
+  <li>Engenharia de Segurança do Trabalho</li>
+  <li>Engenharia Elétrica</li>
+  <li>Engenharia Mecânica</li>
+  <li>Farmácia</li>
+  <li>Fisioterapia</li>
+  <li>Jornalismo ou Comunicação Social</li>
+  <li>Matemática</li>
+  <li>Pedagogia</li>
+  <li>Produção Audiovisual</li>
+  <li>Publicidade, Propaganda ou Marketing</li>
+  <li>Relações Públicas</li>
+  <li>Secretariado Executivo</li>
+</ul>
+<br />
+<p>
+  As provas serão aplicadas em 15 de março com 40 questões de conhecimentos gerais e específicos, além de uma redação. De acordo com o cronograma disponível do edital, o resultado final será publicado em abril de 2026.
+</p>
+<p>
+  Os candidatos aprovados em cadastro de reserva só serão convocados após finalização da lista de convocados do processo seletivo anterior da Defensoria, o edital 001/2022, com validade até março de 2027.O concurso de 2026 tem validade de até dois anos.
+</p>
+<p>
+  Os servidores aprovados serão contratados pelo Regime Especial de Direito Administrativo (REDA). Neste regime, o tempo de atuação é de três anos, podendo ser renovados por mais três.
+</p>
+
+
+  <p><a href="index.html">⬅ Voltar para a página inicial</a></p>
+  <script>
+  const btn = document.getElementById("modo-btn");
+
+  // Ativa/desativa o modo escuro
+  if (btn) {
+    btn.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      localStorage.setItem("modo", document.body.classList.contains("dark") ? "escuro" : "claro");
+    });
+  }
+
+  // Mantém o modo salvo ao abrir qualquer página
+  if (localStorage.getItem("modo") === "escuro") {
+    document.body.classList.add("dark");
+  }
+</script>
+
+</div>
+
+</body>
+</html>
