@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Ex-vereador de Conceição do Almeida morre após bater a cabeça durante mergulho em rio na Bahia</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <button id="modo-btn">🌙</button> 
+
+<!-- BLOCO DO PERFIL -->
+<div class="perfil">
+  <img src="img/emblematv.jpg" alt="TVDavi" class="logo">
+  <p>
+    <strong>Repórter Davi</strong><br>
+    Notícias de Feira de Santana e Região
+  </p>
+</div>
+
+<!-- CONTEÚDO CENTRALIZADO -->
+<div class="conteudo">
+
+  <h1>Ex-vereador de Conceição do Almeida morre após bater a cabeça durante mergulho em rio na Bahia</h1>
+  <p class="data">Publicado em 17/02/2026</p>
+
+  <!-- IMAGEM PRINCIPAL -->
+  <img src="img/vereador2.jpeg" alt="Dhpp" class="imagem-principal">
+
+ <p>
+    O ex-vereador de Conceição do Almeida, <strong>Almir de Souza Oliveira</strong>, de 48 anos, mais conhecido como <strong> Orêa Correria (Agir)</strong>, 
+    morreu após bater a cabeça durante um mergulho em um rio, 
+    no município de Conde, na Região Metropolitana de Salvador (RMS). O acidente aconteceu na tarde de domingo (15).
+ </p>
+ <p>
+    Segundo informações da família de Almir à <strong>Polícia Civil</strong>, ele realizou um mergulho em um local raso e acabou batendo a cabeça contra pedras. 
+    Orca chegou a ser levado para uma unidade de saúde, mas não respondeu às manobras de reanimação e morreu vítima de traumatismo craniano.
+ </p>
+ <p>
+    O Departamento de Polícia Técnica (DPT) foi acionado para realizar as guias periciais e fazer a remoção do corpo. 
+    As circunstâncias do caso estão sendo apuradas pela 1ª Delegacia Territorial de <strong>Alagoinhas</strong>.
+ </p>
+
+  <p><a href="index.html">⬅ Voltar para a página inicial</a></p>
+  <script>
+  const btn = document.getElementById("modo-btn");
+
+  // Ativa/desativa o modo escuro
+  if (btn) {
+    btn.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      localStorage.setItem("modo", document.body.classList.contains("dark") ? "escuro" : "claro");
+    });
+  }
+
+  // Mantém o modo salvo ao abrir qualquer página
+  if (localStorage.getItem("modo") === "escuro") {
+    document.body.classList.add("dark");
+  }
+</script>
+
+</div>
+
+</body>
+</html>
