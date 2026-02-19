@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Feira de Santana vai distribuir 216 toneladas de sementes para safra de inverno; saiba mais</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <button id="modo-btn">🌙</button> 
+
+<!-- BLOCO DO PERFIL -->
+<div class="perfil">
+  <img src="img/emblematv.jpg" alt="TVDavi" class="logo">
+  <p>
+    <strong>Repórter Davi</strong><br>
+    Notícias de Feira de Santana e Região
+  </p>
+</div>
+
+<!-- CONTEÚDO CENTRALIZADO -->
+<div class="conteudo">
+
+  <h1>Feira de Santana vai distribuir 216 toneladas de sementes para safra de inverno; saiba mais</h1>
+  <p>Entrega ocorrerá no dia 19 de março, data que coincide com o Dia de São José.</p>
+  <p class="data">Publicado em 19/02/2026</p>
+
+  <!-- IMAGEM PRINCIPAL -->
+  <img src="img/feijao.jpeg" alt="Dhpp" class="imagem-principal">
+ <p>
+    Distribuição de sementes para produtores agrícolas de Feira de Santana acontece no dia 19 de março — Foto: Jorge Magalhães
+ </p><br />
+ <br />
+
+ <p>
+A prefeitura <span class="vermelho">Feira de Santana</span>, segunda maior cidade da Bahia, 
+vai distribuir 216 toneladas de sementes para fortalecer a safra de inverno deste ano. <strong>Ao todo, 
+serão entregues 144 toneladas de feijão e 72 toneladas de milho aos pequenos produtores rurais do município.</strong>
+ </p>
+ <p>
+    A ação é voltada para agricultores familiares que realizam o plantio principalmente em pequenas propriedades. 
+    Quando as chuvas ocorrem com regularidade, parte da produção é comercializada, enquanto o restante é destinado ao consumo das famílias.
+ </p>
+ <p>
+    🫘🌽 Segundo a tradição popular, se chover no dia dedicado a São José, é sinal de que, nos meses seguintes, 
+    as precipitações serão suficientes para manter a terra úmida e favorável ao plantio. No meio rural, a crença é conhecida como “lavoura ganha”.
+ </p>
+ <p>
+    Segundo a prefeitura, as culturas são de ciclo curto e o objetivo é oferecer suporte aos produtores durante o período de plantio.
+ </p>
+ <p>
+    A programação completa da entrega das sementes deve ser divulgada nos próximos dias.
+ </p>
+
+  <p><a href="index.html">⬅ Voltar para a página inicial</a></p>
+  <script>
+  const btn = document.getElementById("modo-btn");
+
+  // Ativa/desativa o modo escuro
+  if (btn) {
+    btn.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      localStorage.setItem("modo", document.body.classList.contains("dark") ? "escuro" : "claro");
+    });
+  }
+
+  // Mantém o modo salvo ao abrir qualquer página
+  if (localStorage.getItem("modo") === "escuro") {
+    document.body.classList.add("dark");
+  }
+</script>
+
+</div>
+
+</body>
+</html>

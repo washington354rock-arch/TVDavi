@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Idoso é agredido enquanto vendia paçocas em semáforo na Bahia; suspeito foi preso em flagrante</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <button id="modo-btn">🌙</button> 
+
+<!-- BLOCO DO PERFIL -->
+<div class="perfil">
+  <img src="img/emblematv.jpg" alt="TVDavi" class="logo">
+  <p>
+    <strong>Repórter Davi</strong><br>
+    Notícias de Feira de Santana e Região
+  </p>
+</div>
+
+<!-- CONTEÚDO CENTRALIZADO -->
+<div class="conteudo">
+
+  <h1>Idoso é agredido enquanto vendia paçocas em semáforo na Bahia; suspeito foi preso em flagrante</h1>
+  <p>Caso ocorreu em Santo Antônio de Jesus. Agressor foi contido por populares no local antes da chegada da Polícia Militar.</p>
+  <p class="data">Publicado em 19/02/2026</p>
+
+  <!-- IMAGEM PRINCIPAL -->
+  <img src="img/coop.jpeg" alt="Dhpp" class="imagem-principal">
+ <p>
+    Idoso é agredido enquanto vendia paçocas na Bahia; suspeito foi preso em flagrante — Foto: Blog do Valente
+ </p><br />
+ <br />
+
+ <p>
+Um idoso de 65 anos que vendia paçoca em um dos semáforos do centro de <strong>Santo Antônio de Jesus, no recôncavo baiano</strong>, 
+foi agredido por um homem na quarta-feira (18).
+ O caso aconteceu na Avenida Ursicino Pinto de Queiroz, em frente a uma loja de materiais de construção.
+ </p>
+ <p>
+    Ainda não há informações sobre a motivação da agressão. De acordo com informações da Polícia Militar, 
+    o suspeito foi imobilizado por moradores até a chegada da polícia.
+ </p>
+ <p>
+    O idoso foi encontrado caído no chão e aguardou atendimento do Serviço de Atendimento Móvel de Urgência (Samu). Segundo a <strong>Polícia Civil</strong>, 
+    ele foi socorrido e encaminhado ao Hospital Regional de Santo Antônio de Jesus, onde permanece internado.
+ </p>
+ <p>
+    O suspeito foi levado para a Delegacia Territorial (DT) de Santo Antônio de Jesus e foi autuado em flagrante. Ele segue à disposição da Justiça.
+ </p>
+ <p>
+    As circunstâncias e a motivação da agressão são investigadas pela Polícia Civil.
+ </p>
+
+
+  <p><a href="index.html">⬅ Voltar para a página inicial</a></p>
+  <script>
+  const btn = document.getElementById("modo-btn");
+
+  // Ativa/desativa o modo escuro
+  if (btn) {
+    btn.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      localStorage.setItem("modo", document.body.classList.contains("dark") ? "escuro" : "claro");
+    });
+  }
+
+  // Mantém o modo salvo ao abrir qualquer página
+  if (localStorage.getItem("modo") === "escuro") {
+    document.body.classList.add("dark");
+  }
+</script>
+
+</div>
+
+</body>
+</html>
