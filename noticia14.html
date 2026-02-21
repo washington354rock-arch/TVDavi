@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Dois homens são libertados após passarem dois dias em cativeiro em fazenda na Bahia</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <button id="modo-btn">🌙</button> 
+
+<!-- BLOCO DO PERFIL -->
+<div class="perfil">
+  <img src="img/emblematv.jpg" alt="TVDavi" class="logo">
+  <p>
+    <strong>Repórter Davi</strong><br>
+    Notícias de Feira de Santana e Região
+  </p>
+</div>
+
+<!-- CONTEÚDO CENTRALIZADO -->
+<div class="conteudo">
+
+  <h1>Dois homens são libertados após passarem dois dias em cativeiro em fazenda na Bahia</h1>
+  <p>Vítimas foram abordadas por homens armados na saída da BR-101 para a BR-324, enquanto viajavam de Rio Real para Feira de Santana.</p>
+  <p class="data">Publicado em 20/02/2026</p>
+
+  <!-- IMAGEM PRINCIPAL -->
+  <img src="img/policia.jpeg" alt="Dhpp" class="imagem-principal">
+  <p>Polícia Militar da Bahia — Foto: SSP- BA</p><br />
+
+ <p>
+Dois homens foram libertados na manhã desta sexta-feira (20) após serem mantidos em cativeiro. 
+O resgate ocorreu em uma fazenda no povoado de Tapera, em <strong span class="vermelho">São Gonçalo dos Campos</strong>, no interior da Bahia.
+ </p>
+ <p>
+    Segundo informações da <strong span class="vermelho">Polícia Militar</strong>, as vítimas relataram que foram sequestradas na noite de quarta-feira (18),
+     quando saíam da cidade de Rio Real com destino a Feira de Santana, onde visitariam familiares.
+ </p>
+ <p>
+    De acordo com o depoimento, ao chegarem na saída da BR-101 para a BR-324, foram parados por outro carro. 
+    Dois homens armados desceram do veículo, abordaram as vítimas e entraram no carro delas. 
+    A partir desse momento, os dois foram encapuzados e disseram não ter conseguido mais identificar o trajeto.
+ </p>
+ <p>
+    Os homens passaram por dois ou três cativeiros diferentes até serem libertados por volta das 8h desta sexta-feira, na fazenda em São Gonçalo dos Campos.
+ </p>
+<p>
+    Após serem liberadas, as duas vítimas foram encaminhadas à delegacia para prestar depoimento. 
+    Até o momento, os suspeitos não foram localizados. A <strong span class="vermelho">Polícia Civil</strong> investiga o caso.
+</p>
+
+
+
+  <p><a href="index.html">⬅ Voltar para a página inicial</a></p>
+  <script>
+  const btn = document.getElementById("modo-btn");
+
+  // Ativa/desativa o modo escuro
+  if (btn) {
+    btn.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      localStorage.setItem("modo", document.body.classList.contains("dark") ? "escuro" : "claro");
+    });
+  }
+
+  // Mantém o modo salvo ao abrir qualquer página
+  if (localStorage.getItem("modo") === "escuro") {
+    document.body.classList.add("dark");
+  }
+</script>
+
+</div>
+
+</body>
+</html>
