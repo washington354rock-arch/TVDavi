@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Vacinação itinerante é ampliada na zona rural de Feira de Santana; saiba mais</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <button id="modo-btn">🌙</button> 
+
+<!-- BLOCO DO PERFIL -->
+<div class="perfil">
+  <img src="img/emblematv.jpg" alt="TVDavi" class="logo">
+  <p>
+    <strong>Repórter Davi</strong><br>
+    Notícias de Feira de Santana e Região
+  </p>
+</div>
+
+<!-- CONTEÚDO CENTRALIZADO -->
+<div class="conteudo">
+
+  <h1>Vacinação itinerante é ampliada na zona rural de Feira de Santana; saiba mais</h1>
+  <p class="data">Publicado em 23/02/2026</p>
+
+ <!-- IMAGEM PRIMARIA -->
+  <img src="img/vacinacao.jpeg" alt="" class="PRIMARIA">
+  <p>Secretaria de Saúde intensifica vacinação na zona rural de Feira de Santana — Foto: Thiago Paixão - PMFS</p><br />
+ 
+<p>
+    A Secretaria Municipal de Saúde de <strong>Feira de Santana</strong> (SMS), segunda maior cidade da Bahia, 
+    vai intensificar as ações de vacinação na zona rural do município a partir de março. 
+    A estratégia prevê a atuação de equipes itinerantes que vão percorrer povoados dos oito distritos em diferentes datas.
+</p>
+<p>
+    Segundo a gestão municipal, a mobilização tem como objetivo ampliar a cobertura vacinal e facilitar o acesso aos serviços 
+    de saúde para moradores de localidades mais distantes da sede. Em cada data, as equipes estarão nos povoados dos distritos, sempre das 8h às 16h.
+</p>
+<p>
+    De acordo com o cronograma divulgado pela SMS, <strong>as ações acontecem nas seguintes datas e localidades:</strong>
+</p>
+<p>
+    <li>3 de março - Distrito de Jaguara: Sete Portas, Barra e Curaca;</li>
+</p>
+<p>
+    <li>5 de março - Distrito de Ipuaçu: Fazenda Mergulho, Amarela, Fluminense e Vila São José;</li>
+</p>
+<p>
+    <li>10 de março - Distrito de Jaíba: São Roque, São Domingos e Fazenda Pau Comprido;</li>
+</p>
+<p>
+    <li>10 de março - Distrito de Bonfim de Feira: Gameleira e Caboronga;</li>
+</p>
+<p>
+    <li>11 de março - Distrito de Humildes: Fazenda Campestre, Conjunto Planolar, Fazenda Escoval e Escola Cândido Vitoriano de Cerqueira;</li>
+</p>
+<p>
+    <li>12 de março - Distrito de Tiquaruçu: Praça do Socorro, Calandro, Tanque Grande, Fazenda Bandeira e Praça da Caatinga;</li>
+</p>
+<p>
+    <li>17 de março - Distrito de São José: Bar de Jorge de Lourinho, Associação do Ovo da Ema e Associação Nossa Senhora da Paz;</li>
+</p>
+<p>
+    <li>18 de março - Distrito da Matinha: Alto do Tanque, Olhos D’Água, Moita da Onça e Baixão.</li>
+</p>
+<p>
+    Os moradores devem apresentar documento de identificação e o cartão de vacinação para atualização das doses necessárias durante o atendimento.
+</p>
+
+
+
+  <p><a href="index.html">⬅ Voltar para a página inicial</a></p>
+  <script>
+  const btn = document.getElementById("modo-btn");
+
+  // Ativa/desativa o modo escuro
+  if (btn) {
+    btn.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      localStorage.setItem("modo", document.body.classList.contains("dark") ? "escuro" : "claro");
+    });
+  }
+
+  // Mantém o modo salvo ao abrir qualquer página
+  if (localStorage.getItem("modo") === "escuro") {
+    document.body.classList.add("dark");
+  }
+</script>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Idoso fica gravemente ferido após cair sobre vergalhão enquanto capinava terreno no interior da Bahia</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <button id="modo-btn">🌙</button> 
+
+<!-- BLOCO DO PERFIL -->
+<div class="perfil">
+  <img src="img/emblematv.jpg" alt="TVDavi" class="logo">
+  <p>
+    <strong>Repórter Davi</strong><br>
+    Notícias de Feira de Santana e Região
+  </p>
+</div>
+
+<!-- CONTEÚDO CENTRALIZADO -->
+<div class="conteudo">
+
+  <h1>Idoso fica gravemente ferido após cair sobre vergalhão enquanto capinava terreno no interior da Bahia</h1>
+  <p class="data">Publicado em 23/02/2026</p>
+
+<!-- VÍDEO responsivo -->
+<div class="video-container">
+  <iframe 
+    src="https://g1.globo.com/ba/bahia/videos-jornal-da-manha/video/idoso-sofre-acidente-grave-em-conceicao-do-coite-14370249.ghtml"
+    title="Reportagem TVDavi"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen>
+  </iframe>
+</div>
+<p>Idoso sofre acidente grave em Conceição do Coité</p><br />
+ 
+<p>
+    Um idoso de 73 anos ficou gravemente ferido após cair sobre um vergalhão de construção enquanto capinava um terreno no domingo (22), 
+    em <strong span class="vermelho">Conceição do Coité</strong>, no interior da Bahia. 
+    O acidente aconteceu por volta das 9h, em um terreno localizado na Avenida 7 de Julho, onde a vítima cultiva uma plantação.
+</p>
+<p>
+    Segundo informações da Brigada Águia Resgate, o idoso, identificado como Antônio, realizava o serviço de capina quando caiu sobre o vergalhão. 
+    A queda provocou uma laceração grave na perna direita. Após receber os primeiros atendimentos ainda no terreno,
+     ele foi encaminhado para a emergência do Hospital Português, em Conceição do Coité.
+</p>
+<p>
+    De acordo com familiares, o estado de saúde é considerado grave, já que houve hemorragia. 
+    O idoso precisa passar por um procedimento cirúrgico para reparar um tendão danificado e conter o sangramento.
+</p>
+
+</p>
+  <!-- IMAGEM PRIMARIA -->
+  <img src="img/idoso.jpeg" alt="" class="PRIMARIA">
+  <p>Idoso ficou gravemente ferido após cair em vergalhão enquanto capinava terreno em Coité — Foto: Brigada Águia Resgate</p><br />
+
+  <p>
+    Até a última atualização, ele não havia sido transferido e segue internado em Conceição do Coité, 
+    aguardando regulação para uma unidade de saúde em <strong>Feira de Santana</strong>.
+  </p>
+
+
+  <p><a href="index.html">⬅ Voltar para a página inicial</a></p>
+  <script>
+  const btn = document.getElementById("modo-btn");
+
+  // Ativa/desativa o modo escuro
+  if (btn) {
+    btn.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      localStorage.setItem("modo", document.body.classList.contains("dark") ? "escuro" : "claro");
+    });
+  }
+
+  // Mantém o modo salvo ao abrir qualquer página
+  if (localStorage.getItem("modo") === "escuro") {
+    document.body.classList.add("dark");
+  }
+</script>
+
+</div>
+
+</body>
+</html>

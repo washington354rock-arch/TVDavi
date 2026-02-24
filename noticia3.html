@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Menino de 3 anos morre afogado em tanque de zona rural na Bahia</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <button id="modo-btn">🌙</button> 
+
+<!-- BLOCO DO PERFIL -->
+<div class="perfil">
+  <img src="img/emblematv.jpg" alt="TVDavi" class="logo">
+  <p>
+    <strong>Repórter Davi</strong><br>
+    Notícias de Feira de Santana e Região
+  </p>
+</div>
+
+<!-- CONTEÚDO CENTRALIZADO -->
+<div class="conteudo">
+
+  <h1>Menino de 3 anos morre afogado em tanque de zona rural na Bahia</h1>
+  <p>Caso ocorreu em Conceição do Coité. Vítima, identificada como Apollo Sousa Barreto, desapareceu enquanto brincava com uma prima na casa de familiares.</p>
+  <p class="data">Publicado em 23/02/2026</p>
+
+  <!-- IMAGEM PRINCIPAL -->
+  <img src="img/menino.jpeg" alt="Dhpp" class="imagem-principal">
+ <p>
+    Menino de 3 anos morreu afogado em tanque na zona rural de Conceição do Coité — Foto: Redes Sociais
+ </p><br />
+ <br />
+
+ <p>
+  Um menino de 3 anos morreu afogado em um tanque na zona rural de <strong span class="vermelho">Conceição do Coité</strong>, 
+  a 110 km de <strong>Feira de Santana</strong>. O caso ocorreu na tarde de domingo (22), na comunidade conhecida como Maxixe.
+ </p>
+ <p>
+  A vítima foi identificada como <strong>Apollo Sousa Barreto</strong>. Segundo apurou a TV Subaé, 
+  afiliada da Rede Bahia, o menino estava brincando com uma prima na casa de familiares quando desapareceu.
+ </p>
+ <p>
+  Ao perceberem o sumiço, os parentes iniciaram as buscas e encontraram a criança dentro do reservatório de água, que era profundo.
+ </p>
+ <p>
+  Apollo chegou a ser socorrido e levado para a Unidade Materno Infantil (UMI) da cidade, mas já chegou sem vida.
+ </p>
+ <p>
+  A Delegacia Territorial (DT) de Conceição do Coité registrou o caso. 
+  Guias para perícia e remoção foram expedidas e o corpo foi encaminhado ao Departamento de Polícia Técnica (DPT) de <strong span class="vermelho">Serrinha</strong>.
+ </p>
+ <p>
+  Apollo era filho único. O corpo é velado na localidade de Maxixe. 
+  O enterro ocorre às 17h desta segunda-feira, no cemitério Juazeirinho, zona rural de Conceição do Coité.
+ </p>
+
+
+  <p><a href="index.html">⬅ Voltar para a página inicial</a></p>
+  <script>
+  const btn = document.getElementById("modo-btn");
+
+  // Ativa/desativa o modo escuro
+  if (btn) {
+    btn.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      localStorage.setItem("modo", document.body.classList.contains("dark") ? "escuro" : "claro");
+    });
+  }
+
+  // Mantém o modo salvo ao abrir qualquer página
+  if (localStorage.getItem("modo") === "escuro") {
+    document.body.classList.add("dark");
+  }
+</script>
+
+</div>
+
+</body>
+</html>
