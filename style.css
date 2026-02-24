@@ -188,14 +188,14 @@ body {
   color: #666;
   margin-bottom: 20px;
 }
-
-/* IMAGEM PRINCIPAL */
-.imagem-principal {
+/*IMAGENS PRIMARIAS,SECUNDARIAS...*/
+.imagem-principal,
+.imagem-primaria,
+.imagem-secundaria,
+.imagem-terciaria {
   width: 100%;
-  max-width: 800px;
-  margin: 20px auto;
-  display: block;
   border-radius: 10px;
+  margin: 20px 0;
 }
 
 /* PARÁGRAFOS */
