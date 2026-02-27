@@ -384,6 +384,10 @@ body.dark .menu .pesquisa input {
   color: #c40000;
   font-weight: 700;
 }
+.azul {
+  color: #1e90ff;
+  font-weight: 700;
+}
 
 .pagina-emprego h3 {
   background: #f5f5f5;
