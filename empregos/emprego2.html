@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NN0132G8MX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-NN0132G8MX');
+    </script>
+    <meta charset="UTF-8">
+    <title>Assaí está com mais de 160 vagas abertas na Bahia</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="acessibilidade">
+        <button id="aumentar-fonte" aria-label="Aumentar fonte">A+</button>
+        <button id="diminuir-fonte" aria-label="Diminuir fonte">A−</button>
+    </div>
+    <button id="modo-btn">🌙</button>
+
+    <!-- BLOCO DO PERFIL -->
+    <div class="perfil">
+        <img src="img/emblematv.jpg" alt="TVDavi" class="logo">
+        <p>
+            <strong>Repórter Davi</strong><br>
+            Notícias de Feira de Santana e Região
+        </p>
+    </div>
+
+    <!-- CONTEÚDO CENTRALIZADO -->
+    <div class="conteudo">
+
+        <h1>Assaí está com mais de 160 vagas abertas na Bahia</h1>
+        <p>A empresa oferece remuneração e pacote de benefícios compatíveis com o mercado e possui, também, um plano
+            estruturado de carreira.</p>
+        <p class="data">Publicado em 03/03/2026</p>
+
+        <!-- IMAGEM PRImaria -->
+        <img src="../img/assai.jpeg" alt="Dhpp" class="imagem-primaria">
+        <p>Foto: Divulgação</p>
+        <br />
+
+        <p>
+            O Assaí está com <Strong span class="vermelho">cerca de 165 vagas abertas</Strong>
+            para atuar nas lojas no estado da Bahia. Todas as posições de trabalho
+            são elegíveis a pessoas com deficiência e abrangem diferentes
+            áreas operacionais. 
+        </p>
+        <p>
+            Entre as principais oportunidades oferecidas estão vagas para o
+            cargo de <Strong span class="vermelho">Operador(a) de loja e Operador(a) de caixa</Strong>. Os(as)
+            interessados(as) devem se inscrever diretamente nas vagas
+            disponíveis da região, pelo link e selecione o estado da Bahia na busca.
+            Para o cadastro, é necessário ter em mãos CPF, número de telefone,
+            mais de 18 anos, ensino médio completo e contar com um endereço
+            de e-mail atualizado. 
+        </p>
+        <p>
+            A empresa oferece remuneração e pacote de benefícios compatíveis com
+            o mercado e possui, também, um plano estruturado de carreira, com
+            investimentos constantes em capacitação e no desenvolvimento profissional
+            de seus(suas) colaboradores(as) em todo o país.
+        </p>
+        <p>
+            O Assaí está presente na Bahia desde 2013 e conta com
+            24 lojas nas cidades de: Barreiras, Camaçari, Feira de Santana,
+            Guanambi, Ilhéus, Itapetinga, Jequié, Juazeiro, Lauro de Freitas,
+            Paulo Afonso, Salvador, Senhor do Bonfim, Serrinha, Teixeira de
+            Freitas, Vitória da Conquista. Ao todo, a companhia gera
+            <Strong span class="vermelho">cerca de 12 mil empregos entre diretos e indiretos</Strong>.
+        </p>
+
+
+
+
+
+
+
+        <p><a href="index.html">⬅ Voltar para a página inicial</a></p>
+        <script>
+            const btn = document.getElementById("modo-btn");
+
+            // Ativa/desativa o modo escuro
+            if (btn) {
+                btn.addEventListener("click", () => {
+                    document.body.classList.toggle("dark");
+                    localStorage.setItem("modo", document.body.classList.contains("dark") ? "escuro" : "claro");
+                });
+            }
+
+            // Mantém o modo salvo ao abrir qualquer página
+            if (localStorage.getItem("modo") === "escuro") {
+                document.body.classList.add("dark");
+            }
+        </script>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

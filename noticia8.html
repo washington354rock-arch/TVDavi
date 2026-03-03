@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NN0132G8MX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-NN0132G8MX');
+    </script>
+    <meta charset="UTF-8">
+    <title>Calçamento solto, ruas intransitáveis e buracos preocupam moradores de Feira de Santana
+    </title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="acessibilidade">
+        <button id="aumentar-fonte" aria-label="Aumentar fonte">A+</button>
+        <button id="diminuir-fonte" aria-label="Diminuir fonte">A−</button>
+    </div>
+    <button id="modo-btn">🌙</button>
+
+    <!-- BLOCO DO PERFIL -->
+    <div class="perfil">
+        <img src="img/emblematv.jpg" alt="TVDavi" class="logo">
+        <p>
+            <strong>Repórter Davi</strong><br>
+            Notícias de Feira de Santana e Região
+        </p>
+    </div>
+
+    <!-- CONTEÚDO CENTRALIZADO -->
+    <div class="conteudo">
+
+        <h1>Calçamento solto, ruas intransitáveis e buracos preocupam moradores de Feira de Santana
+        </h1>
+        <p class="data">Publicado em 03/03/2026</p>
+
+        <!-- IMAGEM PRINCIPAL -->
+        <img src="img/buracos.jpeg" alt="Dhpp" class="imagem-primaria">
+        <p>Rua Vandinha, no bairro Caseb</p><br />
+
+        <p>
+            Constantes são as reclamações dos moradores de Feira de Santana
+            a respeito de ruas intransitáveis, acúmulo de lixo, mato alto e buracos
+            nas vias do município.
+        </p>
+        <p>
+            A <Strong span class="azul">Rua Granito, no bairro Pedra do Descanso</Strong>,
+            é um dos alvos de reclamação. O local não tem nenhum tipo de calçamento e,
+            para piorar, os paralelepípedos se misturam com a lama, intensificada em períodos
+            chuvosos. “Como é que a gente paga nossos impostos, nossos encargos, e mora
+            numa situação dessas aqui? É complicado… Complicadíssimo”, contou Willian,
+            morador da Rua Granito.
+        </p>
+        <p>
+            Situação similar acontece na <Strong span class="azul">Rua Vandinha, no bairro Caseb</Strong>.
+            Sem calçamento e pavimentação, torna-se difícil se locomover na via, especialmente
+            em dias chuvosos, podendo ocasionar uma queda.
+        </p>
+        <p>
+            <Strong span class="azul">Na Rua A do conjunto Jomafa</Strong>, um buraco se abriu.
+            Os moradores utilizaram placas e estruturas de madeira para sinalizar o vão,
+            na tentativa de evitar acidentes.
+        </p>
+        <p>
+            No <Strong span class="azul">conjunto Jomafa, na entrada do caminho 35</Strong>,
+            um buraco também se abriu, mas desta vez, não há sinalização alguma
+            aos motoristas e pedestres. De acordo com Augusto, morador da região,
+            um carro ficou atolado no buraco devido ao rompimento da boca de lobo.
+            Agora, o caminho está interditado.
+        </p>
+
+        <!-- IMAGEM SECUNDARIA -->
+        <img src="img/buraco2.jpeg" alt="Dhpp" class="imagem-secundaria">
+        <p>Caminho 35, no conjunto Jomafa</p><br />
+        <p>
+            É necessário atenção à <Strong span class="azul">Rua Leôncio Ramos Gomes</Strong>,
+            no <em>bairro Brasília</em>, próxima ao cruzamento da Rua Senador
+            Quintino com a Avenida João Durval. O calçamento está se
+            desfazendo e, nas extremidades da via, o descarte irregular
+            de lixo e a vegetação crescente começam a se intensificar.
+            Para que os paralelepípedos não se soltem cada vez mais,
+            torna-se indispensável uma manutenção.
+        </p>
+        <!-- IMAGEM SECUNDARIA -->
+        <img src="img/buraco3.jpeg" alt="Dhpp" class="imagem-secundaria">
+        <p>Rua Leôncio Ramos Gomes, no bairro Brasília </p><br />
+
+        <p>
+            Um córrego vem incomodando os residentes da
+            <Strong span class="azul">Rua José Gonzaga Sobrinho</Strong>,
+            no Conjunto Alvorada, no <em>bairro Gabriela</em>. O córrego apresenta muito mato,
+            terra e entulhos, o que deixa a água atingir o nível máximo. “Acredito que na
+            próxima chuva forte que tiver, vai transbordar. Nós moradores da Rua José
+            Gonzaga Sobrinho pedimos socorro para que seja feita a limpeza o mais rápido
+            possível”, solicita a moradora Sinthia.
+        </p>
+
+
+
+        <p><a href="index.html">⬅ Voltar para a página inicial</a></p>
+        <script>
+            const btn = document.getElementById("modo-btn");
+
+            // Ativa/desativa o modo escuro
+            if (btn) {
+                btn.addEventListener("click", () => {
+                    document.body.classList.toggle("dark");
+                    localStorage.setItem("modo", document.body.classList.contains("dark") ? "escuro" : "claro");
+                });
+            }
+
+            // Mantém o modo salvo ao abrir qualquer página
+            if (localStorage.getItem("modo") === "escuro") {
+                document.body.classList.add("dark");
+            }
+        </script>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
