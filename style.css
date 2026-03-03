@@ -400,4 +400,35 @@ body.dark .menu .pesquisa input {
   line-height: 1.3;
   margin-bottom: 20px;
 }
+/* ========================= */
+/* ACESSIBILIDADE */
+/* ========================= */
 
+.acessibilidade {
+  position: fixed;
+  right: 20px;
+  top: 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 9999;
+}
+
+.acessibilidade button {
+  width: 50px;
+  height: 50px;
+  border: none;
+  border-radius: 50%;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  background: #222;
+  color: #fff;
+  transition: all 0.3s ease;
+}
+
+.acessibilidade button:hover {
+  background: #ffcc00;
+  color: #000;
+  transform: scale(1.1);
+}
