@@ -180,18 +180,7 @@
   </div>
 
 
-  <script>
-    const btn = document.getElementById("modo-btn");
-    if (btn) {
-      btn.addEventListener("click", () => {
-        document.body.classList.toggle("dark");
-        localStorage.setItem("modo", document.body.classList.contains("dark") ? "escuro" : "claro");
-      });
-    }
-    if (localStorage.getItem("modo") === "escuro") {
-      document.body.classList.add("dark");
-    }
-  </script>
+ 
   <script src="script.js"></script>
 </body>
 
