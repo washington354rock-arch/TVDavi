@@ -42,14 +42,15 @@
 
   <div id="noticias-container">
 
-  <!-- NOTÍCIA 12 -->
+    <!-- NOTÍCIA 12 -->
     <div class="card noticia">
       <img src="img/sonegador.jpeg" alt="">
       <div class="texto">
         <a href="noticia12.html">
-          <h3>Empresários do setor de comércio varejista de alimentos são investigados por sonegar mais de R$ 10 milhões em impostos na Bahia</h3>
+          <h3>Empresários do setor de comércio varejista de alimentos são investigados por sonegar mais de R$ 10 milhões
+            em impostos na Bahia</h3>
         </a>
-        <p>Na manhã desta quinta-feira (5), o Ministério Público do estado (MP-BA) cumpriu um mandado de 
+        <p>Na manhã desta quinta-feira (5), o Ministério Público do estado (MP-BA) cumpriu um mandado de
           prisão e 10 mandados de busca e apreensão em Salvador e Alagoinhas.</p>
         <br />
         <p class="data-noticia" data-data="2026-03-05"></p>
@@ -63,7 +64,8 @@
         <a href="noticia11.html">
           <h3>Bahia registra mais de 1400 ocorrências de meningite em 6 anos e ocupa 2º lugar em casos no Nordeste</h3>
         </a>
-        <p>No Nordeste, à frente da Bahia, aparece apenas o estado de Pernambuco, no qual foram reportadas 2159 ocorrências de meningite.</p>
+        <p>No Nordeste, à frente da Bahia, aparece apenas o estado de Pernambuco, no qual foram reportadas 2159
+          ocorrências de meningite.</p>
         <br />
         <p class="data-noticia" data-data="2026-03-05"></p>
       </div>
@@ -76,13 +78,14 @@
         <a href="noticia10.html">
           <h3>Operação Chave Mestra desarticula esquema de roubo de veículos em Feira de Santana</h3>
         </a>
-        <p>As apurações também identificaram que, além da subtração dos veículos, a organização promovia a adulteração de sinais identificadores.</p>
+        <p>As apurações também identificaram que, além da subtração dos veículos, a organização promovia a adulteração
+          de sinais identificadores.</p>
         <br />
         <p class="data-noticia" data-data="2026-03-05"></p>
       </div>
     </div>
 
-    
+
     <!-- NOTÍCIA 9 -->
     <div class="card noticia">
       <img src="img/vigsanit.jpeg" alt="">
@@ -211,22 +214,7 @@
 
 
   </div>
-  <script>
-    const btn = document.getElementById("modo-btn");
 
-    // Ativa/desativa o modo escuro
-    if (btn) {
-      btn.addEventListener("click", () => {
-        document.body.classList.toggle("dark");
-        localStorage.setItem("modo", document.body.classList.contains("dark") ? "escuro" : "claro");
-      });
-    }
-
-    // Mantém o modo salvo ao abrir qualquer página
-    if (localStorage.getItem("modo") === "escuro") {
-      document.body.classList.add("dark");
-    }
-  </script>
 
   <script src="script.js"></script>
 </body>

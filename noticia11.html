@@ -135,22 +135,7 @@
 
 
         <p><a href="index.html">⬅ Voltar para a página inicial</a></p>
-        <script>
-            const btn = document.getElementById("modo-btn");
-
-            // Ativa/desativa o modo escuro
-            if (btn) {
-                btn.addEventListener("click", () => {
-                    document.body.classList.toggle("dark");
-                    localStorage.setItem("modo", document.body.classList.contains("dark") ? "escuro" : "claro");
-                });
-            }
-
-            // Mantém o modo salvo ao abrir qualquer página
-            if (localStorage.getItem("modo") === "escuro") {
-                document.body.classList.add("dark");
-            }
-        </script>
+        
 
     </div>
     <script src="script.js"></script>
