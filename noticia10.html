@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NN0132G8MX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-NN0132G8MX');
+    </script>
+    <meta charset="UTF-8">
+    <title>Operação Chave Mestra desarticula esquema de roubo de veículos em Feira de Santana</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="acessibilidade">
+        <button id="aumentar-fonte" aria-label="Aumentar fonte">A+</button>
+        <button id="diminuir-fonte" aria-label="Diminuir fonte">A−</button>
+    </div>
+    <button id="modo-btn">🌙</button>
+
+    <!-- BLOCO DO PERFIL -->
+    <div class="perfil">
+        <img src="img/emblematv.jpg" alt="TVDavi" class="logo">
+        <p>
+            <strong>Repórter Davi</strong><br>
+            Notícias de Feira de Santana e Região
+        </p>
+    </div>
+
+    <!-- CONTEÚDO CENTRALIZADO -->
+    <div class="conteudo">
+
+        <h1>Operação Chave Mestra desarticula esquema de roubo de veículos em Feira de Santana</h1>
+        <p>As apurações também identificaram que, além da subtração dos veículos, a organização promovia a adulteração
+            de sinais identificadores.</p>
+        <p class="data">Publicado em 05/03/2026</p>
+
+        <!-- IMAGEM PRINCIPAL -->
+        <img src="img/Operação.jpeg" alt="Dhpp" class="imagem-primaria">
+        <p>Foto: Marcela Correia/Ascom PCBA</p><br />
+
+        <p>
+            Desarticular um esquema criminoso voltado à subtração de veículos
+            pertencentes a empresas locadoras é o principal objetivo da Operação
+            Chave Mestra, deflagrada nesta quinta-feira (5) por equipes do Departamento
+            Especializado de Investigações Criminais (DEIC), da <strong span class="azul">Polícia Civil</strong> da
+            Bahia.
+        </p>
+        <p>
+            A investigação desmontou uma estrutura organizada e articulada voltada
+            à prática reiterada desse tipo de crime. O grupo atuava mediante fraude
+            consistente na reprodução ilegal de chaves veiculares e na instalação
+            clandestina de dispositivos de rastreamento, o que possibilitava a posterior
+            subtração dos automóveis após a devolução regular às locadoras e a nova
+            locação a terceiros de boa-fé.
+        </p>
+
+        <!-- IMAGEM SECUNDARIA -->
+        <img src="img/operacao2.jpeg" alt="Dhpp" class="imagem-secundaria">
+        <p>foto: Marcela Correia/Ascom PCBA</p><br />
+        <p>
+            As apurações também identificaram que, além da subtração
+            dos veículos, a organização promovia a adulteração de sinais
+            identificadores, como chassi, motor e vidros, bem como a falsificação
+            de documentos para viabilizar a revenda ilícita. Em seguida,
+            os automóveis eram encaminhados para outras cidades,
+            principalmente para o interior do estado, onde passavam a circular
+            com placas adulteradas ou eram inseridos no mercado clandestino,
+            gerando significativo prejuízo às empresas e
+            fomentando a cadeia criminosa.
+        </p>
+        <p>
+            <em>Durante a ação, são cumpridos mandados de prisão
+                preventiva e de busca e apreensão nos municípios de <strong span class="azul">Salvador,
+                    Feira de Santana, Dias D'Ávila, Aracaju e Balneário Camboriú.</strong></em>
+        </p>
+        <p>
+            Cerca de 150 policiais participam da operação, por meio de equipes do
+            Departamento Especializado de Investigações Criminais (DEIC), do
+            Departamento de Homicídios e Proteção à Pessoa (DHPP), do
+            Departamento Especializado de Investigação e Repressão ao Narcotráfico
+            (DENARC), do Departamento de Polícia Metropolitana (DEPOM), da
+            Coordenação de Operações e Recursos Especiais (CORE), da Força
+            Correcional Especial Integrada da Secretaria da Segurança Pública
+            (FORCE-SSP), do Departamento de Polícia Técnica (DPT) e da
+            Corregedoria da PM (CORREG/PM).
+        </p>
+
+
+        <p><a href="index.html">⬅ Voltar para a página inicial</a></p>
+        <script>
+            const btn = document.getElementById("modo-btn");
+
+            // Ativa/desativa o modo escuro
+            if (btn) {
+                btn.addEventListener("click", () => {
+                    document.body.classList.toggle("dark");
+                    localStorage.setItem("modo", document.body.classList.contains("dark") ? "escuro" : "claro");
+                });
+            }
+
+            // Mantém o modo salvo ao abrir qualquer página
+            if (localStorage.getItem("modo") === "escuro") {
+                document.body.classList.add("dark");
+            }
+        </script>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

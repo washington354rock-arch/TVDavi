@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NN0132G8MX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-NN0132G8MX');
+    </script>
+    <meta charset="UTF-8">
+    <title>Empresários do setor de comércio varejista de alimentos são investigados por sonegar mais de R$ 10 milhões em
+        impostos na Bahia</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="acessibilidade">
+        <button id="aumentar-fonte" aria-label="Aumentar fonte">A+</button>
+        <button id="diminuir-fonte" aria-label="Diminuir fonte">A−</button>
+    </div>
+    <button id="modo-btn">🌙</button>
+
+    <!-- BLOCO DO PERFIL -->
+    <div class="perfil">
+        <img src="img/emblematv.jpg" alt="TVDavi" class="logo">
+        <p>
+            <strong>Repórter Davi</strong><br>
+            Notícias de Feira de Santana e Região
+        </p>
+    </div>
+
+    <!-- CONTEÚDO CENTRALIZADO -->
+    <div class="conteudo">
+
+        <h1>Empresários do setor de comércio varejista de alimentos são investigados por sonegar mais de R$ 10 milhões
+            em impostos na Bahia</h1>
+        <p>Na manhã desta quinta-feira (5), o Ministério Público do estado (MP-BA) cumpriu um mandado de prisão e
+            10 mandados de busca e apreensão em Salvador e Alagoinhas.</p>
+        <p class="data">Publicado em 05/03/2026</p>
+
+        <!-- IMAGEM PRINCIPAL -->
+        <img src="img/sonegador.jpeg" alt="Dhpp" class="imagem-primaria">
+        <p>Empresários do setor de comércio varejista de alimentos são investigados por sonegar mais de R$ 10 milhões em
+            impostos na Bahia — Foto: Sérgio Figueiredo/MP-BA</p><br />
+        <p>
+            Empresários do setor de comércio varejista de alimentos da <strong span class="azul">Bahia</strong> são
+            investigados por negar mais de R$ 10 milhões em Imposto sobre Circulação
+            de Mercadorias e Serviços (ICMS).
+        </p>
+        <p>
+            Na manhã desta quinta-feira (5), o <strong span class="azul">Ministério Público do estado (MP-BA)</strong>
+            cumpriu um mandado de prisão e 10 mandados de busca e apreensão nas
+            cidades de <strong span class="azul">Salvador e Alagoinhas</strong>, a cerca de 120 km da capital baiana.
+        </p>
+        <p>
+            De acordo com o MP-BA, em Alagoinhas, houve uma tentativa de fuga de um
+            investigado, que não teve o nome relevado. No entanto, ele foi alcançado e preso.
+        </p>
+        <p>
+            As investigações apontaram que o grupo estruturou um esquema de sucessivas
+            constituições e encerramentos simulados de pessoas jurídicas, todas explorando
+            a mesma atividade econômica, com o objetivo de fraudar a fiscalização tributária,
+            frustrar a cobrança de créditos tributários de ICMS e blindar o patrimônio.
+        </p>
+        <p>
+            As apurações da Inspetoria Fazendária de Investigação e Pesquisa
+            (Infip), do Ministério Público e da <strong span class="azul">Polícia Civil, na Bahia</strong>,
+            identificaram que:
+        </p>
+        <ul class="lista-caso">
+            <li>O grupo deixava de recolher aos cofres públicos, no prazo legal e de forma continuada, o ICMS declarado.
+            </li>
+
+            <li>Também se valia de diversas manobras para sonegar o tributo, como a omissão de lançamentos na
+                escrituração fiscal e a sucessão fraudulenta de empresas vinculadas entre si, mediante pessoas sem
+                capacidade econômico-financeira.</li>
+
+            <li>A intenção era esconder os reais proprietários e dar continuidade operacional às empresas que eram
+                “abandonadas” com vultosas dívidas fiscais.</li>
+
+            <li>O grupo se valeu, ainda, de uma holding patrimonial criada após o ajuizamento das execuções fiscais para
+                blindar o patrimônio e dissimular a estrutura empresarial ilícita.</li>
+        </ul><br />
+
+        <p>
+            Segundo a Força-Tarefa, a operação é fruto da intensificação
+            das ações de fraudes tributárias e da prática de declarar o débito
+            de ICMS e não repassar o imposto à Fazenda, de forma contumaz,
+            o que configura crime contra a ordem tributária.
+        </p>
+        <p>
+            A Força-Tarefa ressaltou que estas práticas criminosas causam graves
+            danos à coletividade, especialmente considerando que o imposto
+            foi efetivamente pago pelos consumidores e não repassado aos cofres
+            públicos, resultando em perda de receitas necessárias às políticas
+            públicas e serviços essenciais para a população.
+        </p>
+
+        <!-- IMAGEM SECUNDARIA -->
+        <img src="img/sonegador1.jpeg" alt="Dhpp" class="imagem-secundaria">
+        <p>Empresários do setor de comércio varejista de alimentos são investigados por
+            sonegar mais de R$ 10 milhões em impostos na Bahia — Foto: Sérgio Figueiredo/MP-BA</p>
+
+
+
+        <p><a href="index.html">⬅ Voltar para a página inicial</a></p>
+        <script>
+            const btn = document.getElementById("modo-btn");
+
+            // Ativa/desativa o modo escuro
+            if (btn) {
+                btn.addEventListener("click", () => {
+                    document.body.classList.toggle("dark");
+                    localStorage.setItem("modo", document.body.classList.contains("dark") ? "escuro" : "claro");
+                });
+            }
+
+            // Mantém o modo salvo ao abrir qualquer página
+            if (localStorage.getItem("modo") === "escuro") {
+                document.body.classList.add("dark");
+            }
+        </script>
+
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
