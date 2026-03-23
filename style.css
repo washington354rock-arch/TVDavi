@@ -437,3 +437,10 @@ body.dark .menu .pesquisa input {
   margin-bottom: 12px;
   line-height: 1.6;
 }
+.destaque-azul {
+    background-color: #a9c9eb; /* fundo azul */
+    color: rgb(5, 5, 5);              /* texto branco */
+    padding: 2px 4px;          /* espaçamento interno */
+    border-radius: 3px;        /* cantos arredondados */
+    font-weight: bold;         /* opcional: texto em negrito */
+}
