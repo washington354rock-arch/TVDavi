@@ -7,7 +7,7 @@
 }
 
 body {
-  background: linear-gradient(180deg, #9bb1b0 0%, #ffffff 100%);
+  background: linear-gradient(180deg, #b5cef6 0%, #ffffff 100%);
   color: #000;
   padding: 20px;
   transition: background 0.3s, color 0.3s;
@@ -120,12 +120,14 @@ body {
   width: 60px;
   height: 60px;
   object-fit: contain;
+  border-radius: 100%;
 }
 
 /* TEXTO AO LADO DA LOGO */
 .topo .slogan {
   font-size: 0.95rem;
   color: #333;
+  font-family: Arial, Helvetica, sans-serif;
 }
 /* TAMANHO PADRÃO DA LOGO EM QUALQUER PÁGINA */
 .topo {
