@@ -174,16 +174,37 @@ function limparHtmlBasico(html) {
   return template.innerHTML;
 }
 
+function renderizarImagemNoConteudo(texto) {
+  const marcador = texto.match(/^\[imagem:(.+?)(?:\|(.*))?\]$/);
+  if (!marcador) return "";
+
+  const src = marcador[1].trim();
+  const legenda = marcador[2] ? limparHtmlBasico(marcador[2].trim()) : "";
+
+  if (!src || src.includes("javascript:")) return "";
+
+  return `
+    <figure class="imagem-conteudo">
+      <img src="${src}" alt="${legenda || "Imagem da notícia"}">
+      ${legenda ? `<figcaption>${legenda}</figcaption>` : ""}
+    </figure>
+  `;
+}
+
 function renderizarConteudo(conteudo) {
   if (!Array.isArray(conteudo) || conteudo.length === 0) {
     return "<p>Conteúdo completo em preparação.</p>";
   }
 
   return conteudo
-    .map((paragrafo) => `<p>${limparHtmlBasico(paragrafo)}</p>`)
+    .map((paragrafo) => {
+      const texto = String(paragrafo || "").trim();
+      const imagem = renderizarImagemNoConteudo(texto);
+      if (imagem) return imagem;
+      return `<p>${limparHtmlBasico(texto)}</p>`;
+    })
     .join("");
 }
-
 async function carregarNoticiaDetalhe() {
   const container = document.getElementById("noticia-detalhe");
   if (!container) return;
@@ -258,7 +279,69 @@ function envolverSelecao(textarea, abertura, fechamento) {
   textarea.selectionStart = selecao.inicio + abertura.length;
   textarea.selectionEnd = selecao.fim + abertura.length;
 }
+function inserirTextoNoCursor(textarea, texto) {
+  const inicio = textarea.selectionStart || textarea.value.length;
+  const fim = textarea.selectionEnd || textarea.value.length;
+  const antes = textarea.value.slice(0, inicio);
+  const depois = textarea.value.slice(fim);
+  const prefixo = antes.endsWith("\n\n") || antes.length === 0 ? "" : "\n\n";
+  const sufixo = depois.startsWith("\n\n") || depois.length === 0 ? "" : "\n\n";
 
+  textarea.value = `${antes}${prefixo}${texto}${sufixo}${depois}`;
+  textarea.focus();
+}
+
+function normalizarCaminhoImagem(caminho) {
+  const valor = String(caminho || "").trim();
+  if (!valor) return "";
+  if (/^(https?:|data:|img\/)/i.test(valor)) return valor;
+  return `img/${valor.replace(/^\/+/, "")}`;
+}
+
+function arquivoParaBase64(arquivo) {
+  return new Promise((resolve, reject) => {
+    const leitor = new FileReader();
+    leitor.onload = () => {
+      const resultado = String(leitor.result || "");
+      resolve(resultado.split(",")[1] || "");
+    };
+    leitor.onerror = () => reject(new Error("Não foi possível ler a imagem."));
+    leitor.readAsDataURL(arquivo);
+  });
+}
+
+async function uploadImagemAdmin(arquivo) {
+  const senha = obterSenhaAdmin();
+
+  if (!senha) {
+    bloquearPainelAdmin();
+    throw new Error("Digite a senha do painel antes de enviar imagem.");
+  }
+
+  if (!arquivo) {
+    throw new Error("Escolha uma imagem primeiro.");
+  }
+
+  const conteudoBase64 = await arquivoParaBase64(arquivo);
+  const resposta = await fetch("/api/upload-imagem", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      senha,
+      nome: arquivo.name,
+      tipo: arquivo.type,
+      conteudoBase64
+    })
+  });
+
+  const dados = await resposta.json().catch(() => ({}));
+
+  if (!resposta.ok) {
+    throw new Error(dados.erro || "Não foi possível enviar a imagem.");
+  }
+
+  return dados.caminho;
+}
 function obterSenhaAdmin() {
   return sessionStorage.getItem("tvdavi_admin_senha") || "";
 }
@@ -296,7 +379,7 @@ function bloquearPainelAdmin() {
 function montarNoticiaAdmin() {
   const titulo = document.getElementById("admin-titulo")?.value.trim();
   const resumo = document.getElementById("admin-resumo")?.value.trim();
-  const imagem = document.getElementById("admin-imagem")?.value.trim();
+  const imagem = normalizarCaminhoImagem(document.getElementById("admin-imagem")?.value.trim());
   const data = document.getElementById("admin-data")?.value;
   const categoria = document.getElementById("admin-categoria")?.value.trim();
   const videoYoutube = document.getElementById("admin-video")?.value.trim();
@@ -506,6 +589,39 @@ function iniciarAdmin() {
     }
   });
 
+  document.getElementById("btn-upload-imagem-principal")?.addEventListener("click", async () => {
+    const inputArquivo = document.getElementById("admin-imagem-arquivo");
+    const campoImagem = document.getElementById("admin-imagem");
+    const arquivo = inputArquivo?.files?.[0];
+
+    try {
+      mostrarStatusAdmin("Enviando imagem principal...", "carregando");
+      const caminho = await uploadImagemAdmin(arquivo);
+      if (campoImagem) campoImagem.value = caminho;
+      mostrarStatusAdmin("Imagem principal enviada e caminho preenchido.", "sucesso");
+    } catch (erro) {
+      mostrarStatusAdmin(erro.message, "erro");
+    }
+  });
+
+  document.getElementById("btn-inserir-imagem-extra")?.addEventListener("click", async () => {
+    const inputArquivo = document.getElementById("admin-imagem-extra-arquivo");
+    const campoLegenda = document.getElementById("admin-imagem-extra-legenda");
+    const campoConteudo = document.getElementById("admin-conteudo");
+    const arquivo = inputArquivo?.files?.[0];
+
+    try {
+      mostrarStatusAdmin("Enviando imagem extra...", "carregando");
+      const caminho = await uploadImagemAdmin(arquivo);
+      const legenda = campoLegenda?.value.trim() || "";
+      inserirTextoNoCursor(campoConteudo, `[imagem:${caminho}${legenda ? `|${legenda}` : ""}]`);
+      if (inputArquivo) inputArquivo.value = "";
+      if (campoLegenda) campoLegenda.value = "";
+      mostrarStatusAdmin("Imagem extra enviada e inserida no texto.", "sucesso");
+    } catch (erro) {
+      mostrarStatusAdmin(erro.message, "erro");
+    }
+  });
   document.getElementById("btn-preview")?.addEventListener("click", () => {
     const noticia = montarNoticiaAdmin();
     mostrarResultadoAdmin(noticia);
@@ -567,5 +683,8 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 atualizarTitulo();
+
+
+
 
 

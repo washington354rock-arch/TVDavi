@@ -1043,3 +1043,93 @@ body.dark .admin-lista-item p {
     justify-content: flex-start;
   }
 }
+
+/* UPLOAD DE IMAGENS NO ADMIN */
+.admin-upload-linha {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  align-items: center;
+}
+
+.admin-upload-linha input,
+.admin-imagem-extra input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #1f2937;
+}
+
+.admin-upload-linha button,
+.admin-imagem-extra button {
+  background: #111827;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 11px 13px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.admin-upload-linha button:hover,
+.admin-imagem-extra button:hover {
+  background: #b91c1c;
+}
+
+.admin-imagem-extra {
+  padding: 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  background: #f8fafc;
+}
+
+.admin-imagem-extra h2 {
+  font-size: 1.1rem;
+  color: #111827;
+  margin-bottom: 8px;
+}
+
+.imagem-conteudo {
+  margin: 24px 0;
+}
+
+.imagem-conteudo img {
+  width: 100%;
+  border-radius: 10px;
+  display: block;
+}
+
+.imagem-conteudo figcaption {
+  margin-top: 8px;
+  color: #64748b;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+body.dark .admin-upload-linha input,
+body.dark .admin-imagem-extra input[type="file"] {
+  background: #111827;
+  color: #f9fafb;
+  border-color: #374151;
+}
+
+body.dark .admin-imagem-extra {
+  background: #111827;
+  border-color: #374151;
+}
+
+body.dark .admin-imagem-extra h2 {
+  color: #f9fafb;
+}
+
+body.dark .imagem-conteudo figcaption {
+  color: #cbd5e1;
+}
+
+@media (max-width: 700px) {
+  .admin-upload-linha {
+    grid-template-columns: 1fr;
+  }
+}

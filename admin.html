@@ -51,9 +51,13 @@
           <textarea id="admin-resumo" rows="3" required></textarea>
         </label>
 
-        <label>Imagem
+        <label>Imagem principal
           <input type="text" id="admin-imagem" placeholder="img/nome-da-foto.jpeg" required>
         </label>
+        <div class="admin-upload-linha">
+          <input type="file" id="admin-imagem-arquivo" accept="image/*">
+          <button type="button" id="btn-upload-imagem-principal">Enviar imagem principal</button>
+        </div>
 
         <div class="admin-grid">
           <label>Data
@@ -88,8 +92,24 @@
           <button type="button" data-tag="mark">Marca-texto</button>
         </div>
 
+        <div class="admin-imagem-extra">
+          <h2>Imagem no meio ou final do texto</h2>
+          <p class="admin-aviso">Envie uma imagem extra e o painel insere um marcador no texto. No site, esse marcador vira imagem com legenda.</p>
+          <div class="admin-grid">
+            <label>Imagem extra
+              <input type="file" id="admin-imagem-extra-arquivo" accept="image/*">
+            </label>
+            <label>Legenda da imagem extra
+              <input type="text" id="admin-imagem-extra-legenda" placeholder="Foto: divulgação">
+            </label>
+          </div>
+          <div class="admin-acoes">
+            <button type="button" id="btn-inserir-imagem-extra">Enviar e inserir no texto</button>
+          </div>
+        </div>
+
         <label>Texto da notícia
-          <textarea id="admin-conteudo" rows="10" placeholder="Separe os parágrafos com uma linha em branco." required></textarea>
+          <textarea id="admin-conteudo" rows="10" placeholder="Separe os parágrafos com uma linha em branco. Para imagem extra, use o botão acima." required></textarea>
         </label>
 
         <div class="admin-acoes">
@@ -129,4 +149,6 @@
   <script src="script.js"></script>
 </body>
 </html>
+
+
 
