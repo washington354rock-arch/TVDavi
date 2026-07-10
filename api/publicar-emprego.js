@@ -105,6 +105,7 @@ function validarEmprego(emprego) {
     data,
     categoria: "Empregos",
     link: `emprego.html?id=${id}`,
+    videoYoutube: urlOpcional(emprego.videoYoutube),
     fonte: textoOpcional(emprego.fonte),
     linkFonte: urlOpcional(emprego.linkFonte),
     conteudo: Array.isArray(emprego.conteudo)
@@ -144,3 +145,4 @@ function limparHtml(valor) {
     .trim()
     .slice(0, 10000);
 }
+

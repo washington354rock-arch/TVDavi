@@ -1267,3 +1267,60 @@ body.dark .admin-empregos h1 {
 .admin-empregos[open] summary::after {
   content: "Fechar";
 }
+
+/* FORMULARIO DE EMPREGOS IGUAL AO DE NOTICIAS */
+.admin-empregos {
+  border-top-color: #2563eb;
+}
+
+.admin-empregos h1 {
+  color: #111827;
+}
+
+#form-emprego-admin {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+#form-emprego-admin label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: #334155;
+  font-weight: 700;
+}
+
+#form-emprego-admin input,
+#form-emprego-admin textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  color: #1f2937;
+  background: #ffffff;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+#form-emprego-admin input:focus,
+#form-emprego-admin textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+body.dark .admin-empregos h1 {
+  color: #f9fafb;
+}
+
+body.dark #form-emprego-admin label {
+  color: #d1d5db;
+}
+
+body.dark #form-emprego-admin input,
+body.dark #form-emprego-admin textarea {
+  background: #111827;
+  color: #f9fafb;
+  border-color: #374151;
+}

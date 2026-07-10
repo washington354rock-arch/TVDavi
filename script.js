@@ -842,9 +842,11 @@ function iniciarAdmin() {
     botao.addEventListener("click", () => {
       const tag = botao.dataset.tag;
       const classe = botao.dataset.class;
+      const alvo = botao.dataset.target ? document.getElementById(botao.dataset.target) : conteudo;
+      if (!alvo) return;
 
-      if (tag) envolverSelecao(conteudo, `<${tag}>`, `</${tag}>`);
-      if (classe) envolverSelecao(conteudo, `<span class="${classe}">`, "</span>");
+      if (tag) envolverSelecao(alvo, `<${tag}>`, `</${tag}>`);
+      if (classe) envolverSelecao(alvo, `<span class="${classe}">`, "</span>");
     });
   });
 
@@ -985,6 +987,24 @@ function iniciarAdmin() {
     }
   });
 
+  document.getElementById("btn-inserir-imagem-extra-emprego")?.addEventListener("click", async () => {
+    const inputArquivo = document.getElementById("emprego-imagem-extra-arquivo");
+    const campoLegenda = document.getElementById("emprego-imagem-extra-legenda");
+    const campoConteudo = document.getElementById("emprego-conteudo");
+    const arquivo = inputArquivo?.files?.[0];
+
+    try {
+      mostrarStatusAdmin("Enviando imagem extra da vaga...", "carregando");
+      const caminho = await uploadImagemAdmin(arquivo);
+      const legenda = campoLegenda?.value.trim() || "";
+      inserirTextoNoCursor(campoConteudo, `[imagem:${caminho}${legenda ? `|${legenda}` : ""}]`);
+      if (inputArquivo) inputArquivo.value = "";
+      if (campoLegenda) campoLegenda.value = "";
+      mostrarStatusAdmin("Imagem extra da vaga enviada e inserida no texto.", "sucesso");
+    } catch (erro) {
+      mostrarStatusAdmin(erro.message, "erro");
+    }
+  });
   document.getElementById("btn-preview-emprego")?.addEventListener("click", () => {
     const emprego = montarEmpregoAdmin();
     mostrarResultadoAdmin(emprego);
@@ -1075,6 +1095,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 atualizarTitulo();
+
 
 
 

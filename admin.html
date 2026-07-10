@@ -148,12 +148,12 @@
       <h2>Prévia</h2>
       <div id="admin-preview" class="preview-noticia"></div>
     </section>
-    <details class="admin-bloco admin-empregos">
-      <summary>Novo emprego</summary>
-      <p class="admin-aviso">Use este bloco apenas para vagas. Ele publica em <strong>empregos.json</strong>, separado das notícias.</p>
+    <section class="admin-bloco admin-empregos">
+      <h1>Novo emprego</h1>
+      <p class="admin-aviso">Monte uma ou várias vagas como rascunho. Quando terminar, clique em <strong>Publicar vagas</strong> para atualizar o GitHub uma única vez.</p>
 
       <form id="form-emprego-admin">
-        <label>Título da vaga
+        <label>Título
           <input type="text" id="emprego-titulo" required>
         </label>
 
@@ -161,40 +161,75 @@
           <textarea id="emprego-resumo" rows="3" required></textarea>
         </label>
 
-        <label>Imagem
+        <label>Imagem principal
           <input type="text" id="emprego-imagem" placeholder="img/nome-da-foto.jpeg" required>
+        </label>
+
+        <label>Legenda da imagem principal
+          <input type="text" id="emprego-legenda-imagem" placeholder="Foto: divulgação">
         </label>
         <div class="admin-upload-linha">
           <input type="file" id="emprego-imagem-arquivo" accept="image/*">
-          <button type="button" id="btn-upload-imagem-emprego">Enviar imagem da vaga</button>
+          <button type="button" id="btn-upload-imagem-emprego">Enviar imagem principal</button>
         </div>
-
-        <label>Legenda da imagem
-          <input type="text" id="emprego-legenda-imagem" placeholder="Foto: divulgação">
-        </label>
 
         <div class="admin-grid">
           <label>Data
             <input type="date" id="emprego-data" required>
           </label>
 
-          <label>Fonte
-            <input type="text" id="emprego-fonte" placeholder="SineBahia, empresa, prefeitura...">
+          <label>Categoria
+            <input type="text" value="Empregos" disabled>
           </label>
         </div>
 
-        <label>Link da fonte ou inscrição
-          <input type="url" id="emprego-link-fonte" placeholder="https://...">
+        <label>Vídeo do YouTube ou G1
+          <input type="url" id="emprego-video" placeholder="https://www.youtube.com/watch?v=... ou https://g1.globo.com/.../video/...">
         </label>
 
+        <div class="admin-grid">
+          <label>Fonte
+            <input type="text" id="emprego-fonte" placeholder="G1, SineBahia, Prefeitura...">
+          </label>
+
+          <label>Link da fonte
+            <input type="url" id="emprego-link-fonte" placeholder="https://...">
+          </label>
+        </div>
+
+        <div class="toolbar-editor toolbar-emprego">
+          <button type="button" data-target="emprego-conteudo" data-tag="strong">B</button>
+          <button type="button" data-target="emprego-conteudo" data-tag="em">I</button>
+          <button type="button" data-target="emprego-conteudo" data-tag="s">S</button>
+          <button type="button" data-target="emprego-conteudo" data-class="texto-vermelho">Vermelho</button>
+          <button type="button" data-target="emprego-conteudo" data-class="texto-azul">Azul</button>
+          <button type="button" data-target="emprego-conteudo" data-tag="mark">Marca-texto</button>
+        </div>
+
+        <div class="admin-imagem-extra">
+          <h2>Imagem no meio ou final do texto</h2>
+          <p class="admin-aviso">Envie uma imagem extra e o painel insere um marcador no texto. No site, esse marcador vira imagem com legenda.</p>
+          <div class="admin-grid">
+            <label>Imagem extra
+              <input type="file" id="emprego-imagem-extra-arquivo" accept="image/*">
+            </label>
+            <label>Legenda da imagem extra
+              <input type="text" id="emprego-imagem-extra-legenda" placeholder="Foto: divulgação">
+            </label>
+          </div>
+          <div class="admin-acoes">
+            <button type="button" id="btn-inserir-imagem-extra-emprego">Enviar e inserir no texto</button>
+          </div>
+        </div>
+
         <label>Texto da vaga
-          <textarea id="emprego-conteudo" rows="8" placeholder="Separe os parágrafos com uma linha em branco." required></textarea>
+          <textarea id="emprego-conteudo" rows="10" placeholder="Separe os parágrafos com uma linha em branco. Para imagem extra, use o botão acima." required></textarea>
         </label>
 
         <div class="admin-acoes">
           <button type="submit">Adicionar vaga aos rascunhos</button>
           <button type="button" id="btn-publicar-empregos">Publicar vagas</button>
-          <button type="button" id="btn-preview-emprego">Pré-visualizar vaga</button>
+          <button type="button" id="btn-preview-emprego">Pré-visualizar</button>
           <button type="button" id="btn-limpar-empregos">Limpar rascunhos de vagas</button>
         </div>
       </form>
@@ -208,7 +243,7 @@
       <div id="admin-lista-empregos-rascunhos" class="admin-lista-noticias">
         <p class="carregando">Nenhuma vaga adicionada.</p>
       </div>
-    </details>
+    </section>
 
 
     <section class="admin-bloco">
@@ -228,6 +263,7 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
