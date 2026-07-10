@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NN0132G8MX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-NN0132G8MX');
+  </script>
+  <meta charset="UTF-8">
+  <title id="pageTitle">TVDavi - Notícias</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="acessibilidade">
+    <button id="aumentar-fonte" aria-label="Aumentar fonte">A+</button>
+    <button id="diminuir-fonte" aria-label="Diminuir fonte">A−</button>
+  </div>
+  <button id="modo-btn">🌙</button>
+
+  <header class="topo">
+    <img src="img/emblematv.jpg" alt="TVDavi" class="logo">
+    <p class="slogan">TV Davi® Notícias de Feira de Santana e Região</p>
+    
+  </header>
+
+  <nav class="menu">
+    <ul>
+      <li><a href="index.html">Início</a></li>
+      <li><a href="contato.html">Contato</a></li>
+      <li><a href="empregos.html">Empregos</a></li>
+    </ul>
+  </nav>
+
+  <h1 class="titulo-site">Últimas Notícias de Feira de Santana e região</h1>
+
+  <div id="noticias-container">
+
+
+<!-- NOTÍCIA 27 -->
+    <div class="card noticia">
+      <img src="img/indice.jpeg  " alt="">
+      <div class="texto">
+        <a href="noticia27.html">
+          <h3>Feira de Santana tem redução no índice de homicídios no 1º semestre comparado aos últimos 19 anos </h3>
+        </a>
+        <p>A Polícia Civil alcançou ainda o índice de 43,3% de elucidação da autoria dos crimes registrados no período.</p>
+        <br />
+        <p class="data-noticia" data-data="2026-07-03"></p>
+      </div>
+    </div>
+
+    <!-- NOTÍCIA 26 -->
+    <div class="card noticia">
+      <img src="img/estudante.jpeg  " alt="">
+      <div class="texto">
+        <a href="noticia26.html">
+          <h3>Estudante desaparece após sair para assistir jogo da seleção em Feira de Santana; polícia faz buscas </h3>
+        </a>
+        <p>Murilo Gomes Gonçalves, de 20 anos, está desaparecido em Feira de Santana desde a última segunda-feira (29).</p>
+        <br />
+        <p class="data-noticia" data-data="2026-07-03"></p>
+      </div>
+    </div>
+
+    <!-- NOTÍCIA 25 -->
+    <div class="card noticia">
+      <img src="img/estelionato.jpeg  " alt="">
+      <div class="texto">
+        <a href="noticia25.html">
+          <h3>Ex-funcionária de clínica de estética é indiciada por série de estelionatos na Bahia; prejuízo estimado é de mais de R$ 400 mil</h3>
+        </a>
+        <p>Indiciamento foi confirmado nesta quarta-feira (1°). As investigações apontam que a suspeita teria aproveitado a função que exercia na empresa, em Feira de Santana, para enviar links falsos de pagamento a clientes.</p>
+        <br />
+        <p class="data-noticia" data-data="2026-07-01"></p>
+      </div>
+    </div>
+
+
+    <!-- NOTÍCIA 24 -->
+    <div class="card noticia">
+      <img src="img/idosa.jpeg  " alt="">
+      <div class="texto">
+        <a href="noticia24.html">
+          <h3>Idosa fica em estado grave após ataque de abelhas na Bahia; outras duas pessoas também foram picadas</h3>
+        </a>
+        <p>Casos ocorreram em Riachão do Jacuípe. Idosa sofreu mais de 20 picadas e foi levada ao Hospital Municipal da cidade.</p>
+        <br />
+        <p class="data-noticia" data-data="2026-06-29"></p>
+      </div>
+    </div>
+    
+    <!-- NOTÍCIA 23 -->
+    <div class="card noticia">
+      <img src="img/brasil.jpeg" alt="">
+      <div class="texto">
+        <a href="noticia23.html">
+          <h3>Brasil reage, vence Japão de virada e segue firme na luta pelo hexa</h3>
+        </a>
+        <p>Com o resultado de 2 a 1, o Brasil segue vivo e avança para a fase de oitavas de final da Copa do Mundo 2026.</p>
+        <br />
+        <p class="data-noticia" data-data="2026-06-29"></p>
+      </div>
+    </div>
+    
+    <!-- NOTÍCIA 22 -->
+    <div class="card noticia">
+      <img src="img/mulher.jpeg" alt="">
+      <div class="texto">
+        <a href="noticia22.html">
+          <h3>Mulher morre atropelada e São João é cancelado em cidade baiana</h3>
+        </a>
+        <p>O marido dela também ficou ferido e recebeu atendimento médico. Até o momento, não foram divulgadas informações sobre o estado de saúde dele.</p>
+        <br />
+        <p class="data-noticia" data-data="2026-06-24"></p>
+      </div>
+    </div>
+    
+    <!-- NOTÍCIA 21 -->
+    <div class="card noticia">
+      <img src="img/homemm.jpeg" alt="">
+      <div class="texto">
+        <a href="noticia21.html">
+          <h3>Homem morre ao se queimar enquanto soltava espada junina no interior da Bahia</h3>
+        </a>
+        <p>Caso aconteceu na cidade de Sapeaçu, no Recôncavo do estado. Vítima de 47 anos foi socorrida, mas não resistiu aos ferimentos. Polícia Civil investiga as circunstâncias do acidente.</p>
+        <br />
+        <p class="data-noticia" data-data="2026-06-24"></p>
+      </div>
+    </div>
+    
+    <!-- NOTÍCIA 20 -->
+    <div class="card noticia">
+      <img src="img/moto.jpeg" alt="">
+      <div class="texto">
+        <a href="noticia20.html">
+          <h3>Motociclista morre após bater de frente com ônibus na BA-887</h3>
+        </a>
+        <p>Acidente aconteceu nesta terça-feira (23), em trecho do município de Valença.</p>
+        <br />
+        <p class="data-noticia" data-data="2026-06-24"></p>
+      </div>
+    </div>
+    
+    <!-- NOTÍCIA 19 -->
+    <div class="card noticia">
+      <img src="img/detento.jpeg" alt="">
+      <div class="texto">
+        <a href="noticia19.html">
+          <h3>Detento que cumpria pena em regime semiaberto escapa de Conjunto Penal durante reparo na rede elétrica na Bahia</h3>
+        </a>
+        <p>Ausência foi percebida durante o serviço de manutenção no presídio. Edson Mascarenhas Primo seguiu em direção a uma área de mata pertencente ao Exército.</p>
+        <br />
+        <p class="data-noticia" data-data="2026-06-18"></p>
+      </div>
+    </div>
+
+    <!-- NOTÍCIA 18 -->
+    <div class="card noticia">
+      <img src="img/pintor.jpeg" alt="">
+      <div class="texto">
+        <a href="noticia18.html">
+          <h3>Pintor morre após sofrer descarga elétrica enquanto trabalhava no interior da Bahia</h3>
+        </a>
+        <p>Acidente ocorreu em Mutuípe. Vítima, identificada como Rosevan de Jesus Santos, de 24 anos morreu após passar nove dias internado em Salvador.</p>
+        <br />
+        <p class="data-noticia" data-data="2026-06-18"></p>
+      </div>
+    </div>
+
+    <!-- NOTÍCIA 17 -->
+    <div class="card noticia">
+      <img src="img/acidente3.jpeg" alt="">
+      <div class="texto">
+        <a href="noticia17.html">
+          <h3>Três pessoas morrem após colisão entre caminhonete e carreta na BR-110</h3>
+        </a>
+        <p>Acidente aconteceu nesta quinta-feira (18), em trecho do município de Catu, no interior da Bahia. Vítimas ficaram presas às ferragens da caminhonete.</p>
+        <br />
+        <p class="data-noticia" data-data="2026-06-18"></p>
+      </div>
+    </div>
+
+    <!-- NOTÍCIA 16 -->
+    <div class="card noticia">
+      <img src="img/curto.jpeg" alt="">
+      <div class="texto">
+        <a href="noticia16.html">
+          <h3>Operação Curto-Circuito identifica irregularidades e furtos de energia em Feira de Santana</h3>
+        </a>
+        <p>De acordo com a distribuidora de energia elétrica, o prejuízo estimado é de 530 mil kWh de energia.</p>
+        <br />
+        <p class="data-noticia" data-data="2026-06-17"></p>
+      </div>
+    </div>
+
+  
+
+   
+
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
