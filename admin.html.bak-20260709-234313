@@ -111,22 +111,8 @@
       <h2>Prévia</h2>
       <div id="admin-preview" class="preview-noticia"></div>
     </section>
-
-    <section class="admin-bloco">
-      <div class="admin-lista-topo">
-        <div>
-          <h2>Notícias publicadas</h2>
-          <p class="admin-aviso">Carregue as notícias atuais e exclua somente quando tiver certeza.</p>
-        </div>
-        <button type="button" id="btn-carregar-noticias">Atualizar lista</button>
-      </div>
-      <div id="admin-lista-noticias" class="admin-lista-noticias">
-        <p class="carregando">A lista será carregada após entrar no painel.</p>
-      </div>
-    </section>
   </main>
 
   <script src="script.js"></script>
 </body>
 </html>
-

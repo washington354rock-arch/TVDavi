@@ -272,11 +272,7 @@ function limparSenhaAdmin() {
 }
 
 function mostrarStatusAdmin(mensagem, tipo = "") {
-  const loginAberto = !document.getElementById("admin-login")?.classList.contains("admin-escondido");
-  const status = loginAberto
-    ? document.getElementById("admin-login-status")
-    : document.getElementById("admin-publicar-status");
-
+  const status = document.getElementById("admin-publicar-status") || document.getElementById("admin-login-status");
   if (!status) return;
 
   status.textContent = mensagem;
@@ -368,73 +364,6 @@ async function publicarNoticiaAdmin(noticia) {
   mostrarStatusAdmin("Notícia enviada para o GitHub. A Vercel deve publicar em alguns instantes.", "sucesso");
   return dados;
 }
-function criarItemAdminNoticia(noticia) {
-  const link = noticia.link || `noticia.html?id=${encodeURIComponent(noticia.id)}`;
-  const data = noticia.data ? formatarData(noticia.data) : "Sem data";
-
-  return `
-    <article class="admin-lista-item" data-id="${noticia.id}">
-      <img src="${noticia.imagem}" alt="${noticia.titulo}">
-      <div>
-        <h3>${noticia.titulo}</h3>
-        <p>${data}${noticia.categoria ? ` - ${noticia.categoria}` : ""}</p>
-      </div>
-      <div class="admin-lista-acoes">
-        <a href="${link}" target="_blank" rel="noopener noreferrer">Abrir</a>
-        <button type="button" class="btn-excluir-noticia" data-id="${noticia.id}" data-titulo="${noticia.titulo.replace(/"/g, "&quot;")}">Excluir</button>
-      </div>
-    </article>
-  `;
-}
-
-async function carregarNoticiasAdmin() {
-  const lista = document.getElementById("admin-lista-noticias");
-  if (!lista) return;
-
-  lista.innerHTML = "<p class='carregando'>Carregando notícias...</p>";
-
-  try {
-    const noticias = await buscarNoticias();
-    const ordenadas = noticias.sort((a, b) => new Date(b.data) - new Date(a.data));
-
-    lista.innerHTML = ordenadas.length
-      ? ordenadas.map(criarItemAdminNoticia).join("")
-      : "<p class='carregando'>Nenhuma notícia cadastrada.</p>";
-  } catch (erro) {
-    lista.innerHTML = "<p class='erro-carregamento'>Não foi possível carregar as notícias.</p>";
-    console.error(erro);
-  }
-}
-
-async function excluirNoticiaAdmin(id, titulo) {
-  const senha = obterSenhaAdmin();
-
-  if (!senha) {
-    bloquearPainelAdmin();
-    mostrarStatusAdmin("Digite a senha do painel antes de excluir.", "erro");
-    return;
-  }
-
-  const confirmou = confirm(`Excluir a notícia "${titulo}"? Essa ação remove do noticias.json no GitHub.`);
-  if (!confirmou) return;
-
-  mostrarStatusAdmin("Excluindo notícia...", "carregando");
-
-  const resposta = await fetch("/api/excluir-noticia", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ senha, id })
-  });
-
-  const dados = await resposta.json().catch(() => ({}));
-
-  if (!resposta.ok) {
-    throw new Error(dados.erro || "Não foi possível excluir a notícia.");
-  }
-
-  mostrarStatusAdmin("Notícia removida do GitHub. A Vercel deve atualizar o site em alguns instantes.", "sucesso");
-  await carregarNoticiasAdmin();
-}
 
 function iniciarAdmin() {
   const form = document.getElementById("form-admin");
@@ -442,12 +371,8 @@ function iniciarAdmin() {
   const login = document.getElementById("admin-login");
   if (!login && (!form || !conteudo)) return;
 
-  if (obterSenhaAdmin()) {
-    liberarPainelAdmin();
-    carregarNoticiasAdmin();
-  } else {
-    bloquearPainelAdmin();
-  }
+  if (obterSenhaAdmin()) liberarPainelAdmin();
+  else bloquearPainelAdmin();
 
   document.getElementById("btn-entrar-admin")?.addEventListener("click", () => {
     const senha = document.getElementById("admin-senha")?.value.trim();
@@ -459,8 +384,7 @@ function iniciarAdmin() {
 
     salvarSenhaAdmin(senha);
     liberarPainelAdmin();
-    carregarNoticiasAdmin();
-    mostrarStatusAdmin("Painel liberado. A senha será conferida pela Vercel na hora de publicar ou excluir.", "sucesso");
+    mostrarStatusAdmin("Painel liberado. A senha será conferida pela Vercel na hora de publicar.", "sucesso");
   });
 
   document.getElementById("admin-senha")?.addEventListener("keydown", (evento) => {
@@ -498,7 +422,6 @@ function iniciarAdmin() {
 
     try {
       await publicarNoticiaAdmin(noticia);
-      await carregarNoticiasAdmin();
       form.reset();
       if (campoData) campoData.value = new Date().toISOString().slice(0, 10);
     } catch (erro) {
@@ -512,18 +435,6 @@ function iniciarAdmin() {
     mostrarPreviewAdmin(noticia);
   });
 
-  document.getElementById("btn-carregar-noticias")?.addEventListener("click", carregarNoticiasAdmin);
-
-  document.getElementById("admin-lista-noticias")?.addEventListener("click", async (evento) => {
-    const botao = evento.target.closest(".btn-excluir-noticia");
-    if (!botao) return;
-
-    try {
-      await excluirNoticiaAdmin(botao.dataset.id, botao.dataset.titulo || "esta notícia");
-    } catch (erro) {
-      mostrarStatusAdmin(erro.message, "erro");
-    }
-  });
   document.getElementById("btn-copiar")?.addEventListener("click", async () => {
     const resultado = document.getElementById("admin-resultado");
     if (!resultado?.value) mostrarResultadoAdmin(montarNoticiaAdmin());
@@ -567,5 +478,3 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 atualizarTitulo();
-
-
