@@ -2,88 +2,18 @@
 <html lang="pt-BR">
 <head>
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NN0132G8MX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NN0132G8MX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-  gtag('config', 'G-NN0132G8MX');
-</script>
+    gtag('config', 'G-NN0132G8MX');
+  </script>
+
   <meta charset="UTF-8">
   <title>Contato - TV Davi</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    .contato-container {
-      max-width: 800px;
-      margin: 40px auto;              /* centraliza horizontalmente */
-      background: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      text-align: center;             /* centraliza conteúdo */
-    }
-
-    .contato-container h1 {
-      color: #1e90ff;
-      margin-bottom: 20px;
-    }
-
-    .contato-container p {
-      font-size: 1rem;
-      margin-bottom: 20px;
-      color: #333;
-    }
-
-    .info-contato {
-      margin-bottom: 25px;
-      line-height: 1.6;
-    }
-
-    .info-contato p {
-      margin: 8px 0;
-    }
-
-    .info-contato a {
-      color: #1e90ff;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .info-contato a:hover {
-      text-decoration: underline;
-    }
-
-    form {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      align-items: center;            /* centraliza os campos */
-    }
-
-    input, textarea {
-      width: 100%;
-      max-width: 500px;               /* limita largura dos campos */
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 6px;
-      font-size: 1rem;
-    }
-
-    button {
-      background-color: #1e90ff;
-      color: white;
-      border: none;
-      padding: 12px 20px;
-      border-radius: 6px;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-
-    button:hover {
-      background-color: #1666c1;
-    }
-  </style>
 </head>
 <body>
 
@@ -94,15 +24,16 @@
     <div class="info-contato">
       <p><strong>Email:</strong> <a href="mailto:Davibassb@gmail.com">Davibassb@gmail.com</a></p>
       <p><strong>Telefone:</strong> +55 75 8853-7946</p>
-      <p><strong>Instagram:</strong> 
+      <p>
+        <strong>Instagram:</strong>
         <a href="https://www.instagram.com/tvdavi_seu_canal?igsh=MXE5OW9jaGJkYTV5dA==" target="_blank">@tvdavi_seu_canal</a>
       </p>
-      <p><strong>YouTube:</strong> 
+      <p>
+        <strong>YouTube:</strong>
         <a href="https://www.youtube.com/@RedeTVDAVIFeiradeSantanaBahia" target="_blank">@RedeTVDAVIFeiradeSantanaBahia</a>
       </p>
     </div>
 
-    <!-- Formulário conectado ao Formspree -->
     <form action="https://formspree.io/f/xgovgbbn" method="POST">
       <input type="text" name="nome" placeholder="Seu nome" required>
       <input type="email" name="email" placeholder="Seu e-mail" required>
@@ -110,7 +41,10 @@
       <button type="submit">Enviar</button>
     </form>
   </div>
-  <p><strong span class="azul"><a href="index.html">⬅ Voltar para a página inicial</a></strong></p>
+
+  <p class="voltar-inicio">
+    <a href="index.html">⬅ Voltar para a página inicial</a>
+  </p>
 
 </body>
 </html>
