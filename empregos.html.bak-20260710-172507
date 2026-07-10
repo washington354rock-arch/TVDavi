@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NN0132G8MX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-NN0132G8MX');
+</script>
+<meta charset="UTF-8">
+<title>TVDavi - Notícias 24/02/2026</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="acessibilidade">
+    <button id="aumentar-fonte" aria-label="Aumentar fonte">A+</button>
+    <button id="diminuir-fonte" aria-label="Diminuir fonte">A−</button>
+  </div>
+<button id="modo-btn">🌙</button>
+
+<header class="topo">
+  <img src="img/emblematv.jpg" alt="TVDavi" class="logo">
+  <p class="slogan">TV Davi® Notícias de Feira de Santana e Região</p>
+</header>
+<nav class="menu">
+  <ul>
+    <li><a href="index.html">Início</a></li>
+    <li><a href="contato.html">Contato</a></li>
+    <li><a href="empregos.html">Empregos</a></li>
+  </ul>
+  <form class="pesquisa">
+    <input type="text" placeholder="Pesquisar...">
+    <button type="submit">🔍</button>
+  </form>
+</nav>
+  
+
+<h1 class="titulo-site">Empregos</h1>
+
+
+<div id="noticias-container">
+
+ <!-- emprego5 -->
+  <div class="card noticia">
+    <img src="img/emprego1.jpeg" alt="">
+    <div class="texto">
+      <a href="empregos/emprego5.html"><h3>Confira as vagas de emprego disponíveis em Feira de Santana e região nesta segunda-feira (29)</h3></a>
+      <p>Lista destaca oportunidades de empresas e do SineBahia. Veja os requisitos.</p><br />
+      <p class="data-noticia" data-data="2026-06-29"></p>
+    </div>
+  </div>
+ 
+  <!-- emprego4 -->
+  <div class="card noticia">
+    <img src="img/prefeitura.jpeg" alt="">
+    <div class="texto">
+      <a href="empregos/emprego4.html"><h3>Prefeitura de Amélia Rodrigues abre processo seletivo com vagas temporárias e salários de até R$ 2,7 mil; saiba mais</h3></a>
+      <p>Inscrições podem ser feitas até 8 de julho pela internet. A seleção oferta oportunidades para candidatos de níveis médio e superior.</p><br />
+      <p class="data-noticia" data-data="2026-06-29"></p>
+    </div>
+  </div>
+ 
+  
+ 
+  
+ 
+
+  
+
+</div>
+
+
+<script src="script.js"></script>
+</body>
+</html>
+
