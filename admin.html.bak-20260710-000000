@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Painel - TV Davi</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <button id="modo-btn">🌙 Modo escuro</button>
+
+  <header class="topo">
+    <img src="img/emblematv.jpg" alt="TVDavi" class="logo">
+    <p class="slogan">Painel de notícias da TV Davi</p>
+  </header>
+
+  <nav class="menu">
+    <ul>
+      <li><a href="index.html">Início</a></li>
+      <li><a href="contato.html">Contato</a></li>
+      <li><a href="empregos.html">Empregos</a></li>
+    </ul>
+  </nav>
+
+  <section id="admin-login" class="admin-container">
+    <div class="admin-bloco admin-login-card">
+      <h1>Acesso do administrador</h1>
+      <p class="admin-aviso">Digite a senha configurada na Vercel para liberar o painel de publicação.</p>
+      <label>Senha do painel
+        <input type="password" id="admin-senha" autocomplete="current-password" placeholder="Senha do administrador">
+      </label>
+      <div class="admin-acoes">
+        <button type="button" id="btn-entrar-admin">Entrar</button>
+      </div>
+      <p id="admin-login-status" class="admin-status"></p>
+    </div>
+  </section>
+
+  <main id="admin-painel" class="admin-container admin-escondido">
+    <section class="admin-bloco">
+      <h1>Nova notícia</h1>
+      <p class="admin-aviso">Preencha a notícia e clique em <strong>Publicar no site</strong>. A API da Vercel atualiza o arquivo <strong>noticias.json</strong> no GitHub.</p>
+
+      <form id="form-admin">
+        <label>Título
+          <input type="text" id="admin-titulo" required>
+        </label>
+
+        <label>Resumo
+          <textarea id="admin-resumo" rows="3" required></textarea>
+        </label>
+
+        <label>Imagem
+          <input type="text" id="admin-imagem" placeholder="img/nome-da-foto.jpeg" required>
+        </label>
+
+        <div class="admin-grid">
+          <label>Data
+            <input type="date" id="admin-data" required>
+          </label>
+
+          <label>Categoria
+            <input type="text" id="admin-categoria" placeholder="Cidade, Polícia, Esporte...">
+          </label>
+        </div>
+
+        <label>Vídeo do YouTube
+          <input type="url" id="admin-video" placeholder="https://www.youtube.com/watch?v=...">
+        </label>
+
+        <div class="admin-grid">
+          <label>Fonte
+            <input type="text" id="admin-fonte" placeholder="G1, Prefeitura, Polícia Civil...">
+          </label>
+
+          <label>Link da fonte
+            <input type="url" id="admin-link-fonte" placeholder="https://...">
+          </label>
+        </div>
+
+        <div class="toolbar-editor">
+          <button type="button" data-tag="strong">B</button>
+          <button type="button" data-tag="em">I</button>
+          <button type="button" data-tag="s">S</button>
+          <button type="button" data-class="texto-vermelho">Vermelho</button>
+          <button type="button" data-class="texto-azul">Azul</button>
+          <button type="button" data-tag="mark">Marca-texto</button>
+        </div>
+
+        <label>Texto da notícia
+          <textarea id="admin-conteudo" rows="10" placeholder="Separe os parágrafos com uma linha em branco." required></textarea>
+        </label>
+
+        <div class="admin-acoes">
+          <button type="submit">Publicar no site</button>
+          <button type="button" id="btn-preview">Pré-visualizar</button>
+          <button type="button" id="btn-copiar">Copiar JSON</button>
+          <button type="button" id="btn-sair-admin">Sair</button>
+        </div>
+        <p id="admin-publicar-status" class="admin-status"></p>
+      </form>
+    </section>
+
+    <section class="admin-bloco">
+      <h2>Resultado</h2>
+      <textarea id="admin-resultado" rows="16" readonly></textarea>
+    </section>
+
+    <section class="admin-bloco">
+      <h2>Prévia</h2>
+      <div id="admin-preview" class="preview-noticia"></div>
+    </section>
+
+    <section class="admin-bloco">
+      <div class="admin-lista-topo">
+        <div>
+          <h2>Notícias publicadas</h2>
+          <p class="admin-aviso">Carregue as notícias atuais e exclua somente quando tiver certeza.</p>
+        </div>
+        <button type="button" id="btn-carregar-noticias">Atualizar lista</button>
+      </div>
+      <div id="admin-lista-noticias" class="admin-lista-noticias">
+        <p class="carregando">A lista será carregada após entrar no painel.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
