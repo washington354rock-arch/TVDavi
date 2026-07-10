@@ -278,22 +278,32 @@ async function carregarNoticiaDetalhe() {
 
 
 // =============================
-// EMPREGOS A PARTIR DAS NOTICIAS
+// EMPREGOS DINAMICOS
 // =============================
-function criarCardEmprego(noticia) {
-  const link = noticia.link || `noticia.html?id=${encodeURIComponent(noticia.id)}`;
-  const tempo = calcularTempo(noticia.data);
+async function buscarEmpregos() {
+  const resposta = await fetch("empregos.json", { cache: "no-store" });
+
+  if (!resposta.ok) {
+    throw new Error("Não foi possível carregar empregos.json");
+  }
+
+  return resposta.json();
+}
+
+function criarCardEmprego(emprego) {
+  const link = emprego.link || `emprego.html?id=${encodeURIComponent(emprego.id)}`;
+  const tempo = calcularTempo(emprego.data);
 
   return `
     <article class="card noticia">
-      <img src="${noticia.imagem}" alt="${noticia.titulo}">
+      <img src="${emprego.imagem}" alt="${emprego.titulo}">
       <div class="texto">
         <div class="meta-card"><span class="categoria-noticia">Empregos</span></div>
         <a href="${link}">
-          <h3>${noticia.titulo}</h3>
+          <h3>${emprego.titulo}</h3>
         </a>
-        <p>${noticia.resumo}</p>
-        <p class="data-noticia" data-data="${noticia.data}">${tempo} - em Feira de Santana e Região</p>
+        <p>${emprego.resumo}</p>
+        <p class="data-noticia" data-data="${emprego.data}">${tempo} - em Feira de Santana e Região</p>
       </div>
     </article>
   `;
@@ -304,16 +314,57 @@ async function carregarEmpregosLista() {
   if (!container) return;
 
   try {
-    const noticias = await buscarNoticias();
-    const empregos = noticias
-      .filter((noticia) => String(noticia.categoria || "").toLowerCase() === "empregos")
-      .sort((a, b) => new Date(b.data) - new Date(a.data));
-
-    container.innerHTML = empregos.length
-      ? empregos.map(criarCardEmprego).join("")
+    const empregos = await buscarEmpregos();
+    const ordenados = empregos.sort((a, b) => new Date(b.data) - new Date(a.data));
+    container.innerHTML = ordenados.length
+      ? ordenados.map(criarCardEmprego).join("")
       : "<p class='carregando'>Nenhuma vaga publicada no momento.</p>";
   } catch (erro) {
     container.innerHTML = "<p class='erro-carregamento'>Não foi possível carregar as vagas.</p>";
+    console.error(erro);
+  }
+}
+
+async function carregarEmpregoDetalhe() {
+  const container = document.getElementById("emprego-detalhe");
+  if (!container) return;
+
+  const parametros = new URLSearchParams(window.location.search);
+  const id = Number(parametros.get("id"));
+
+  if (!id) {
+    container.innerHTML = "<p>Vaga não encontrada.</p><p><a href='empregos.html'>⬅ Voltar para empregos</a></p>";
+    return;
+  }
+
+  try {
+    const empregos = await buscarEmpregos();
+    const emprego = empregos.find((item) => Number(item.id) === id);
+
+    if (!emprego) {
+      container.innerHTML = "<p>Vaga não encontrada.</p><p><a href='empregos.html'>⬅ Voltar para empregos</a></p>";
+      return;
+    }
+
+    document.title = `${emprego.titulo} - TV Davi Empregos`;
+    const blocoFonte = emprego.linkFonte
+      ? `<p class="fonte-noticia">Fonte/inscrição: <a href="${emprego.linkFonte}" target="_blank" rel="noopener noreferrer">${emprego.fonte || "Abrir link"}</a></p>`
+      : "";
+
+    container.innerHTML = `
+      <h1>${emprego.titulo}</h1>
+      <p>${emprego.resumo}</p>
+      <p class="data">Publicado em ${formatarData(emprego.data)}</p>
+      <figure class="imagem-principal-bloco">
+        <img src="${emprego.imagem}" alt="${emprego.titulo}" class="imagem-primaria">
+        ${emprego.legendaImagem ? `<figcaption>${limparHtmlBasico(emprego.legendaImagem)}</figcaption>` : ""}
+      </figure>
+      ${renderizarConteudo(emprego.conteudo)}
+      ${blocoFonte}
+      <p><a href="empregos.html">⬅ Voltar para empregos</a></p>
+    `;
+  } catch (erro) {
+    container.innerHTML = "<p>Não foi possível carregar a vaga.</p>";
     console.error(erro);
   }
 }
@@ -650,6 +701,95 @@ function removerRascunhoAdmin(indice) {
   renderizarRascunhosAdmin();
 }
 
+function montarEmpregoAdmin() {
+  const titulo = document.getElementById("emprego-titulo")?.value.trim();
+  const resumo = document.getElementById("emprego-resumo")?.value.trim();
+  const imagem = normalizarCaminhoImagem(document.getElementById("emprego-imagem")?.value.trim());
+  const legendaImagem = document.getElementById("emprego-legenda-imagem")?.value.trim();
+  const data = document.getElementById("emprego-data")?.value;
+  const fonte = document.getElementById("emprego-fonte")?.value.trim();
+  const linkFonte = document.getElementById("emprego-link-fonte")?.value.trim();
+  const conteudoTexto = document.getElementById("emprego-conteudo")?.value.trim();
+  const id = Date.now();
+
+  return {
+    id,
+    titulo,
+    resumo,
+    imagem,
+    legendaImagem,
+    data,
+    categoria: "Empregos",
+    link: `emprego.html?id=${id}`,
+    fonte,
+    linkFonte,
+    conteudo: conteudoTexto
+      ? conteudoTexto.split(/\n\s*\n/).map((paragrafo) => paragrafo.trim()).filter(Boolean)
+      : []
+  };
+}
+
+function obterEmpregosRascunhosAdmin() {
+  try {
+    return JSON.parse(localStorage.getItem("tvdavi_empregos_rascunhos") || "[]");
+  } catch (erro) {
+    return [];
+  }
+}
+
+function salvarEmpregosRascunhosAdmin(rascunhos) {
+  localStorage.setItem("tvdavi_empregos_rascunhos", JSON.stringify(rascunhos));
+}
+
+function renderizarEmpregosRascunhosAdmin() {
+  const lista = document.getElementById("admin-lista-empregos-rascunhos");
+  if (!lista) return;
+
+  const rascunhos = obterEmpregosRascunhosAdmin();
+  lista.innerHTML = rascunhos.length
+    ? rascunhos.map(criarItemRascunhoAdmin).join("")
+    : "<p class='carregando'>Nenhuma vaga adicionada.</p>";
+}
+
+function adicionarEmpregoRascunhoAdmin(emprego) {
+  const rascunhos = obterEmpregosRascunhosAdmin();
+  rascunhos.push(emprego);
+  salvarEmpregosRascunhosAdmin(rascunhos);
+  renderizarEmpregosRascunhosAdmin();
+  mostrarStatusAdmin("Vaga adicionada aos rascunhos de empregos.", "sucesso");
+}
+
+async function publicarEmpregosAdmin(empregos) {
+  const senha = obterSenhaAdmin();
+
+  if (!senha) {
+    bloquearPainelAdmin();
+    mostrarStatusAdmin("Digite a senha do painel antes de publicar vagas.", "erro");
+    return;
+  }
+
+  if (!Array.isArray(empregos) || empregos.length === 0) {
+    mostrarStatusAdmin("Adicione pelo menos uma vaga antes de publicar.", "erro");
+    return;
+  }
+
+  mostrarStatusAdmin(`Publicando ${empregos.length} vaga(s)...`, "carregando");
+
+  const resposta = await fetch("/api/publicar-emprego", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ senha, empregos })
+  });
+
+  const dados = await resposta.json().catch(() => ({}));
+
+  if (!resposta.ok) {
+    throw new Error(dados.erro || "Não foi possível publicar as vagas.");
+  }
+
+  mostrarStatusAdmin("Vagas enviadas ao GitHub em uma única publicação.", "sucesso");
+  return dados;
+}
 function iniciarAdmin() {
   const form = document.getElementById("form-admin");
   const conteudo = document.getElementById("admin-conteudo");
@@ -660,6 +800,7 @@ function iniciarAdmin() {
     liberarPainelAdmin();
     carregarNoticiasAdmin();
     renderizarRascunhosAdmin();
+    renderizarEmpregosRascunhosAdmin();
   } else {
     bloquearPainelAdmin();
   }
@@ -676,6 +817,7 @@ function iniciarAdmin() {
     liberarPainelAdmin();
     carregarNoticiasAdmin();
     renderizarRascunhosAdmin();
+    renderizarEmpregosRascunhosAdmin();
     mostrarStatusAdmin("Painel liberado. A senha será conferida pela Vercel na hora de publicar ou excluir.", "sucesso");
   });
 
@@ -812,6 +954,82 @@ function iniciarAdmin() {
     if (campoCategoria) campoCategoria.value = "Empregos";
     mostrarStatusAdmin("Categoria Empregos selecionada. Essa notícia também aparecerá na aba Empregos.", "sucesso");
   });
+  const formEmprego = document.getElementById("form-emprego-admin");
+  const campoEmpregoData = document.getElementById("emprego-data");
+  if (campoEmpregoData && !campoEmpregoData.value) {
+    campoEmpregoData.value = new Date().toISOString().slice(0, 10);
+  }
+
+  formEmprego?.addEventListener("submit", (evento) => {
+    evento.preventDefault();
+    const emprego = montarEmpregoAdmin();
+    mostrarResultadoAdmin(emprego);
+    mostrarPreviewAdmin(emprego);
+    adicionarEmpregoRascunhoAdmin(emprego);
+    formEmprego.reset();
+    if (campoEmpregoData) campoEmpregoData.value = new Date().toISOString().slice(0, 10);
+  });
+
+  document.getElementById("btn-upload-imagem-emprego")?.addEventListener("click", async () => {
+    const inputArquivo = document.getElementById("emprego-imagem-arquivo");
+    const campoImagem = document.getElementById("emprego-imagem");
+    const arquivo = inputArquivo?.files?.[0];
+
+    try {
+      mostrarStatusAdmin("Enviando imagem da vaga...", "carregando");
+      const caminho = await uploadImagemAdmin(arquivo);
+      if (campoImagem) campoImagem.value = caminho;
+      mostrarStatusAdmin("Imagem da vaga enviada e caminho preenchido.", "sucesso");
+    } catch (erro) {
+      mostrarStatusAdmin(erro.message, "erro");
+    }
+  });
+
+  document.getElementById("btn-preview-emprego")?.addEventListener("click", () => {
+    const emprego = montarEmpregoAdmin();
+    mostrarResultadoAdmin(emprego);
+    mostrarPreviewAdmin(emprego);
+  });
+
+  document.getElementById("btn-publicar-empregos")?.addEventListener("click", async () => {
+    const rascunhos = obterEmpregosRascunhosAdmin();
+
+    try {
+      await publicarEmpregosAdmin(rascunhos);
+      salvarEmpregosRascunhosAdmin([]);
+      renderizarEmpregosRascunhosAdmin();
+    } catch (erro) {
+      mostrarStatusAdmin(erro.message, "erro");
+    }
+  });
+
+  document.getElementById("btn-limpar-empregos")?.addEventListener("click", () => {
+    const confirmou = confirm("Limpar todos os rascunhos de vagas deste navegador?");
+    if (!confirmou) return;
+    salvarEmpregosRascunhosAdmin([]);
+    renderizarEmpregosRascunhosAdmin();
+    mostrarStatusAdmin("Rascunhos de vagas limpos.", "sucesso");
+  });
+
+  document.getElementById("admin-lista-empregos-rascunhos")?.addEventListener("click", (evento) => {
+    const botaoPreview = evento.target.closest(".btn-preview-rascunho");
+    const botaoRemover = evento.target.closest(".btn-remover-rascunho");
+    const rascunhos = obterEmpregosRascunhosAdmin();
+
+    if (botaoPreview) {
+      const emprego = rascunhos[Number(botaoPreview.dataset.indice)];
+      if (emprego) {
+        mostrarResultadoAdmin(emprego);
+        mostrarPreviewAdmin(emprego);
+      }
+    }
+
+    if (botaoRemover) {
+      rascunhos.splice(Number(botaoRemover.dataset.indice), 1);
+      salvarEmpregosRascunhosAdmin(rascunhos);
+      renderizarEmpregosRascunhosAdmin();
+    }
+  });
   document.getElementById("btn-copiar")?.addEventListener("click", async () => {
     const resultado = document.getElementById("admin-resultado");
     if (!resultado?.value) mostrarResultadoAdmin(montarNoticiaAdmin());
@@ -851,11 +1069,14 @@ document.addEventListener("DOMContentLoaded", () => {
   carregarNoticiasIndex();
   carregarNoticiaDetalhe();
   carregarEmpregosLista();
+  carregarEmpregoDetalhe();
   iniciarAdmin();
   atualizarDatasRelativas();
 });
 
 atualizarTitulo();
+
+
 
 
 

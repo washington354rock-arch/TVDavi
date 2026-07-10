@@ -1237,3 +1237,33 @@ body.dark .admin-empregos h1 {
 .admin-categoria-atalhos button:hover {
   background: #1d4ed8;
 }
+
+/* BLOCO RECOLHIDO DE EMPREGOS */
+.admin-empregos summary {
+  cursor: pointer;
+  color: #ffffff;
+  background: #2563eb;
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-weight: 800;
+  list-style: none;
+}
+
+.admin-empregos summary::-webkit-details-marker {
+  display: none;
+}
+
+.admin-empregos summary::after {
+  content: "Abrir";
+  float: right;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.admin-empregos[open] summary {
+  margin-bottom: 16px;
+}
+
+.admin-empregos[open] summary::after {
+  content: "Fechar";
+}
