@@ -1,0 +1,28 @@
+﻿[
+  {
+    "id": 5,
+    "titulo": "Confira as vagas de emprego disponíveis em Feira de Santana e região nesta segunda-feira (29)",
+    "resumo": "Lista destaca oportunidades de empresas e do SineBahia. Veja os requisitos.",
+    "imagem": "img/emprego1.jpeg",
+    "legendaImagem": "",
+    "data": "2026-06-29",
+    "categoria": "Empregos",
+    "link": "empregos/emprego5.html",
+    "fonte": "",
+    "linkFonte": "",
+    "conteudo": []
+  },
+  {
+    "id": 4,
+    "titulo": "Prefeitura de Amélia Rodrigues abre processo seletivo com vagas temporárias e salários de até R$ 2,7 mil; saiba mais",
+    "resumo": "Inscrições podem ser feitas até 8 de julho pela internet. A seleção oferta oportunidades para candidatos de níveis médio e superior.",
+    "imagem": "img/prefeitura.jpeg",
+    "legendaImagem": "",
+    "data": "2026-06-29",
+    "categoria": "Empregos",
+    "link": "empregos/emprego4.html",
+    "fonte": "",
+    "linkFonte": "",
+    "conteudo": []
+  }
+]

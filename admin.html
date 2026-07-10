@@ -40,7 +40,7 @@
   <main id="admin-painel" class="admin-container admin-escondido">
     <section class="admin-bloco">
       <h1>Nova notícia</h1>
-      <p class="admin-aviso">Preencha a notícia e clique em <strong>Publicar no site</strong>. A API da Vercel atualiza o arquivo <strong>noticias.json</strong> no GitHub.</p>
+      <p class="admin-aviso">Monte uma ou várias notícias como rascunho. Quando terminar, clique em <strong>Publicar rascunhos</strong> para atualizar o GitHub uma única vez e gastar apenas um deploy da Vercel.</p>
 
       <form id="form-admin">
         <label>Título
@@ -53,6 +53,10 @@
 
         <label>Imagem principal
           <input type="text" id="admin-imagem" placeholder="img/nome-da-foto.jpeg" required>
+        </label>
+
+        <label>Legenda da imagem principal
+          <input type="text" id="admin-legenda-imagem" placeholder="Foto: divulgação">
         </label>
         <div class="admin-upload-linha">
           <input type="file" id="admin-imagem-arquivo" accept="image/*">
@@ -69,8 +73,8 @@
           </label>
         </div>
 
-        <label>Vídeo do YouTube
-          <input type="url" id="admin-video" placeholder="https://www.youtube.com/watch?v=...">
+        <label>Vídeo do YouTube ou G1
+          <input type="url" id="admin-video" placeholder="https://www.youtube.com/watch?v=... ou https://g1.globo.com/.../video/...">
         </label>
 
         <div class="admin-grid">
@@ -113,13 +117,26 @@
         </label>
 
         <div class="admin-acoes">
-          <button type="submit">Publicar no site</button>
+          <button type="submit">Adicionar aos rascunhos</button>
+          <button type="button" id="btn-publicar-rascunhos">Publicar rascunhos</button>
           <button type="button" id="btn-preview">Pré-visualizar</button>
           <button type="button" id="btn-copiar">Copiar JSON</button>
           <button type="button" id="btn-sair-admin">Sair</button>
         </div>
         <p id="admin-publicar-status" class="admin-status"></p>
       </form>
+    </section>
+    <section class="admin-bloco">
+      <div class="admin-lista-topo">
+        <div>
+          <h2>Rascunhos para publicar</h2>
+          <p class="admin-aviso">As notícias ficam salvas apenas neste navegador até você publicar todas juntas.</p>
+        </div>
+        <button type="button" id="btn-limpar-rascunhos">Limpar rascunhos</button>
+      </div>
+      <div id="admin-lista-rascunhos" class="admin-lista-noticias">
+        <p class="carregando">Nenhum rascunho adicionado.</p>
+      </div>
     </section>
 
     <section class="admin-bloco">
@@ -130,6 +147,69 @@
     <section class="admin-bloco">
       <h2>Prévia</h2>
       <div id="admin-preview" class="preview-noticia"></div>
+    </section>
+    <section class="admin-bloco admin-empregos">
+      <h1>Nova vaga / emprego</h1>
+      <p class="admin-aviso">Monte vagas como rascunho e publique todas juntas para gastar apenas um deploy da Vercel.</p>
+
+      <form id="form-emprego-admin">
+        <label>Título da vaga
+          <input type="text" id="emprego-titulo" required>
+        </label>
+
+        <label>Resumo
+          <textarea id="emprego-resumo" rows="3" required></textarea>
+        </label>
+
+        <label>Imagem
+          <input type="text" id="emprego-imagem" placeholder="img/nome-da-foto.jpeg" required>
+        </label>
+        <div class="admin-upload-linha">
+          <input type="file" id="emprego-imagem-arquivo" accept="image/*">
+          <button type="button" id="btn-upload-imagem-emprego">Enviar imagem da vaga</button>
+        </div>
+
+        <label>Legenda da imagem
+          <input type="text" id="emprego-legenda-imagem" placeholder="Foto: divulgação">
+        </label>
+
+        <div class="admin-grid">
+          <label>Data
+            <input type="date" id="emprego-data" required>
+          </label>
+
+          <label>Fonte
+            <input type="text" id="emprego-fonte" placeholder="SineBahia, empresa, prefeitura...">
+          </label>
+        </div>
+
+        <label>Link da fonte ou inscrição
+          <input type="url" id="emprego-link-fonte" placeholder="https://...">
+        </label>
+
+        <label>Texto da vaga
+          <textarea id="emprego-conteudo" rows="8" placeholder="Separe os parágrafos com uma linha em branco." required></textarea>
+        </label>
+
+        <div class="admin-acoes">
+          <button type="submit">Adicionar vaga aos rascunhos</button>
+          <button type="button" id="btn-publicar-empregos">Publicar vagas</button>
+          <button type="button" id="btn-preview-emprego">Pré-visualizar vaga</button>
+          <button type="button" id="btn-limpar-empregos">Limpar rascunhos de vagas</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="admin-bloco">
+      <div class="admin-lista-topo">
+        <div>
+          <h2>Rascunhos de empregos</h2>
+          <p class="admin-aviso">Esses rascunhos ficam apenas neste navegador até publicar.</p>
+        </div>
+      </div>
+      <div id="admin-lista-empregos-rascunhos" class="admin-lista-noticias">
+        <p class="carregando">Nenhuma vaga adicionada.</p>
+      </div>
     </section>
 
     <section class="admin-bloco">
@@ -149,6 +229,8 @@
   <script src="script.js"></script>
 </body>
 </html>
+
+
 
 
 

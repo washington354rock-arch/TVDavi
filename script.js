@@ -132,6 +132,29 @@ function normalizarYoutube(url) {
   return "";
 }
 
+function renderizarVideoNoticia(url) {
+  if (!url) return "";
+
+  const videoEmbed = normalizarYoutube(url);
+  if (videoEmbed) {
+    return `<div class="video-container"><iframe src="${videoEmbed}" title="Vídeo da notícia" allowfullscreen></iframe></div>`;
+  }
+
+  try {
+    const endereco = new URL(url);
+    if (!["http:", "https:"].includes(endereco.protocol)) return "";
+
+    return `
+      <div class="video-link-noticia">
+        <strong>Vídeo da notícia</strong>
+        <a href="${endereco.toString()}" target="_blank" rel="noopener noreferrer">Assistir vídeo no site original</a>
+      </div>
+    `;
+  } catch (erro) {
+    return "";
+  }
+}
+
 function limparHtmlBasico(html) {
   const template = document.createElement("template");
   template.innerHTML = html;
@@ -205,6 +228,7 @@ function renderizarConteudo(conteudo) {
     })
     .join("");
 }
+
 async function carregarNoticiaDetalhe() {
   const container = document.getElementById("noticia-detalhe");
   if (!container) return;
@@ -228,11 +252,7 @@ async function carregarNoticiaDetalhe() {
 
     document.title = `${noticia.titulo} - TV Davi`;
 
-    const videoEmbed = normalizarYoutube(noticia.videoYoutube);
-    const blocoVideo = videoEmbed
-      ? `<div class="video-container"><iframe src="${videoEmbed}" title="Vídeo da notícia" allowfullscreen></iframe></div>`
-      : "";
-
+    const blocoVideo = renderizarVideoNoticia(noticia.videoYoutube);
     const blocoFonte = noticia.linkFonte
       ? `<p class="fonte-noticia">Fonte: <a href="${noticia.linkFonte}" target="_blank" rel="noopener noreferrer">${noticia.fonte || "Ler notícia original"}</a></p>`
       : "";
@@ -241,7 +261,10 @@ async function carregarNoticiaDetalhe() {
       <h1>${noticia.titulo}</h1>
       <p>${noticia.resumo}</p>
       <p class="data">Publicado em ${formatarData(noticia.data)}</p>
-      <img src="${noticia.imagem}" alt="${noticia.titulo}" class="imagem-primaria">
+      <figure class="imagem-principal-bloco">
+        <img src="${noticia.imagem}" alt="${noticia.titulo}" class="imagem-primaria">
+        ${noticia.legendaImagem ? `<figcaption>${limparHtmlBasico(noticia.legendaImagem)}</figcaption>` : ""}
+      </figure>
       ${blocoVideo}
       ${renderizarConteudo(noticia.conteudo)}
       ${blocoFonte}
@@ -279,6 +302,7 @@ function envolverSelecao(textarea, abertura, fechamento) {
   textarea.selectionStart = selecao.inicio + abertura.length;
   textarea.selectionEnd = selecao.fim + abertura.length;
 }
+
 function inserirTextoNoCursor(textarea, texto) {
   const inicio = textarea.selectionStart || textarea.value.length;
   const fim = textarea.selectionEnd || textarea.value.length;
@@ -342,6 +366,7 @@ async function uploadImagemAdmin(arquivo) {
 
   return dados.caminho;
 }
+
 function obterSenhaAdmin() {
   return sessionStorage.getItem("tvdavi_admin_senha") || "";
 }
@@ -380,6 +405,7 @@ function montarNoticiaAdmin() {
   const titulo = document.getElementById("admin-titulo")?.value.trim();
   const resumo = document.getElementById("admin-resumo")?.value.trim();
   const imagem = normalizarCaminhoImagem(document.getElementById("admin-imagem")?.value.trim());
+  const legendaImagem = document.getElementById("admin-legenda-imagem")?.value.trim();
   const data = document.getElementById("admin-data")?.value;
   const categoria = document.getElementById("admin-categoria")?.value.trim();
   const videoYoutube = document.getElementById("admin-video")?.value.trim();
@@ -393,6 +419,7 @@ function montarNoticiaAdmin() {
     titulo,
     resumo,
     imagem,
+    legendaImagem,
     data,
     categoria,
     link: `noticia.html?id=${id}`,
@@ -416,16 +443,20 @@ function mostrarPreviewAdmin(noticia) {
 
   preview.innerHTML = `
     <article class="noticia-preview-card">
-      <img src="${noticia.imagem}" alt="${noticia.titulo}">
+      <figure class="imagem-principal-bloco">
+        <img src="${noticia.imagem}" alt="${noticia.titulo}">
+        ${noticia.legendaImagem ? `<figcaption>${limparHtmlBasico(noticia.legendaImagem)}</figcaption>` : ""}
+      </figure>
       <h3>${noticia.titulo}</h3>
       <p>${noticia.resumo}</p>
       <p class="data">Publicado em ${formatarData(noticia.data)}</p>
+      ${renderizarVideoNoticia(noticia.videoYoutube)}
       ${renderizarConteudo(noticia.conteudo)}
     </article>
   `;
 }
 
-async function publicarNoticiaAdmin(noticia) {
+async function publicarNoticiasAdmin(noticias) {
   const senha = obterSenhaAdmin();
 
   if (!senha) {
@@ -434,23 +465,29 @@ async function publicarNoticiaAdmin(noticia) {
     return;
   }
 
-  mostrarStatusAdmin("Publicando notícia...", "carregando");
+  if (!Array.isArray(noticias) || noticias.length === 0) {
+    mostrarStatusAdmin("Adicione pelo menos um rascunho antes de publicar.", "erro");
+    return;
+  }
+
+  mostrarStatusAdmin(`Publicando ${noticias.length} notícia(s)...`, "carregando");
 
   const resposta = await fetch("/api/publicar-noticia", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ senha, noticia })
+    body: JSON.stringify({ senha, noticias })
   });
 
   const dados = await resposta.json().catch(() => ({}));
 
   if (!resposta.ok) {
-    throw new Error(dados.erro || "Não foi possível publicar a notícia.");
+    throw new Error(dados.erro || "Não foi possível publicar as notícias.");
   }
 
-  mostrarStatusAdmin("Notícia enviada para o GitHub. A Vercel deve publicar em alguns instantes.", "sucesso");
+  mostrarStatusAdmin("Rascunhos enviados para o GitHub em uma única publicação. A Vercel deve atualizar em alguns instantes.", "sucesso");
   return dados;
 }
+
 function criarItemAdminNoticia(noticia) {
   const link = noticia.link || `noticia.html?id=${encodeURIComponent(noticia.id)}`;
   const data = noticia.data ? formatarData(noticia.data) : "Sem data";
@@ -519,6 +556,148 @@ async function excluirNoticiaAdmin(id, titulo) {
   await carregarNoticiasAdmin();
 }
 
+function obterRascunhosAdmin() {
+  try {
+    return JSON.parse(localStorage.getItem("tvdavi_rascunhos") || "[]");
+  } catch (erro) {
+    return [];
+  }
+}
+
+function salvarRascunhosAdmin(rascunhos) {
+  localStorage.setItem("tvdavi_rascunhos", JSON.stringify(rascunhos));
+}
+
+function criarItemRascunhoAdmin(noticia, indice) {
+  return `
+    <article class="admin-lista-item">
+      <img src="${noticia.imagem}" alt="${noticia.titulo}">
+      <div>
+        <h3>${noticia.titulo}</h3>
+        <p>${formatarData(noticia.data)}${noticia.categoria ? ` - ${noticia.categoria}` : ""}</p>
+      </div>
+      <div class="admin-lista-acoes">
+        <button type="button" class="btn-preview-rascunho" data-indice="${indice}">Prévia</button>
+        <button type="button" class="btn-remover-rascunho" data-indice="${indice}">Remover</button>
+      </div>
+    </article>
+  `;
+}
+
+function renderizarRascunhosAdmin() {
+  const lista = document.getElementById("admin-lista-rascunhos");
+  if (!lista) return;
+
+  const rascunhos = obterRascunhosAdmin();
+  lista.innerHTML = rascunhos.length
+    ? rascunhos.map(criarItemRascunhoAdmin).join("")
+    : "<p class='carregando'>Nenhum rascunho adicionado.</p>";
+}
+
+function adicionarRascunhoAdmin(noticia) {
+  const rascunhos = obterRascunhosAdmin();
+  rascunhos.push(noticia);
+  salvarRascunhosAdmin(rascunhos);
+  renderizarRascunhosAdmin();
+  mostrarStatusAdmin("Notícia adicionada aos rascunhos. Publique quando terminar todas.", "sucesso");
+}
+
+function removerRascunhoAdmin(indice) {
+  const rascunhos = obterRascunhosAdmin();
+  rascunhos.splice(indice, 1);
+  salvarRascunhosAdmin(rascunhos);
+  renderizarRascunhosAdmin();
+}
+
+function montarEmpregoAdmin() {
+  const titulo = document.getElementById("emprego-titulo")?.value.trim();
+  const resumo = document.getElementById("emprego-resumo")?.value.trim();
+  const imagem = normalizarCaminhoImagem(document.getElementById("emprego-imagem")?.value.trim());
+  const legendaImagem = document.getElementById("emprego-legenda-imagem")?.value.trim();
+  const data = document.getElementById("emprego-data")?.value;
+  const fonte = document.getElementById("emprego-fonte")?.value.trim();
+  const linkFonte = document.getElementById("emprego-link-fonte")?.value.trim();
+  const conteudoTexto = document.getElementById("emprego-conteudo")?.value.trim();
+  const id = Date.now();
+
+  return {
+    id,
+    titulo,
+    resumo,
+    imagem,
+    legendaImagem,
+    data,
+    categoria: "Empregos",
+    link: `emprego.html?id=${id}`,
+    fonte,
+    linkFonte,
+    conteudo: conteudoTexto
+      ? conteudoTexto.split(/\n\s*\n/).map((paragrafo) => paragrafo.trim()).filter(Boolean)
+      : []
+  };
+}
+
+function obterEmpregosRascunhosAdmin() {
+  try {
+    return JSON.parse(localStorage.getItem("tvdavi_empregos_rascunhos") || "[]");
+  } catch (erro) {
+    return [];
+  }
+}
+
+function salvarEmpregosRascunhosAdmin(rascunhos) {
+  localStorage.setItem("tvdavi_empregos_rascunhos", JSON.stringify(rascunhos));
+}
+
+function renderizarEmpregosRascunhosAdmin() {
+  const lista = document.getElementById("admin-lista-empregos-rascunhos");
+  if (!lista) return;
+
+  const rascunhos = obterEmpregosRascunhosAdmin();
+  lista.innerHTML = rascunhos.length
+    ? rascunhos.map(criarItemRascunhoAdmin).join("")
+    : "<p class='carregando'>Nenhuma vaga adicionada.</p>";
+}
+
+function adicionarEmpregoRascunhoAdmin(emprego) {
+  const rascunhos = obterEmpregosRascunhosAdmin();
+  rascunhos.push(emprego);
+  salvarEmpregosRascunhosAdmin(rascunhos);
+  renderizarEmpregosRascunhosAdmin();
+  mostrarStatusAdmin("Vaga adicionada aos rascunhos de empregos.", "sucesso");
+}
+
+async function publicarEmpregosAdmin(empregos) {
+  const senha = obterSenhaAdmin();
+
+  if (!senha) {
+    bloquearPainelAdmin();
+    mostrarStatusAdmin("Digite a senha do painel antes de publicar vagas.", "erro");
+    return;
+  }
+
+  if (!Array.isArray(empregos) || empregos.length === 0) {
+    mostrarStatusAdmin("Adicione pelo menos uma vaga antes de publicar.", "erro");
+    return;
+  }
+
+  mostrarStatusAdmin(`Publicando ${empregos.length} vaga(s)...`, "carregando");
+
+  const resposta = await fetch("/api/publicar-emprego", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ senha, empregos })
+  });
+
+  const dados = await resposta.json().catch(() => ({}));
+
+  if (!resposta.ok) {
+    throw new Error(dados.erro || "Não foi possível publicar as vagas.");
+  }
+
+  mostrarStatusAdmin("Vagas enviadas ao GitHub em uma única publicação.", "sucesso");
+  return dados;
+}
 function iniciarAdmin() {
   const form = document.getElementById("form-admin");
   const conteudo = document.getElementById("admin-conteudo");
@@ -528,6 +707,7 @@ function iniciarAdmin() {
   if (obterSenhaAdmin()) {
     liberarPainelAdmin();
     carregarNoticiasAdmin();
+    renderizarRascunhosAdmin();
   } else {
     bloquearPainelAdmin();
   }
@@ -543,6 +723,7 @@ function iniciarAdmin() {
     salvarSenhaAdmin(senha);
     liberarPainelAdmin();
     carregarNoticiasAdmin();
+    renderizarRascunhosAdmin();
     mostrarStatusAdmin("Painel liberado. A senha será conferida pela Vercel na hora de publicar ou excluir.", "sucesso");
   });
 
@@ -573,20 +754,14 @@ function iniciarAdmin() {
     });
   });
 
-  form.addEventListener("submit", async (evento) => {
+  form.addEventListener("submit", (evento) => {
     evento.preventDefault();
     const noticia = montarNoticiaAdmin();
     mostrarResultadoAdmin(noticia);
     mostrarPreviewAdmin(noticia);
-
-    try {
-      await publicarNoticiaAdmin(noticia);
-      await carregarNoticiasAdmin();
-      form.reset();
-      if (campoData) campoData.value = new Date().toISOString().slice(0, 10);
-    } catch (erro) {
-      mostrarStatusAdmin(erro.message, "erro");
-    }
+    adicionarRascunhoAdmin(noticia);
+    form.reset();
+    if (campoData) campoData.value = new Date().toISOString().slice(0, 10);
   });
 
   document.getElementById("btn-upload-imagem-principal")?.addEventListener("click", async () => {
@@ -622,6 +797,7 @@ function iniciarAdmin() {
       mostrarStatusAdmin(erro.message, "erro");
     }
   });
+
   document.getElementById("btn-preview")?.addEventListener("click", () => {
     const noticia = montarNoticiaAdmin();
     mostrarResultadoAdmin(noticia);
@@ -638,6 +814,122 @@ function iniciarAdmin() {
       await excluirNoticiaAdmin(botao.dataset.id, botao.dataset.titulo || "esta notícia");
     } catch (erro) {
       mostrarStatusAdmin(erro.message, "erro");
+    }
+  });
+
+  document.getElementById("btn-publicar-rascunhos")?.addEventListener("click", async () => {
+    const rascunhos = obterRascunhosAdmin();
+
+    try {
+      await publicarNoticiasAdmin(rascunhos);
+      salvarRascunhosAdmin([]);
+      renderizarRascunhosAdmin();
+      await carregarNoticiasAdmin();
+    } catch (erro) {
+      mostrarStatusAdmin(erro.message, "erro");
+    }
+  });
+
+  document.getElementById("btn-limpar-rascunhos")?.addEventListener("click", () => {
+    const confirmou = confirm("Limpar todos os rascunhos deste navegador?");
+    if (!confirmou) return;
+    salvarRascunhosAdmin([]);
+    renderizarRascunhosAdmin();
+    mostrarStatusAdmin("Rascunhos limpos.", "sucesso");
+  });
+
+  document.getElementById("admin-lista-rascunhos")?.addEventListener("click", (evento) => {
+    const botaoPreview = evento.target.closest(".btn-preview-rascunho");
+    const botaoRemover = evento.target.closest(".btn-remover-rascunho");
+    const rascunhos = obterRascunhosAdmin();
+
+    if (botaoPreview) {
+      const noticia = rascunhos[Number(botaoPreview.dataset.indice)];
+      if (noticia) {
+        mostrarResultadoAdmin(noticia);
+        mostrarPreviewAdmin(noticia);
+      }
+    }
+
+    if (botaoRemover) {
+      removerRascunhoAdmin(Number(botaoRemover.dataset.indice));
+    }
+  });
+
+  const formEmprego = document.getElementById("form-emprego-admin");
+  const campoEmpregoData = document.getElementById("emprego-data");
+  if (campoEmpregoData && !campoEmpregoData.value) {
+    campoEmpregoData.value = new Date().toISOString().slice(0, 10);
+  }
+
+  formEmprego?.addEventListener("submit", (evento) => {
+    evento.preventDefault();
+    const emprego = montarEmpregoAdmin();
+    mostrarResultadoAdmin(emprego);
+    mostrarPreviewAdmin(emprego);
+    adicionarEmpregoRascunhoAdmin(emprego);
+    formEmprego.reset();
+    if (campoEmpregoData) campoEmpregoData.value = new Date().toISOString().slice(0, 10);
+  });
+
+  document.getElementById("btn-upload-imagem-emprego")?.addEventListener("click", async () => {
+    const inputArquivo = document.getElementById("emprego-imagem-arquivo");
+    const campoImagem = document.getElementById("emprego-imagem");
+    const arquivo = inputArquivo?.files?.[0];
+
+    try {
+      mostrarStatusAdmin("Enviando imagem da vaga...", "carregando");
+      const caminho = await uploadImagemAdmin(arquivo);
+      if (campoImagem) campoImagem.value = caminho;
+      mostrarStatusAdmin("Imagem da vaga enviada e caminho preenchido.", "sucesso");
+    } catch (erro) {
+      mostrarStatusAdmin(erro.message, "erro");
+    }
+  });
+
+  document.getElementById("btn-preview-emprego")?.addEventListener("click", () => {
+    const emprego = montarEmpregoAdmin();
+    mostrarResultadoAdmin(emprego);
+    mostrarPreviewAdmin(emprego);
+  });
+
+  document.getElementById("btn-publicar-empregos")?.addEventListener("click", async () => {
+    const rascunhos = obterEmpregosRascunhosAdmin();
+
+    try {
+      await publicarEmpregosAdmin(rascunhos);
+      salvarEmpregosRascunhosAdmin([]);
+      renderizarEmpregosRascunhosAdmin();
+    } catch (erro) {
+      mostrarStatusAdmin(erro.message, "erro");
+    }
+  });
+
+  document.getElementById("btn-limpar-empregos")?.addEventListener("click", () => {
+    const confirmou = confirm("Limpar todos os rascunhos de vagas deste navegador?");
+    if (!confirmou) return;
+    salvarEmpregosRascunhosAdmin([]);
+    renderizarEmpregosRascunhosAdmin();
+    mostrarStatusAdmin("Rascunhos de vagas limpos.", "sucesso");
+  });
+
+  document.getElementById("admin-lista-empregos-rascunhos")?.addEventListener("click", (evento) => {
+    const botaoPreview = evento.target.closest(".btn-preview-rascunho");
+    const botaoRemover = evento.target.closest(".btn-remover-rascunho");
+    const rascunhos = obterEmpregosRascunhosAdmin();
+
+    if (botaoPreview) {
+      const emprego = rascunhos[Number(botaoPreview.dataset.indice)];
+      if (emprego) {
+        mostrarResultadoAdmin(emprego);
+        mostrarPreviewAdmin(emprego);
+      }
+    }
+
+    if (botaoRemover) {
+      rascunhos.splice(Number(botaoRemover.dataset.indice), 1);
+      salvarEmpregosRascunhosAdmin(rascunhos);
+      renderizarEmpregosRascunhosAdmin();
     }
   });
   document.getElementById("btn-copiar")?.addEventListener("click", async () => {
@@ -683,8 +975,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 atualizarTitulo();
-
-
 
 
 

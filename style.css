@@ -1133,3 +1133,86 @@ body.dark .imagem-conteudo figcaption {
     grid-template-columns: 1fr;
   }
 }
+
+/* LEGENDAS E VIDEO EXTERNO */
+.imagem-principal-bloco {
+  margin: 20px 0;
+}
+
+.imagem-principal-bloco .imagem-primaria {
+  margin-bottom: 8px;
+}
+
+.imagem-principal-bloco figcaption {
+  color: #64748b;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.video-link-noticia {
+  margin: 20px 0;
+  padding: 16px;
+  border-left: 5px solid #b91c1c;
+  border-radius: 10px;
+  background: #f8fafc;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.video-link-noticia strong {
+  color: #111827;
+}
+
+.video-link-noticia a {
+  color: #b91c1c;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.video-link-noticia a:hover {
+  color: #7f1d1d;
+  text-decoration: underline;
+}
+
+#btn-publicar-rascunhos {
+  background: #15803d;
+}
+
+#btn-publicar-rascunhos:hover {
+  background: #166534;
+}
+
+.btn-remover-rascunho {
+  background: #b91c1c !important;
+}
+
+body.dark .imagem-principal-bloco figcaption {
+  color: #cbd5e1;
+}
+
+body.dark .video-link-noticia {
+  background: #111827;
+  border-left-color: #ef4444;
+}
+
+body.dark .video-link-noticia strong {
+  color: #f9fafb;
+}
+
+body.dark .video-link-noticia a {
+  color: #fca5a5;
+}
+
+/* PAINEL DE EMPREGOS */
+.admin-empregos {
+  border-top-color: #2563eb;
+}
+
+.admin-empregos h1 {
+  color: #111827;
+}
+
+body.dark .admin-empregos h1 {
+  color: #f9fafb;
+}
