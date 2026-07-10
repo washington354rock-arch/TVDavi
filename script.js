@@ -253,6 +253,13 @@ async function carregarNoticiaDetalhe() {
     document.title = `${noticia.titulo} - TV Davi`;
 
     const blocoVideo = renderizarVideoNoticia(noticia.videoYoutube);
+    const blocoImagemPrincipal = noticia.imagemSomenteCard
+      ? ""
+      : `
+      <figure class="imagem-principal-bloco">
+        <img src="${noticia.imagem}" alt="${noticia.titulo}" class="imagem-primaria">
+        ${noticia.legendaImagem ? `<figcaption>${limparHtmlBasico(noticia.legendaImagem)}</figcaption>` : ""}
+      </figure>`;
     const blocoFonte = noticia.linkFonte
       ? `<p class="fonte-noticia">Fonte: <a href="${noticia.linkFonte}" target="_blank" rel="noopener noreferrer">${noticia.fonte || "Ler notícia original"}</a></p>`
       : "";
@@ -261,10 +268,7 @@ async function carregarNoticiaDetalhe() {
       <h1>${noticia.titulo}</h1>
       <p>${noticia.resumo}</p>
       <p class="data">Publicado em ${formatarData(noticia.data)}</p>
-      <figure class="imagem-principal-bloco">
-        <img src="${noticia.imagem}" alt="${noticia.titulo}" class="imagem-primaria">
-        ${noticia.legendaImagem ? `<figcaption>${limparHtmlBasico(noticia.legendaImagem)}</figcaption>` : ""}
-      </figure>
+      ${blocoImagemPrincipal}
       ${blocoVideo}
       ${renderizarConteudo(noticia.conteudo)}
       ${blocoFonte}
@@ -347,6 +351,14 @@ async function carregarEmpregoDetalhe() {
     }
 
     document.title = `${emprego.titulo} - TV Davi Empregos`;
+    const blocoVideo = renderizarVideoNoticia(emprego.videoYoutube);
+    const blocoImagemPrincipal = emprego.imagemSomenteCard
+      ? ""
+      : `
+      <figure class="imagem-principal-bloco">
+        <img src="${emprego.imagem}" alt="${emprego.titulo}" class="imagem-primaria">
+        ${emprego.legendaImagem ? `<figcaption>${limparHtmlBasico(emprego.legendaImagem)}</figcaption>` : ""}
+      </figure>`;
     const blocoFonte = emprego.linkFonte
       ? `<p class="fonte-noticia">Fonte/inscrição: <a href="${emprego.linkFonte}" target="_blank" rel="noopener noreferrer">${emprego.fonte || "Abrir link"}</a></p>`
       : "";
@@ -355,10 +367,8 @@ async function carregarEmpregoDetalhe() {
       <h1>${emprego.titulo}</h1>
       <p>${emprego.resumo}</p>
       <p class="data">Publicado em ${formatarData(emprego.data)}</p>
-      <figure class="imagem-principal-bloco">
-        <img src="${emprego.imagem}" alt="${emprego.titulo}" class="imagem-primaria">
-        ${emprego.legendaImagem ? `<figcaption>${limparHtmlBasico(emprego.legendaImagem)}</figcaption>` : ""}
-      </figure>
+      ${blocoImagemPrincipal}
+      ${blocoVideo}
       ${renderizarConteudo(emprego.conteudo)}
       ${blocoFonte}
       <p><a href="empregos.html">⬅ Voltar para empregos</a></p>
@@ -498,6 +508,7 @@ function montarNoticiaAdmin() {
   const resumo = document.getElementById("admin-resumo")?.value.trim();
   const imagem = normalizarCaminhoImagem(document.getElementById("admin-imagem")?.value.trim());
   const legendaImagem = document.getElementById("admin-legenda-imagem")?.value.trim();
+  const imagemSomenteCard = document.getElementById("admin-imagem-somente-card")?.checked || false;
   const data = document.getElementById("admin-data")?.value;
   const categoria = document.getElementById("admin-categoria")?.value.trim();
   const videoYoutube = document.getElementById("admin-video")?.value.trim();
@@ -512,6 +523,7 @@ function montarNoticiaAdmin() {
     resumo,
     imagem,
     legendaImagem,
+    imagemSomenteCard,
     data,
     categoria,
     link: `noticia.html?id=${id}`,
@@ -533,12 +545,17 @@ function mostrarPreviewAdmin(noticia) {
   const preview = document.getElementById("admin-preview");
   if (!preview) return;
 
-  preview.innerHTML = `
-    <article class="noticia-preview-card">
+  const imagemPreview = noticia.imagemSomenteCard
+    ? ""
+    : `
       <figure class="imagem-principal-bloco">
         <img src="${noticia.imagem}" alt="${noticia.titulo}">
         ${noticia.legendaImagem ? `<figcaption>${limparHtmlBasico(noticia.legendaImagem)}</figcaption>` : ""}
-      </figure>
+      </figure>`;
+
+  preview.innerHTML = `
+    <article class="noticia-preview-card">
+      ${imagemPreview}
       <h3>${noticia.titulo}</h3>
       <p>${noticia.resumo}</p>
       <p class="data">Publicado em ${formatarData(noticia.data)}</p>
@@ -706,7 +723,9 @@ function montarEmpregoAdmin() {
   const resumo = document.getElementById("emprego-resumo")?.value.trim();
   const imagem = normalizarCaminhoImagem(document.getElementById("emprego-imagem")?.value.trim());
   const legendaImagem = document.getElementById("emprego-legenda-imagem")?.value.trim();
+  const imagemSomenteCard = document.getElementById("emprego-imagem-somente-card")?.checked || false;
   const data = document.getElementById("emprego-data")?.value;
+  const videoYoutube = document.getElementById("emprego-video")?.value.trim();
   const fonte = document.getElementById("emprego-fonte")?.value.trim();
   const linkFonte = document.getElementById("emprego-link-fonte")?.value.trim();
   const conteudoTexto = document.getElementById("emprego-conteudo")?.value.trim();
@@ -718,9 +737,11 @@ function montarEmpregoAdmin() {
     resumo,
     imagem,
     legendaImagem,
+    imagemSomenteCard,
     data,
     categoria: "Empregos",
     link: `emprego.html?id=${id}`,
+    videoYoutube,
     fonte,
     linkFonte,
     conteudo: conteudoTexto
@@ -1095,6 +1116,12 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 atualizarTitulo();
+
+
+
+
+
+
 
 
 

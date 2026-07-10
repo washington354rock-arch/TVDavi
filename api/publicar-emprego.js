@@ -102,6 +102,7 @@ function validarEmprego(emprego) {
     resumo,
     imagem,
     legendaImagem: textoOpcional(emprego.legendaImagem),
+    imagemSomenteCard: Boolean(emprego.imagemSomenteCard),
     data,
     categoria: "Empregos",
     link: `emprego.html?id=${id}`,
@@ -145,4 +146,6 @@ function limparHtml(valor) {
     .trim()
     .slice(0, 10000);
 }
+
+
 

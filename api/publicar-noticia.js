@@ -104,6 +104,7 @@ function validarNoticia(noticia) {
     resumo,
     imagem,
     legendaImagem: textoOpcional(noticia.legendaImagem),
+    imagemSomenteCard: Boolean(noticia.imagemSomenteCard),
     data,
     categoria: textoOpcional(noticia.categoria),
     link: `noticia.html?id=${id}`,
@@ -147,3 +148,5 @@ function limparHtml(valor) {
     .trim()
     .slice(0, 10000);
 }
+
+

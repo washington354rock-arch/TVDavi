@@ -1,4 +1,4 @@
-/* RESET */
+﻿/* RESET */
 * {
   margin: 0;
   padding: 0;
@@ -302,7 +302,7 @@ body {
 }
 
 .item::before {
-  content: "•";
+  content: "â€¢";
   position: absolute;
   left: 0;
   top: 2px;
@@ -1323,4 +1323,20 @@ body.dark #form-emprego-admin textarea {
   background: #111827;
   color: #f9fafb;
   border-color: #374151;
+}
+
+.admin-check-opcao {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+  font-weight: 700;
+  color: #1f2f46;
+}
+
+.admin-check-opcao input[type="checkbox"] {
+  width: auto !important;
+  min-width: 18px;
+  height: 18px;
 }
