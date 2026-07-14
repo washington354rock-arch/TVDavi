@@ -132,12 +132,51 @@ function normalizarYoutube(url) {
   return "";
 }
 
+function normalizarVideoG1(url) {
+  if (!url) return "";
+
+  try {
+    const endereco = new URL(url);
+    const host = endereco.hostname.replace(/^www\./, "");
+    const caminho = endereco.pathname;
+    const ehG1 = host === "g1.globo.com" || host.endsWith(".g1.globo.com");
+    const ehVideoG1 = caminho.includes("/video/") && caminho.endsWith(".ghtml");
+
+    if (["http:", "https:"].includes(endereco.protocol) && ehG1 && ehVideoG1) {
+      return endereco.toString();
+    }
+  } catch (erro) {
+    return "";
+  }
+
+  return "";
+}
+
+function renderizarIframeVideo(src, titulo) {
+  return `
+    <div class="video-container">
+      <iframe
+        src="${src}"
+        title="${titulo}"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+  `;
+}
+
 function renderizarVideoNoticia(url) {
   if (!url) return "";
 
-  const videoEmbed = normalizarYoutube(url);
-  if (videoEmbed) {
-    return `<div class="video-container"><iframe src="${videoEmbed}" title="Vídeo da notícia" allowfullscreen></iframe></div>`;
+  const videoYoutube = normalizarYoutube(url);
+  if (videoYoutube) {
+    return renderizarIframeVideo(videoYoutube, "Vídeo da notícia");
+  }
+
+  const videoG1 = normalizarVideoG1(url);
+  if (videoG1) {
+    return renderizarIframeVideo(videoG1, "Reportagem TVDavi");
   }
 
   try {
@@ -154,7 +193,6 @@ function renderizarVideoNoticia(url) {
     return "";
   }
 }
-
 function limparHtmlBasico(html) {
   const template = document.createElement("template");
   template.innerHTML = html;
@@ -1116,6 +1154,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 atualizarTitulo();
+
 
 
 
