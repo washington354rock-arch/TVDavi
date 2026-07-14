@@ -1,5 +1,53 @@
 [
   {
+    "id": 1784068628696,
+    "titulo": "Fisiculturista morre após passar mal no interior da Bahia; mãe é técnica de enfermagem e tentou reanimação",
+    "resumo": "Atleta tinha 35 anos e se preparava para campeonato em Curitiba. Causa da morte não foi divulgada.",
+    "imagem": "img/1784068496218-fisiculturista.jpg",
+    "legendaImagem": "",
+    "imagemSomenteCard": true,
+    "data": "2026-07-14",
+    "categoria": "Cidade",
+    "link": "noticia.html?id=1784068628696",
+    "videoYoutube": "https://g1.globo.com/ba/bahia/video/fisiculturista-morre-apos-passar-mal-no-interior-da-bahia-14777956.ghtml",
+    "fonte": "G1",
+    "linkFonte": "https://g1.globo.com/ba/feira-de-santana-regiao/noticia/2026/07/14/fisiculturista-morre-na-bahia.ghtml",
+    "conteudo": [
+      "Um fisiculturista de 35 anos morreu após passar mal em<span class=\"texto-azul\"> Alagoinhas</span>, no interior da Bahia, na noite de segunda-feira (13). A mãe do atleta, que é técnica enfermagem, fez manobras de reanimação para tentar salvá-lo.",
+      "<strong>Mailson Araújo</strong> passou mal dentro de casa e pediu ajuda aos pais. Após a mãe iniciar as manobras, o Corpo de Bombeiros foi acionado, já que a família mora em frente a corporação.",
+      "Os bombeiros deram continuidade ao atendimento e o Serviço de Atendimento Móvel de Urgência (Samu) foi acionado, mas Mailson não resistiu. A causa da morte ainda não foi divulgada.",
+      "[imagem:img/1784068566186-fisiculturista.jpg|Mailson era atleta de fisiculturismo e participaria de competição em Curitiba na quarta-feira (15) — Foto: Redes sociais]",
+      "O atleta era conhecido no cenário de fisiculturismo baiano conquistou diversos títulos ao longo da carreira. Segundo familiares, ele se preparava para disputar um campeonato na quarta-feira (15), em Curitiba.",
+      "Nas redes sociais, Mailson tinha mais de 30 mil seguidores, com quem compartilhava a rotina de alimentação e treinos.",
+      "Horas antes de morrer, ele publicou registros incluindo trenos de musculação e uma consulta com o fisioterapeuta.",
+      "O corpo está sendo velado nesta terça-feira (14), no Lar São Francisco. O sepultamento será às 15h, no Cemitério Jardim Paraíso da Saudade.",
+      "[imagem:img/1784068623874-fisiculturista1.jpg|Causa da morte do atleta não foi divulgada — Foto: Redes sociais]"
+    ]
+  },
+  {
+    "id": 1784068877220,
+    "titulo": "Mulher é presa por suspeita de aplicar golpes em idosos na Bahia e causar prejuízo de R$ 600 mil",
+    "resumo": "Suspeita é dona de uma empresa de empréstimos em Feira de Santana e tem antecedentes criminais. Cerca de 70 pessoas foram enganadas.",
+    "imagem": "img/1784068713189-suspeita.jpg",
+    "legendaImagem": "",
+    "imagemSomenteCard": true,
+    "data": "2026-07-14",
+    "categoria": "Polícia",
+    "link": "noticia.html?id=1784068877220",
+    "videoYoutube": "https://g1.globo.com/ba/bahia/video/mulher-e-presa-por-suspeita-de-aplicar-golpes-em-idosos-na-bahia-14777890.ghtml",
+    "fonte": "",
+    "linkFonte": "",
+    "conteudo": [
+      "Uma mulher de 34 anos foi presa em <span class=\"texto-azul\">Feira de Santana</span>, segunda maior cidade da Bahia, nesta terça-feira (14), por suspeita de aplicar golpes em idosos. De acordo com a Polícia Civil, a estimativa é que ela tenha causado um prejuízo financeiro de R$ 600 mil.",
+      "A suspeita foi identificada como Jéssica Gonçalves dos Santos e é dona de uma empresa de empréstimos.<mark> Ela tem antecedentes criminais por estelionato qualificado e lavagem de dinheiro.</mark>",
+      "[imagem:img/1784068767568-suspeita.jpg|Suspeita tem passagens pela polícia por estelionato e lavagem de dinheiro — Foto: TV Subaé]",
+      "<span class=\"texto-azul\">Segundo as investigações, agia da seguinte forma:</span>",
+      "<ul>\n  <li>realizava empréstimos maiores que os solicitados e repassava apenas uma parte do dinheiro para o cliente;</li>\n  <li>não repassava o valor do empréstimo para o cliente.</li>\n</ul>\nA estimativa é que ela tenha aplicado os golpes contra cerca de 70 pessoas, sendo a maioria idoso.",
+      "Pelo menos outras cinco pessoas, incluindo funcionários da empresa, participaram dos crimes aplicados pela empresa. A <span class=\"texto-azul\">Polícia Civil</span> investiga a existência de associação criminosa.",
+      "Além da prisão da suspeita, foram cumpridos mandados de busca e apreensão em dois endereços ligados a empresa. Em um deles, foram apreendidos computadores, celulares e documentos. No outro, localizado em um shopping da cidade, nenhum material foi encontrado."
+    ]
+  },
+  {
     "id": 1784067343040,
     "titulo": "Homem é morto a tiros em bairro de Feira de Santana; polícia investiga assassinato por engano",
     "resumo": "Ação dos suspeitos foi flagrada por câmeras de segurança.",
