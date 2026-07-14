@@ -196,7 +196,7 @@ function renderizarVideoNoticia(url) {
 function limparHtmlBasico(html) {
   const template = document.createElement("template");
   template.innerHTML = html;
-  const permitidas = ["STRONG", "B", "EM", "I", "S", "MARK", "SPAN", "A", "BR"];
+  const permitidas = ["STRONG", "B", "EM", "I", "S", "MARK", "SPAN", "A", "BR", "UL", "OL", "LI"];
   const classesPermitidas = ["texto-vermelho", "texto-azul", "texto-cinza", "destaque"];
 
   template.content.querySelectorAll("*").forEach((elemento) => {
@@ -252,6 +252,10 @@ function renderizarImagemNoConteudo(texto) {
   `;
 }
 
+function ehBlocoHtmlConteudo(texto) {
+  return /^<(ul|ol)(\s|>)/i.test(texto);
+}
+
 function renderizarConteudo(conteudo) {
   if (!Array.isArray(conteudo) || conteudo.length === 0) {
     return "<p>Conteúdo completo em preparação.</p>";
@@ -262,7 +266,10 @@ function renderizarConteudo(conteudo) {
       const texto = String(paragrafo || "").trim();
       const imagem = renderizarImagemNoConteudo(texto);
       if (imagem) return imagem;
-      return `<p>${limparHtmlBasico(texto)}</p>`;
+
+      const htmlLimpo = limparHtmlBasico(texto);
+      if (ehBlocoHtmlConteudo(htmlLimpo)) return htmlLimpo;
+      return `<p>${htmlLimpo}</p>`;
     })
     .join("");
 }
@@ -441,6 +448,27 @@ function envolverSelecao(textarea, abertura, fechamento) {
   textarea.focus();
   textarea.selectionStart = selecao.inicio + abertura.length;
   textarea.selectionEnd = selecao.fim + abertura.length;
+}
+
+function inserirListaEditor(textarea, tipo) {
+  const selecao = textoSelecionado(textarea);
+  const tag = tipo === "ol" ? "ol" : "ul";
+  const textoBase = selecao.valor || "Item da lista";
+  const itens = textoBase
+    .split(/\r?\n/)
+    .map((linha) => linha.replace(/^[-*•\d.)\s]+/, "").trim())
+    .filter(Boolean);
+
+  if (itens.length === 0) return;
+
+  const lista = `<${tag}>\n${itens.map((item) => `  <li>${item}</li>`).join("\n")}\n</${tag}>`;
+  const inicio = selecao.valor ? selecao.inicio : textarea.selectionStart;
+  const fim = selecao.valor ? selecao.fim : textarea.selectionEnd;
+
+  textarea.value = textarea.value.slice(0, inicio) + lista + textarea.value.slice(fim);
+  textarea.focus();
+  textarea.selectionStart = inicio;
+  textarea.selectionEnd = inicio + lista.length;
 }
 
 function inserirTextoNoCursor(textarea, texto) {
@@ -901,11 +929,13 @@ function iniciarAdmin() {
     botao.addEventListener("click", () => {
       const tag = botao.dataset.tag;
       const classe = botao.dataset.class;
+      const lista = botao.dataset.lista;
       const alvo = botao.dataset.target ? document.getElementById(botao.dataset.target) : conteudo;
       if (!alvo) return;
 
       if (tag) envolverSelecao(alvo, `<${tag}>`, `</${tag}>`);
       if (classe) envolverSelecao(alvo, `<span class="${classe}">`, "</span>");
+      if (lista) inserirListaEditor(alvo, lista);
     });
   });
 
@@ -1154,6 +1184,9 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 atualizarTitulo();
+
+
+
 
 
 

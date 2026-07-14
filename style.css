@@ -1340,3 +1340,35 @@ body.dark #form-emprego-admin textarea {
   min-width: 18px;
   height: 18px;
 }
+
+.conteudo ul,
+.conteudo ol,
+.noticia-preview-card ul,
+.noticia-preview-card ol {
+  margin: 12px 0 18px 24px;
+  padding-left: 18px;
+  color: #334155;
+  line-height: 1.6;
+}
+
+.conteudo li,
+.noticia-preview-card li {
+  margin-bottom: 8px;
+}
+
+.conteudo ul,
+.noticia-preview-card ul {
+  list-style-type: disc;
+}
+
+.conteudo ol,
+.noticia-preview-card ol {
+  list-style-type: decimal;
+}
+
+body.dark .conteudo ul,
+body.dark .conteudo ol,
+body.dark .noticia-preview-card ul,
+body.dark .noticia-preview-card ol {
+  color: #d1d5db;
+}
