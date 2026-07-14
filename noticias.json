@@ -1,5 +1,49 @@
 [
   {
+    "id": 1784067343040,
+    "titulo": "Homem é morto a tiros em bairro de Feira de Santana; polícia investiga assassinato por engano",
+    "resumo": "Ação dos suspeitos foi flagrada por câmeras de segurança.",
+    "imagem": "img/1784067270084-morto1.jpg",
+    "legendaImagem": "",
+    "imagemSomenteCard": true,
+    "data": "2026-07-14",
+    "categoria": "",
+    "link": "noticia.html?id=1784067343040",
+    "videoYoutube": "https://g1.globo.com/ba/bahia/videos-bahia-meio-dia-feira-de-santana/video/homem-pode-ter-sido-morto-por-engano-em-feira-de-santana-14778307.ghtml",
+    "fonte": "G1",
+    "linkFonte": "https://g1.globo.com/ba/feira-de-santana-regiao/noticia/2026/07/14/homem-e-morto-em-feira-de-santana.ghtml",
+    "conteudo": [
+      "Um homem de 30 anos foi morto a tiros no bairro do Calumbi, em <span class=\"texto-azul\">Feira de Santana</span>, na noite de segunda-feira (13). A situação foi flagrada por câmeras de segurança. Suspeitos de cometer o crime assassinaram outras duas pessoas na mesma noite.",
+      "A vítima foi identificada como <strong>Helton Bruno de Jesus Oliveira</strong>. Nas imagens do caso, é possível ver a dupla de suspeitos, que estava em uma motocicleta, passando pela rua. Após a passagem deles, pode-se ouvir o som dos disparos.",
+      "Conforme informações apuradas pela TV Subaé, investigações iniciais apontam que Helton Oliveira pode ter sido morto por engano pelos atiradores. <mark>A vítima foi atingida enquanto os suspeitos fugiam de outro ponto do bairro, onde teriam matado outras duas pessoas de 24 e 30 anos.</mark>",
+      "Ainda segundo apuração da TV Subaé com a <span class=\"texto-azul\">Polícia Civil</span>, a perícia apontou que a vítima conseguiu correr para outra rua após ser baleada, mas não resistiu aos ferimentos. Ele foi atingido no braço e nas costas.",
+      "[imagem:img/1784067283991-morto1.jpg|Homem é morto a tiros em bairro de Feira de Santana; polícia investiga assassinato por engano — Foto: Reprodução/TV Subaé]",
+      "A vítima trabalha descarregando caminhões e fazia serviços temporários pela cidade. A vítima não tinha vínculo com atividades criminosas. À TV Subaé, a mãe de Helton Oliveira lamentou o ocorrido e pediu Justiça pelo filho.",
+      "\"Meu filho era muito carinhoso comigo, com os filhos. O Feira 9 está em peso porque ele jogava bola na associação e todo mundo está de luto. É uma injustiça isso. Só espero justiça, mais nada\", lamentou Ana Paula de Jesus."
+    ]
+  },
+  {
+    "id": 1784067784802,
+    "titulo": "Família denuncia troca de corpos após morte de idosa em hospital na Bahia",
+    "resumo": "Dália Ventim Costa, de 79 anos, faleceu no Hospital Geral Clériston Andrade (HGCA), em Feira de Santana. Mas familiares descobriram que corpo não estava no local quando tentaram fazer a liberação.",
+    "imagem": "img/1784067495197-senhora.jpg",
+    "legendaImagem": "",
+    "imagemSomenteCard": true,
+    "data": "2026-07-14",
+    "categoria": "",
+    "link": "noticia.html?id=1784067784802",
+    "videoYoutube": "https://g1.globo.com/ba/bahia/videos-jornal-da-manha/video/familia-denuncia-troca-de-corpos-apos-morte-de-idosa-em-hospital-na-bahia-14777187.ghtml",
+    "fonte": "G1",
+    "linkFonte": "https://g1.globo.com/ba/feira-de-santana-regiao/noticia/2026/07/13/familia-denuncia-troca-de-corpos-apos-morte-em-hospital-na-bahia.ghtml",
+    "conteudo": [
+      "A família de uma idosa de 79 anos denunciou uma troca de corpos após a morte dela no Hospital Geral Clériston Andrade (HGCA), em <span class=\"texto-azul\">Feira de Santana</span>, segunda maior cidade da Bahia. Segundo os familiares, o corpo de<strong> Dália Ventim Costa</strong> foi entregue por engano a outra família e seria levado para outro estado. O caso aconteceu nesta segunda-feira (13).",
+      "De acordo com os filhos da idosa, Dália sofreu um infarto, foi internada na Unidade de Pronto Atendimento (UPA) do bairro Mangabeira no dia 26 de maio e depois foi transferida para o HGCA. Ela morreu por volta das 23h30 de domingo (12).",
+      "Após serem informados sobre o falecimento, os familiares foram ao hospital para realizar os procedimentos de liberação do corpo. No entanto, segundo a família, a equipe informou que a retirada só poderia ser feita às 5h.",
+      "Ao retornarem no horário indicado, os parentes foram surpreendidos com a informação de que o corpo não estava mais no hospital. Eles foram informados de que o corpo havia sido encaminhado para outra cidade. A suspeita é de que tenha ocorrido uma troca durante a liberação dos corpos, envolvendo outra paciente, cuja família seria de <span class=\"texto-azul\">Aracaju (SE)</span>.",
+      "[imagem:img/1784067669536-senhora.jpg|Dália Ventim Costa, de 79 anos morreu no Hospital Clériston Andrade em Feira de Santana — Foto: Arquivo Pessoal]"
+    ]
+  },
+  {
     "id": 1783985035753,
     "titulo": "Pai é morto a tiros dentro de casa e filha de 11 meses é baleada na Bahia",
     "resumo": "Crime ocorreu em Jiquiriçá, no Vale do Jiquiriçá. Vítima foi identificada como Agnelo Souza Santos Filho, de 26 anos.",
