@@ -166,6 +166,10 @@ function renderizarIframeVideo(src, titulo) {
   `;
 }
 
+function ehVideoYouTubeOuG1(url) {
+  return Boolean(normalizarYoutube(url) || normalizarVideoG1(url));
+}
+
 function renderizarVideoNoticia(url) {
   if (!url) return "";
 
@@ -235,6 +239,13 @@ function limparHtmlBasico(html) {
   return template.innerHTML;
 }
 
+function renderizarVideoNoConteudo(texto) {
+  const marcador = texto.match(/^\[video:(.+?)\]$/i);
+  if (!marcador) return "";
+
+  return renderizarVideoNoticia(marcador[1].trim());
+}
+
 function renderizarImagemNoConteudo(texto) {
   const marcador = texto.match(/^\[imagem:(.+?)(?:\|(.*))?\]$/);
   if (!marcador) return "";
@@ -264,6 +275,9 @@ function renderizarConteudo(conteudo) {
   return conteudo
     .map((paragrafo) => {
       const texto = String(paragrafo || "").trim();
+      const video = renderizarVideoNoConteudo(texto);
+      if (video) return video;
+
       const imagem = renderizarImagemNoConteudo(texto);
       if (imagem) return imagem;
 
@@ -983,6 +997,26 @@ function iniciarAdmin() {
     }
   });
 
+  document.getElementById("btn-inserir-video-extra")?.addEventListener("click", () => {
+    const campoVideo = document.getElementById("admin-video-extra-url");
+    const campoConteudo = document.getElementById("admin-conteudo");
+    const url = campoVideo?.value.trim() || "";
+
+    if (!url) {
+      mostrarStatusAdmin("Cole o link do vídeo antes de inserir.", "erro");
+      return;
+    }
+
+    if (!ehVideoYouTubeOuG1(url)) {
+      mostrarStatusAdmin("Use um link válido do YouTube ou G1.", "erro");
+      return;
+    }
+
+    inserirTextoNoCursor(campoConteudo, `[video:${url}]`);
+    if (campoVideo) campoVideo.value = "";
+    mostrarStatusAdmin("Vídeo inserido no texto.", "sucesso");
+  });
+
   document.getElementById("btn-preview")?.addEventListener("click", () => {
     const noticia = montarNoticiaAdmin();
     mostrarResultadoAdmin(noticia);
@@ -1094,6 +1128,26 @@ function iniciarAdmin() {
       mostrarStatusAdmin(erro.message, "erro");
     }
   });
+  document.getElementById("btn-inserir-video-extra-emprego")?.addEventListener("click", () => {
+    const campoVideo = document.getElementById("emprego-video-extra-url");
+    const campoConteudo = document.getElementById("emprego-conteudo");
+    const url = campoVideo?.value.trim() || "";
+
+    if (!url) {
+      mostrarStatusAdmin("Cole o link do vídeo antes de inserir.", "erro");
+      return;
+    }
+
+    if (!ehVideoYouTubeOuG1(url)) {
+      mostrarStatusAdmin("Use um link válido do YouTube ou G1.", "erro");
+      return;
+    }
+
+    inserirTextoNoCursor(campoConteudo, `[video:${url}]`);
+    if (campoVideo) campoVideo.value = "";
+    mostrarStatusAdmin("Vídeo extra da vaga inserido no texto.", "sucesso");
+  });
+
   document.getElementById("btn-preview-emprego")?.addEventListener("click", () => {
     const emprego = montarEmpregoAdmin();
     mostrarResultadoAdmin(emprego);
@@ -1184,6 +1238,9 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 atualizarTitulo();
+
+
+
 
 
 
