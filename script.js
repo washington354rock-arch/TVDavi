@@ -196,7 +196,7 @@ function renderizarVideoNoticia(url) {
 function limparHtmlBasico(html) {
   const template = document.createElement("template");
   template.innerHTML = html;
-  const permitidas = ["STRONG", "B", "EM", "I", "S", "MARK", "SPAN", "A", "BR", "UL", "OL", "LI"];
+  const permitidas = ["STRONG", "B", "EM", "I", "S", "MARK", "SPAN", "A", "BR", "UL", "OL", "LI", "H2", "H3"];
   const classesPermitidas = ["texto-vermelho", "texto-azul", "texto-cinza", "destaque"];
 
   template.content.querySelectorAll("*").forEach((elemento) => {
@@ -253,7 +253,7 @@ function renderizarImagemNoConteudo(texto) {
 }
 
 function ehBlocoHtmlConteudo(texto) {
-  return /^<(ul|ol)(\s|>)/i.test(texto);
+  return /^<(ul|ol|h2|h3)(\s|>)/i.test(texto);
 }
 
 function renderizarConteudo(conteudo) {
@@ -1184,6 +1184,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 atualizarTitulo();
+
 
 
 
