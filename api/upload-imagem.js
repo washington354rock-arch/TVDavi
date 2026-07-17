@@ -26,8 +26,8 @@
     }
 
     const buffer = Buffer.from(conteudoBase64, "base64");
-    if (buffer.length > 4 * 1024 * 1024) {
-      return res.status(400).json({ erro: "Imagem muito grande. Use uma imagem com até 4 MB." });
+    if (buffer.length > 3 * 1024 * 1024) {
+      return res.status(400).json({ erro: "Imagem muito grande. Use uma imagem com até 3 MB." });
     }
 
     const repo = process.env.GITHUB_REPO;
@@ -50,7 +50,7 @@
 
     if (!salvar.ok) {
       const detalhe = await salvar.text();
-      return res.status(500).json({ erro: "Não foi possível enviar a imagem para o GitHub.", detalhe });
+      return res.status(500).json({ erro: "Não foi possível enviar a imagem para o GitHub. Tente novamente em alguns segundos ou verifique o token do GitHub.", detalhe });
     }
 
     return res.status(200).json({ ok: true, caminho });
@@ -89,3 +89,4 @@ function criarNomeArquivo(nome, tipo) {
 
   return `${Date.now()}-${base}.${extensao}`;
 }
+

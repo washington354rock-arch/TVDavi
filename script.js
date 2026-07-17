@@ -504,6 +504,8 @@ function normalizarCaminhoImagem(caminho) {
   return `img/${valor.replace(/^\/+/, "")}`;
 }
 
+const LIMITE_UPLOAD_IMAGEM = 3 * 1024 * 1024;
+
 function arquivoParaBase64(arquivo) {
   return new Promise((resolve, reject) => {
     const leitor = new FileReader();
@@ -528,6 +530,14 @@ async function uploadImagemAdmin(arquivo) {
     throw new Error("Escolha uma imagem primeiro.");
   }
 
+  if (!arquivo.type || !arquivo.type.startsWith("image/")) {
+    throw new Error("Escolha um arquivo de imagem válido.");
+  }
+
+  if (arquivo.size > LIMITE_UPLOAD_IMAGEM) {
+    throw new Error("Imagem muito grande. Use uma imagem com até 3 MB para o upload funcionar na Vercel.");
+  }
+
   const conteudoBase64 = await arquivoParaBase64(arquivo);
   const resposta = await fetch("/api/upload-imagem", {
     method: "POST",
@@ -540,15 +550,25 @@ async function uploadImagemAdmin(arquivo) {
     })
   });
 
-  const dados = await resposta.json().catch(() => ({}));
+  const textoResposta = await resposta.text();
+  let dados = {};
+
+  try {
+    dados = textoResposta ? JSON.parse(textoResposta) : {};
+  } catch (erro) {
+    dados = { erro: textoResposta };
+  }
 
   if (!resposta.ok) {
-    throw new Error(dados.erro || "Não foi possível enviar a imagem.");
+    throw new Error(dados.erro || dados.detalhe || `Não foi possível enviar a imagem. Código ${resposta.status}.`);
+  }
+
+  if (!dados.caminho) {
+    throw new Error("A imagem foi enviada, mas o caminho não voltou da API.");
   }
 
   return dados.caminho;
 }
-
 function obterSenhaAdmin() {
   return sessionStorage.getItem("tvdavi_admin_senha") || "";
 }
@@ -1238,6 +1258,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 atualizarTitulo();
+
 
 
 
