@@ -90,21 +90,7 @@
             <input type="url" id="admin-link-fonte" placeholder="https://...">
           </label>
         </div>
-
-        <div class="toolbar-editor">
-          <button type="button" data-tag="h2">H2</button>
-          <button type="button" data-tag="h3">H3</button>
-          <button type="button" data-tag="strong">B</button>
-          <button type="button" data-tag="em">I</button>
-          <button type="button" data-tag="s">S</button>
-          <button type="button" data-class="texto-vermelho">Vermelho</button>
-          <button type="button" data-class="texto-azul">Azul</button>
-          <button type="button" data-tag="mark">Marca-texto</button>
-          <button type="button" data-lista="ul">• Lista</button>
-          <button type="button" data-lista="ol">1. Lista</button>
-        </div>
-
-        <div class="admin-imagem-extra">
+<div class="admin-imagem-extra">
           <h2>Imagem no meio ou final do texto</h2>
           <p class="admin-aviso">Envie uma imagem extra e o painel insere um marcador no texto. No site, esse marcador vira imagem com legenda.</p>
           <div class="admin-grid">
@@ -132,6 +118,18 @@
         </div>
 
         <label>Texto da notícia
+          <div class="toolbar-editor">
+          <button type="button" data-tag="h2">H2</button>
+          <button type="button" data-tag="h3">H3</button>
+          <button type="button" data-tag="strong">B</button>
+          <button type="button" data-tag="em">I</button>
+          <button type="button" data-tag="s">S</button>
+          <button type="button" data-class="texto-vermelho">Vermelho</button>
+          <button type="button" data-class="texto-azul">Azul</button>
+          <button type="button" data-tag="mark">Marca-texto</button>
+          <button type="button" data-lista="ul">• Lista</button>
+          <button type="button" data-lista="ol">1. Lista</button>
+        </div>
           <textarea id="admin-conteudo" rows="10" placeholder="Separe os parágrafos com uma linha em branco. Para imagem extra, use o botão acima." required></textarea>
         </label>
 
@@ -219,21 +217,7 @@
             <input type="url" id="emprego-link-fonte" placeholder="https://...">
           </label>
         </div>
-
-        <div class="toolbar-editor toolbar-emprego">
-          <button type="button" data-target="emprego-conteudo" data-tag="h2">H2</button>
-          <button type="button" data-target="emprego-conteudo" data-tag="h3">H3</button>
-          <button type="button" data-target="emprego-conteudo" data-tag="strong">B</button>
-          <button type="button" data-target="emprego-conteudo" data-tag="em">I</button>
-          <button type="button" data-target="emprego-conteudo" data-tag="s">S</button>
-          <button type="button" data-target="emprego-conteudo" data-class="texto-vermelho">Vermelho</button>
-          <button type="button" data-target="emprego-conteudo" data-class="texto-azul">Azul</button>
-          <button type="button" data-target="emprego-conteudo" data-tag="mark">Marca-texto</button>
-          <button type="button" data-target="emprego-conteudo" data-lista="ul">• Lista</button>
-          <button type="button" data-target="emprego-conteudo" data-lista="ol">1. Lista</button>
-        </div>
-
-        <div class="admin-imagem-extra">
+<div class="admin-imagem-extra">
           <h2>Imagem no meio ou final do texto</h2>
           <p class="admin-aviso">Envie uma imagem extra e o painel insere um marcador no texto. No site, esse marcador vira imagem com legenda.</p>
           <div class="admin-grid">
@@ -261,6 +245,18 @@
         </div>
 
         <label>Texto da vaga
+          <div class="toolbar-editor toolbar-emprego">
+          <button type="button" data-target="emprego-conteudo" data-tag="h2">H2</button>
+          <button type="button" data-target="emprego-conteudo" data-tag="h3">H3</button>
+          <button type="button" data-target="emprego-conteudo" data-tag="strong">B</button>
+          <button type="button" data-target="emprego-conteudo" data-tag="em">I</button>
+          <button type="button" data-target="emprego-conteudo" data-tag="s">S</button>
+          <button type="button" data-target="emprego-conteudo" data-class="texto-vermelho">Vermelho</button>
+          <button type="button" data-target="emprego-conteudo" data-class="texto-azul">Azul</button>
+          <button type="button" data-target="emprego-conteudo" data-tag="mark">Marca-texto</button>
+          <button type="button" data-target="emprego-conteudo" data-lista="ul">• Lista</button>
+          <button type="button" data-target="emprego-conteudo" data-lista="ol">1. Lista</button>
+        </div>
           <textarea id="emprego-conteudo" rows="10" placeholder="Separe os parágrafos com uma linha em branco. Para imagem extra, use o botão acima." required></textarea>
         </label>
 
@@ -284,6 +280,19 @@
     </section>
 
 
+
+    <section class="admin-bloco">
+      <div class="admin-lista-topo">
+        <div>
+          <h2>Empregos publicados</h2>
+          <p class="admin-aviso">Carregue as vagas atuais e exclua somente quando tiver certeza.</p>
+        </div>
+        <button type="button" id="btn-carregar-empregos">Atualizar lista</button>
+      </div>
+      <div id="admin-lista-empregos-publicados" class="admin-lista-noticias">
+        <p class="carregando">A lista será carregada após entrar no painel.</p>
+      </div>
+    </section>
     <section class="admin-bloco">
       <div class="admin-lista-topo">
         <div>
@@ -301,6 +310,7 @@
   <script src="script.js"></script>
 </body>
 </html>
+
 
 
 

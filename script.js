@@ -850,6 +850,74 @@ function montarEmpregoAdmin() {
   };
 }
 
+
+function criarItemAdminEmprego(emprego) {
+  const link = emprego.link || `emprego.html?id=${encodeURIComponent(emprego.id)}`;
+  const data = emprego.data ? formatarData(emprego.data) : "Sem data";
+
+  return `
+    <article class="admin-lista-item" data-id="${emprego.id}">
+      <img src="${emprego.imagem}" alt="${emprego.titulo}">
+      <div>
+        <h3>${emprego.titulo}</h3>
+        <p>${data} - Empregos</p>
+      </div>
+      <div class="admin-lista-acoes">
+        <a href="${link}" target="_blank" rel="noopener noreferrer">Abrir</a>
+        <button type="button" class="btn-excluir-emprego" data-id="${emprego.id}" data-titulo="${emprego.titulo.replace(/"/g, "&quot;")}">Excluir</button>
+      </div>
+    </article>
+  `;
+}
+
+async function carregarEmpregosAdmin() {
+  const lista = document.getElementById("admin-lista-empregos-publicados");
+  if (!lista) return;
+
+  lista.innerHTML = "<p class='carregando'>Carregando vagas...</p>";
+
+  try {
+    const empregos = await buscarEmpregos();
+    const ordenados = empregos.sort((a, b) => new Date(b.data) - new Date(a.data));
+
+    lista.innerHTML = ordenados.length
+      ? ordenados.map(criarItemAdminEmprego).join("")
+      : "<p class='carregando'>Nenhuma vaga cadastrada.</p>";
+  } catch (erro) {
+    lista.innerHTML = "<p class='erro-carregamento'>Não foi possível carregar as vagas.</p>";
+    console.error(erro);
+  }
+}
+
+async function excluirEmpregoAdmin(id, titulo) {
+  const senha = obterSenhaAdmin();
+
+  if (!senha) {
+    bloquearPainelAdmin();
+    mostrarStatusAdmin("Digite a senha do painel antes de excluir.", "erro");
+    return;
+  }
+
+  const confirmou = confirm(`Excluir a vaga "${titulo}"? Essa ação remove do empregos.json no GitHub.`);
+  if (!confirmou) return;
+
+  mostrarStatusAdmin("Excluindo vaga...", "carregando");
+
+  const resposta = await fetch("/api/excluir-emprego", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ senha, id })
+  });
+
+  const dados = await resposta.json().catch(() => ({}));
+
+  if (!resposta.ok) {
+    throw new Error(dados.erro || "Não foi possível excluir a vaga.");
+  }
+
+  mostrarStatusAdmin("Vaga removida do GitHub. A Vercel deve atualizar o site em alguns instantes.", "sucesso");
+  await carregarEmpregosAdmin();
+}
 function obterEmpregosRascunhosAdmin() {
   try {
     return JSON.parse(localStorage.getItem("tvdavi_empregos_rascunhos") || "[]");
@@ -920,6 +988,7 @@ function iniciarAdmin() {
   if (obterSenhaAdmin()) {
     liberarPainelAdmin();
     carregarNoticiasAdmin();
+    carregarEmpregosAdmin();
     renderizarRascunhosAdmin();
     renderizarEmpregosRascunhosAdmin();
   } else {
@@ -937,6 +1006,7 @@ function iniciarAdmin() {
     salvarSenhaAdmin(senha);
     liberarPainelAdmin();
     carregarNoticiasAdmin();
+    carregarEmpregosAdmin();
     renderizarRascunhosAdmin();
     renderizarEmpregosRascunhosAdmin();
     mostrarStatusAdmin("Painel liberado. A senha será conferida pela Vercel na hora de publicar ou excluir.", "sucesso");
@@ -1044,6 +1114,7 @@ function iniciarAdmin() {
   });
 
   document.getElementById("btn-carregar-noticias")?.addEventListener("click", carregarNoticiasAdmin);
+  document.getElementById("btn-carregar-empregos")?.addEventListener("click", carregarEmpregosAdmin);
 
   document.getElementById("admin-lista-noticias")?.addEventListener("click", async (evento) => {
     const botao = evento.target.closest(".btn-excluir-noticia");
@@ -1056,6 +1127,17 @@ function iniciarAdmin() {
     }
   });
 
+
+  document.getElementById("admin-lista-empregos-publicados")?.addEventListener("click", async (evento) => {
+    const botao = evento.target.closest(".btn-excluir-emprego");
+    if (!botao) return;
+
+    try {
+      await excluirEmpregoAdmin(botao.dataset.id, botao.dataset.titulo || "esta vaga");
+    } catch (erro) {
+      mostrarStatusAdmin(erro.message, "erro");
+    }
+  });
   document.getElementById("btn-publicar-rascunhos")?.addEventListener("click", async () => {
     const rascunhos = obterRascunhosAdmin();
 
@@ -1181,6 +1263,7 @@ function iniciarAdmin() {
       await publicarEmpregosAdmin(rascunhos);
       salvarEmpregosRascunhosAdmin([]);
       renderizarEmpregosRascunhosAdmin();
+      await carregarEmpregosAdmin();
     } catch (erro) {
       mostrarStatusAdmin(erro.message, "erro");
     }
@@ -1258,6 +1341,8 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 atualizarTitulo();
+
+
 
 
 

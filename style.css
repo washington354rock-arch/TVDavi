@@ -1006,11 +1006,13 @@ body.dark .admin-status.carregando {
   justify-content: flex-end;
 }
 
-.admin-lista-item .btn-excluir-noticia {
+.admin-lista-item .btn-excluir-noticia,
+.admin-lista-item .btn-excluir-emprego {
   background: #b91c1c;
 }
 
-.admin-lista-item .btn-excluir-noticia:hover {
+.admin-lista-item .btn-excluir-noticia:hover,
+.admin-lista-item .btn-excluir-emprego:hover {
   background: #7f1d1d;
 }
 
@@ -1406,3 +1408,8 @@ body.dark .noticia-preview-card h3 {
 
 
 
+
+#form-admin label > .toolbar-editor,
+#form-emprego-admin label > .toolbar-editor {
+  margin: 2px 0 8px;
+}
