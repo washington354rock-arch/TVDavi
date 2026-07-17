@@ -1,5 +1,32 @@
 [
   {
+    "id": 1784300029666,
+    "titulo": "Passageiros de ônibus abandonado por motorista na BA só descobriram que condutor fugiu de abordagem quando policial avisou",
+    "resumo": "Caso ocorreu na manhã da quinta-feira (16), na BR-116, em Feira de Santana. Homem correu para área de vegetação às margens da rodovia e ainda não foi localizado.",
+    "imagem": "img/1784299734319-buse.jpg",
+    "legendaImagem": "",
+    "imagemSomenteCard": true,
+    "data": "2026-07-17",
+    "categoria": "Cidade",
+    "link": "noticia.html?id=1784300029666",
+    "videoYoutube": "https://g1.globo.com/ba/bahia/videos-batv/video/motorista-foge-e-abandona-onibus-com-46-passageiros-14786116.ghtml",
+    "fonte": "G1",
+    "linkFonte": "https://g1.globo.com/ba/feira-de-santana-regiao/noticia/2026/07/17/passageiros-de-onibus-abandonado-por-motorista-na-ba-so-descobriram-que-condutor-fugiu-de-abordagem-quando-policial-avisou.ghtml",
+    "conteudo": [
+      "Os 46 passageiros do <span class=\"texto-azul\">ônibus de viagem que foi abandonado pelo motorista, na Bahia</span>, só descobriram que o condutor fugiu quando um policial rodoviário federal avisou sobre a situação.",
+      "O caso ocorreu na quinta-feira (16), em um trecho da BR-116, em <span class=\"texto-azul\">Feira de Santana</span>, segunda maior cidade do estado. O coletivo não tinha documentação regular. O homem, que não teve a identidade divulgada, correu para uma área de vegetação às margens da rodovia e ainda não foi localizado.",
+      "\"Quando nós descemos que o policial falou para gente: 'Ele saiu aí correndo'. Não tem como um motorista sair correndo\", disse o vendedor José Aparecido.",
+      "O passageiro seguiria para <span class=\"texto-azul\">Acaraju (SE)</span>, para encontrar o filho, mas teve a viagem pausada até que outro coletivo foi acionado para levar os viajantes ao destino. O ônibus, de uma empresa de turismo, fazia o trajeto entre <span class=\"texto-azul\">Montes Claros (MG)</span> e a capital sergipana.",
+      "\"Viajar isso tudo e ainda dar esse azar que deu, da gente parar no meio da estrada e sem ter o que comer, criança no colo chorando\", completou o vendedor.",
+      "[imagem:img/1784299916680-buse.jpg|Motorista abandonou passageiros após PRF identificar licença falsa em Feira de Santana — Foto: Iago Santana | TV Subaé]",
+      "A <span class=\"texto-azul\">Polícia Rodoviária Federal (PRF)</span> notificou a empresa, que tem registro de Montes Claros, por transporte clandestino e uso de documento falso. O caso vai ser encaminhado à <span class=\"texto-azul\">Polícia Federal (PF)</span>, que vai dar continuidade às investigações.",
+      "<h2>Relembre o caso</h2>",
+      "A abordagem aconteceu por volta das 9h, no posto da PRF Feira Sul. Segundo a PRF, durante a fiscalização, o motorista apresentou a documentação do veículo, incluindo uma licença de viagem supostamente emitida pela Agência Nacional de Transportes Terrestres (ANTT).",
+      "Após análise,<mark> os policiais constataram que o documento era falso</mark> e, ao perceber que a fraude havia sido descoberta, o motorista fugiu a pé.",
+      "Dois funcionários da empresa que viajavam no ônibus, um motorista reserva e outro colaborador, entraram em contato com a empresa responsável pelo transporte. Outra empresa foi contratada para concluir a viagem, e um novo ônibus foi enviado ao posto da PRF para levar os passageiros até <span class=\"texto-azul\">Aracaju.</span>"
+    ]
+  },
+  {
     "id": 1784204809675,
     "titulo": "Prefeitura de cidade na Bahia abre concurso com mais de 90 vagas; salários chegam a R$ 2,5 mil",
     "resumo": "Inscrições para certame de Riachão do Jacuípe podem ser feitas até o dia 13 de agosto, exclusivamente pela internet.",
