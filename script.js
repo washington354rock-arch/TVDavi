@@ -647,7 +647,7 @@ function montarNoticiaAdmin() {
   const fonte = document.getElementById("admin-fonte")?.value.trim();
   const linkFonte = document.getElementById("admin-link-fonte")?.value.trim();
   const conteudoTexto = document.getElementById("admin-conteudo")?.value.trim();
-  const id = Date.now();
+  const id = Number(document.getElementById("form-admin")?.dataset.editandoId) || Date.now();
 
   return {
     id,
@@ -742,6 +742,7 @@ function criarItemAdminNoticia(noticia) {
       </div>
       <div class="admin-lista-acoes">
         <a href="${link}" target="_blank" rel="noopener noreferrer">Abrir</a>
+        <button type="button" class="btn-editar-noticia-publicada" data-id="${noticia.id}">Editar</button>
         <button type="button" class="btn-excluir-noticia" data-id="${noticia.id}" data-titulo="${noticia.titulo.replace(/"/g, "&quot;")}">Excluir</button>
       </div>
     </article>
@@ -767,6 +768,26 @@ async function carregarNoticiasAdmin() {
   }
 }
 
+async function editarNoticiaPublicadaAdmin(id) {
+  try {
+    const noticias = await buscarNoticias();
+    const noticia = noticias.find((item) => Number(item.id) === Number(id));
+
+    if (!noticia) {
+      mostrarStatusAdmin("Notícia não encontrada para edição.", "erro");
+      return;
+    }
+
+    preencherFormularioNoticiaAdmin(noticia);
+    mostrarResultadoAdmin(noticia);
+    mostrarPreviewAdmin(noticia);
+    mostrarStatusAdmin("Notícia publicada carregada. Depois de ajustar, adicione aos rascunhos e publique para substituir a versão atual.", "sucesso");
+    document.getElementById("form-admin")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  } catch (erro) {
+    console.error(erro);
+    mostrarStatusAdmin("Não foi possível carregar a notícia para edição.", "erro");
+  }
+}
 async function excluirNoticiaAdmin(id, titulo) {
   const senha = obterSenhaAdmin();
 
@@ -852,6 +873,8 @@ function definirCheckboxCampo(id, valor) {
 }
 
 function preencherFormularioNoticiaAdmin(noticia) {
+  const form = document.getElementById("form-admin");
+  if (form) form.dataset.editandoId = noticia.id || "";
   definirValorCampo("admin-titulo", noticia.titulo);
   definirValorCampo("admin-resumo", noticia.resumo);
   definirValorCampo("admin-imagem", noticia.imagem);
@@ -867,6 +890,8 @@ function preencherFormularioNoticiaAdmin(noticia) {
 }
 
 function preencherFormularioEmpregoAdmin(emprego) {
+  const form = document.getElementById("form-emprego-admin");
+  if (form) form.dataset.editandoId = emprego.id || "";
   definirValorCampo("emprego-titulo", emprego.titulo);
   definirValorCampo("emprego-resumo", emprego.resumo);
   definirValorCampo("emprego-imagem", emprego.imagem);
@@ -933,7 +958,7 @@ function montarEmpregoAdmin() {
   const fonte = document.getElementById("emprego-fonte")?.value.trim();
   const linkFonte = document.getElementById("emprego-link-fonte")?.value.trim();
   const conteudoTexto = document.getElementById("emprego-conteudo")?.value.trim();
-  const id = Date.now();
+  const id = Number(document.getElementById("form-emprego-admin")?.dataset.editandoId) || Date.now();
 
   return {
     id,
@@ -968,6 +993,7 @@ function criarItemAdminEmprego(emprego) {
       </div>
       <div class="admin-lista-acoes">
         <a href="${link}" target="_blank" rel="noopener noreferrer">Abrir</a>
+        <button type="button" class="btn-editar-emprego-publicado" data-id="${emprego.id}">Editar</button>
         <button type="button" class="btn-excluir-emprego" data-id="${emprego.id}" data-titulo="${emprego.titulo.replace(/"/g, "&quot;")}">Excluir</button>
       </div>
     </article>
@@ -993,6 +1019,26 @@ async function carregarEmpregosAdmin() {
   }
 }
 
+async function editarEmpregoPublicadoAdmin(id) {
+  try {
+    const empregos = await buscarEmpregos();
+    const emprego = empregos.find((item) => Number(item.id) === Number(id));
+
+    if (!emprego) {
+      mostrarStatusAdmin("Vaga não encontrada para edição.", "erro");
+      return;
+    }
+
+    preencherFormularioEmpregoAdmin(emprego);
+    mostrarResultadoAdmin(emprego);
+    mostrarPreviewAdmin(emprego);
+    mostrarStatusAdmin("Vaga publicada carregada. Depois de ajustar, adicione aos rascunhos e publique para substituir a versão atual.", "sucesso");
+    document.getElementById("form-emprego-admin")?.scrollIntoView({ behavior: "smooth", block: "start" });
+  } catch (erro) {
+    console.error(erro);
+    mostrarStatusAdmin("Não foi possível carregar a vaga para edição.", "erro");
+  }
+}
 async function excluirEmpregoAdmin(id, titulo) {
   const senha = obterSenhaAdmin();
 
@@ -1156,6 +1202,7 @@ function iniciarAdmin() {
     mostrarPreviewAdmin(noticia);
     adicionarRascunhoAdmin(noticia);
     form.reset();
+    delete form.dataset.editandoId;
     if (campoData) campoData.value = new Date().toISOString().slice(0, 10);
   });
 
@@ -1223,11 +1270,18 @@ function iniciarAdmin() {
   document.getElementById("btn-carregar-empregos")?.addEventListener("click", carregarEmpregosAdmin);
 
   document.getElementById("admin-lista-noticias")?.addEventListener("click", async (evento) => {
-    const botao = evento.target.closest(".btn-excluir-noticia");
-    if (!botao) return;
+    const botaoEditar = evento.target.closest(".btn-editar-noticia-publicada");
+    const botaoExcluir = evento.target.closest(".btn-excluir-noticia");
 
     try {
-      await excluirNoticiaAdmin(botao.dataset.id, botao.dataset.titulo || "esta notícia");
+      if (botaoEditar) {
+        await editarNoticiaPublicadaAdmin(botaoEditar.dataset.id);
+        return;
+      }
+
+      if (botaoExcluir) {
+        await excluirNoticiaAdmin(botaoExcluir.dataset.id, botaoExcluir.dataset.titulo || "esta notícia");
+      }
     } catch (erro) {
       mostrarStatusAdmin(erro.message, "erro");
     }
@@ -1235,11 +1289,18 @@ function iniciarAdmin() {
 
 
   document.getElementById("admin-lista-empregos-publicados")?.addEventListener("click", async (evento) => {
-    const botao = evento.target.closest(".btn-excluir-emprego");
-    if (!botao) return;
+    const botaoEditar = evento.target.closest(".btn-editar-emprego-publicado");
+    const botaoExcluir = evento.target.closest(".btn-excluir-emprego");
 
     try {
-      await excluirEmpregoAdmin(botao.dataset.id, botao.dataset.titulo || "esta vaga");
+      if (botaoEditar) {
+        await editarEmpregoPublicadoAdmin(botaoEditar.dataset.id);
+        return;
+      }
+
+      if (botaoExcluir) {
+        await excluirEmpregoAdmin(botaoExcluir.dataset.id, botaoExcluir.dataset.titulo || "esta vaga");
+      }
     } catch (erro) {
       mostrarStatusAdmin(erro.message, "erro");
     }
@@ -1306,6 +1367,7 @@ function iniciarAdmin() {
     mostrarPreviewAdmin(emprego);
     adicionarEmpregoRascunhoAdmin(emprego);
     formEmprego.reset();
+    delete formEmprego.dataset.editandoId;
     if (campoEmpregoData) campoEmpregoData.value = new Date().toISOString().slice(0, 10);
   });
 
@@ -1459,31 +1521,4 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 atualizarTitulo();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

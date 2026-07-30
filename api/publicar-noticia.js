@@ -46,7 +46,15 @@
       return res.status(500).json({ erro: "O noticias.json precisa ser uma lista de notícias." });
     }
 
-    noticiasAtuais.unshift(...noticiasLimpas);
+    noticiasLimpas.forEach((novaNoticia) => {
+      const indiceExistente = noticiasAtuais.findIndex((noticiaAtual) => Number(noticiaAtual.id) === Number(novaNoticia.id));
+
+      if (indiceExistente >= 0) {
+        noticiasAtuais[indiceExistente] = novaNoticia;
+      } else {
+        noticiasAtuais.unshift(novaNoticia);
+      }
+    });
 
     const novoConteudo = `${JSON.stringify(noticiasAtuais, null, 2)}\n`;
     const salvar = await fetch(apiUrl, {
@@ -148,5 +156,4 @@ function limparHtml(valor) {
     .trim()
     .slice(0, 10000);
 }
-
 

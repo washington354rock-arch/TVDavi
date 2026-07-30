@@ -46,7 +46,15 @@
       return res.status(500).json({ erro: "O empregos.json precisa ser uma lista." });
     }
 
-    empregosAtuais.unshift(...empregosLimpos);
+    empregosLimpos.forEach((novoEmprego) => {
+      const indiceExistente = empregosAtuais.findIndex((empregoAtual) => Number(empregoAtual.id) === Number(novoEmprego.id));
+
+      if (indiceExistente >= 0) {
+        empregosAtuais[indiceExistente] = novoEmprego;
+      } else {
+        empregosAtuais.unshift(novoEmprego);
+      }
+    });
 
     const novoConteudo = `${JSON.stringify(empregosAtuais, null, 2)}\n`;
     const salvar = await fetch(apiUrl, {
@@ -146,6 +154,4 @@ function limparHtml(valor) {
     .trim()
     .slice(0, 10000);
 }
-
-
 
