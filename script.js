@@ -485,6 +485,38 @@ function inserirListaEditor(textarea, tipo) {
   textarea.selectionEnd = inicio + lista.length;
 }
 
+
+function inserirLinkEditor(textarea) {
+  const selecao = textoSelecionado(textarea);
+  const texto = selecao.valor || "texto do link";
+  const urlDigitada = prompt("Cole o link:");
+
+  if (!urlDigitada) return;
+
+  let url;
+  try {
+    url = new URL(urlDigitada.trim());
+  } catch (erro) {
+    alert("Link inválido. Use um endereço começando com https:// ou http://");
+    return;
+  }
+
+  if (!["http:", "https:"].includes(url.protocol)) {
+    alert("Link inválido. Use apenas links http ou https.");
+    return;
+  }
+
+  const link = `<a href="${url.toString()}" target="_blank" rel="noopener noreferrer">${texto}</a>`;
+
+  textarea.value =
+    textarea.value.slice(0, selecao.inicio) +
+    link +
+    textarea.value.slice(selecao.fim);
+
+  textarea.focus();
+  textarea.selectionStart = selecao.inicio;
+  textarea.selectionEnd = selecao.inicio + link.length;
+}
 function inserirTextoNoCursor(textarea, texto) {
   const inicio = textarea.selectionStart || textarea.value.length;
   const fim = textarea.selectionEnd || textarea.value.length;
@@ -1034,12 +1066,14 @@ function iniciarAdmin() {
       const tag = botao.dataset.tag;
       const classe = botao.dataset.class;
       const lista = botao.dataset.lista;
+      const link = botao.dataset.link;
       const alvo = botao.dataset.target ? document.getElementById(botao.dataset.target) : conteudo;
       if (!alvo) return;
 
       if (tag) envolverSelecao(alvo, `<${tag}>`, `</${tag}>`);
       if (classe) envolverSelecao(alvo, `<span class="${classe}">`, "</span>");
       if (lista) inserirListaEditor(alvo, lista);
+      if (link) inserirLinkEditor(alvo);
     });
   });
 
@@ -1341,6 +1375,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 atualizarTitulo();
+
 
 
 
