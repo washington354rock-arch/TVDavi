@@ -1,5 +1,22 @@
 [
   {
+    "id": 1785450999692,
+    "titulo": "viaduto da morte, vários suicídios em feira de Santana",
+    "resumo": "Caso do Viaduto sem proteção da Cidade Nova, muitas vidas perdidas aqui e ninguém toma providências",
+    "imagem": "img/1785450996034-davi.png",
+    "legendaImagem": "",
+    "imagemSomenteCard": true,
+    "data": "2026-07-30",
+    "categoria": "Cidade",
+    "link": "noticia.html?id=1785450999692",
+    "videoYoutube": "https://youtube.com/embed/BX5gVCg_GGA?si=ifE--dFupY7NuCFX",
+    "fonte": "TV Davi",
+    "linkFonte": "",
+    "conteudo": [
+      "Quantas vidas mais serão perdidas nesse viaduto? Providências precisam ser tomadas."
+    ]
+  },
+  {
     "id": 1785353568312,
     "titulo": "Feira de Santana recebe maior feira de beleza no interior da Bahia em agosto; saiba mais",
     "resumo": "Evento acontece entre 2 e 4 de agosto, no Ária Hall, e reunirá mais de 100 marcas com descontos de até 80% em cosméticos e equipamentos.",
