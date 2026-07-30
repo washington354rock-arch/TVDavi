@@ -1,0 +1,273 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Painel - TV Davi</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <button id="modo-btn">🌙 Modo escuro</button>
+
+  <header class="topo">
+    <img src="img/emblematv.jpg" alt="TVDavi" class="logo">
+    <p class="slogan">Painel de notícias da TV Davi</p>
+  </header>
+
+  <nav class="menu">
+    <ul>
+      <li><a href="index.html">Início</a></li>
+      <li><a href="contato.html">Contato</a></li>
+      <li><a href="empregos.html">Empregos</a></li>
+    </ul>
+  </nav>
+
+  <section id="admin-login" class="admin-container">
+    <div class="admin-bloco admin-login-card">
+      <h1>Acesso do administrador</h1>
+      <p class="admin-aviso">Digite a senha configurada na Vercel para liberar o painel de publicação.</p>
+      <label>Senha do painel
+        <input type="password" id="admin-senha" autocomplete="current-password" placeholder="Senha do administrador">
+      </label>
+      <div class="admin-acoes">
+        <button type="button" id="btn-entrar-admin">Entrar</button>
+      </div>
+      <p id="admin-login-status" class="admin-status"></p>
+    </div>
+  </section>
+
+  <main id="admin-painel" class="admin-container admin-escondido">
+    <section class="admin-bloco">
+      <h1>Nova notícia</h1>
+      <p class="admin-aviso">Monte uma ou várias notícias como rascunho. Quando terminar, clique em <strong>Publicar rascunhos</strong> para atualizar o GitHub uma única vez e gastar apenas um deploy da Vercel.</p>
+
+      <form id="form-admin">
+        <label>Título
+          <input type="text" id="admin-titulo" required>
+        </label>
+
+        <label>Resumo
+          <textarea id="admin-resumo" rows="3" required></textarea>
+        </label>
+
+        <label>Imagem principal
+          <input type="text" id="admin-imagem" placeholder="img/nome-da-foto.jpeg" required>
+        </label>
+
+        <label>Legenda da imagem principal
+          <input type="text" id="admin-legenda-imagem" placeholder="Foto: divulgação">
+        </label>
+        <div class="admin-upload-linha">
+          <input type="file" id="admin-imagem-arquivo" accept="image/*">
+          <button type="button" id="btn-upload-imagem-principal">Enviar imagem principal</button>
+        </div>
+
+        <div class="admin-grid">
+          <label>Data
+            <input type="date" id="admin-data" required>
+          </label>
+
+          <label>Categoria
+            <input type="text" id="admin-categoria" placeholder="Cidade, Polícia, Esporte...">
+          </label>
+        </div>
+
+        <label>Vídeo do YouTube ou G1
+          <input type="url" id="admin-video" placeholder="https://www.youtube.com/watch?v=... ou https://g1.globo.com/.../video/...">
+        </label>
+
+        <div class="admin-grid">
+          <label>Fonte
+            <input type="text" id="admin-fonte" placeholder="G1, Prefeitura, Polícia Civil...">
+          </label>
+
+          <label>Link da fonte
+            <input type="url" id="admin-link-fonte" placeholder="https://...">
+          </label>
+        </div>
+
+        <div class="toolbar-editor">
+          <button type="button" data-tag="strong">B</button>
+          <button type="button" data-tag="em">I</button>
+          <button type="button" data-tag="s">S</button>
+          <button type="button" data-class="texto-vermelho">Vermelho</button>
+          <button type="button" data-class="texto-azul">Azul</button>
+          <button type="button" data-tag="mark">Marca-texto</button>
+        </div>
+
+        <div class="admin-imagem-extra">
+          <h2>Imagem no meio ou final do texto</h2>
+          <p class="admin-aviso">Envie uma imagem extra e o painel insere um marcador no texto. No site, esse marcador vira imagem com legenda.</p>
+          <div class="admin-grid">
+            <label>Imagem extra
+              <input type="file" id="admin-imagem-extra-arquivo" accept="image/*">
+            </label>
+            <label>Legenda da imagem extra
+              <input type="text" id="admin-imagem-extra-legenda" placeholder="Foto: divulgação">
+            </label>
+          </div>
+          <div class="admin-acoes">
+            <button type="button" id="btn-inserir-imagem-extra">Enviar e inserir no texto</button>
+          </div>
+        </div>
+
+        <label>Texto da notícia
+          <textarea id="admin-conteudo" rows="10" placeholder="Separe os parágrafos com uma linha em branco. Para imagem extra, use o botão acima." required></textarea>
+        </label>
+
+        <div class="admin-acoes">
+          <button type="submit">Adicionar aos rascunhos</button>
+          <button type="button" id="btn-publicar-rascunhos">Publicar rascunhos</button>
+          <button type="button" id="btn-preview">Pré-visualizar</button>
+          <button type="button" id="btn-copiar">Copiar JSON</button>
+          <button type="button" id="btn-sair-admin">Sair</button>
+        </div>
+        <p id="admin-publicar-status" class="admin-status"></p>
+      </form>
+    </section>
+    <section class="admin-bloco">
+      <div class="admin-lista-topo">
+        <div>
+          <h2>Rascunhos para publicar</h2>
+          <p class="admin-aviso">As notícias ficam salvas apenas neste navegador até você publicar todas juntas.</p>
+        </div>
+        <button type="button" id="btn-limpar-rascunhos">Limpar rascunhos</button>
+      </div>
+      <div id="admin-lista-rascunhos" class="admin-lista-noticias">
+        <p class="carregando">Nenhum rascunho adicionado.</p>
+      </div>
+    </section>
+
+    <section class="admin-bloco">
+      <h2>Resultado</h2>
+      <textarea id="admin-resultado" rows="16" readonly></textarea>
+    </section>
+
+    <section class="admin-bloco">
+      <h2>Prévia</h2>
+      <div id="admin-preview" class="preview-noticia"></div>
+    </section>
+    <section class="admin-bloco admin-empregos">
+      <h1>Novo emprego</h1>
+      <p class="admin-aviso">Monte uma ou várias vagas como rascunho. Quando terminar, clique em <strong>Publicar vagas</strong> para atualizar o GitHub uma única vez.</p>
+
+      <form id="form-emprego-admin">
+        <label>Título
+          <input type="text" id="emprego-titulo" required>
+        </label>
+
+        <label>Resumo
+          <textarea id="emprego-resumo" rows="3" required></textarea>
+        </label>
+
+        <label>Imagem principal
+          <input type="text" id="emprego-imagem" placeholder="img/nome-da-foto.jpeg" required>
+        </label>
+
+        <label>Legenda da imagem principal
+          <input type="text" id="emprego-legenda-imagem" placeholder="Foto: divulgação">
+        </label>
+        <div class="admin-upload-linha">
+          <input type="file" id="emprego-imagem-arquivo" accept="image/*">
+          <button type="button" id="btn-upload-imagem-emprego">Enviar imagem principal</button>
+        </div>
+
+        <div class="admin-grid">
+          <label>Data
+            <input type="date" id="emprego-data" required>
+          </label>
+
+          <label>Categoria
+            <input type="text" value="Empregos" disabled>
+          </label>
+        </div>
+
+        <label>Vídeo do YouTube ou G1
+          <input type="url" id="emprego-video" placeholder="https://www.youtube.com/watch?v=... ou https://g1.globo.com/.../video/...">
+        </label>
+
+        <div class="admin-grid">
+          <label>Fonte
+            <input type="text" id="emprego-fonte" placeholder="G1, SineBahia, Prefeitura...">
+          </label>
+
+          <label>Link da fonte
+            <input type="url" id="emprego-link-fonte" placeholder="https://...">
+          </label>
+        </div>
+
+        <div class="toolbar-editor toolbar-emprego">
+          <button type="button" data-target="emprego-conteudo" data-tag="strong">B</button>
+          <button type="button" data-target="emprego-conteudo" data-tag="em">I</button>
+          <button type="button" data-target="emprego-conteudo" data-tag="s">S</button>
+          <button type="button" data-target="emprego-conteudo" data-class="texto-vermelho">Vermelho</button>
+          <button type="button" data-target="emprego-conteudo" data-class="texto-azul">Azul</button>
+          <button type="button" data-target="emprego-conteudo" data-tag="mark">Marca-texto</button>
+        </div>
+
+        <div class="admin-imagem-extra">
+          <h2>Imagem no meio ou final do texto</h2>
+          <p class="admin-aviso">Envie uma imagem extra e o painel insere um marcador no texto. No site, esse marcador vira imagem com legenda.</p>
+          <div class="admin-grid">
+            <label>Imagem extra
+              <input type="file" id="emprego-imagem-extra-arquivo" accept="image/*">
+            </label>
+            <label>Legenda da imagem extra
+              <input type="text" id="emprego-imagem-extra-legenda" placeholder="Foto: divulgação">
+            </label>
+          </div>
+          <div class="admin-acoes">
+            <button type="button" id="btn-inserir-imagem-extra-emprego">Enviar e inserir no texto</button>
+          </div>
+        </div>
+
+        <label>Texto da vaga
+          <textarea id="emprego-conteudo" rows="10" placeholder="Separe os parágrafos com uma linha em branco. Para imagem extra, use o botão acima." required></textarea>
+        </label>
+
+        <div class="admin-acoes">
+          <button type="submit">Adicionar vaga aos rascunhos</button>
+          <button type="button" id="btn-publicar-empregos">Publicar vagas</button>
+          <button type="button" id="btn-preview-emprego">Pré-visualizar</button>
+          <button type="button" id="btn-limpar-empregos">Limpar rascunhos de vagas</button>
+        </div>
+      </form>
+
+      <div class="admin-lista-topo admin-lista-topo-compacta">
+        <div>
+          <h2>Rascunhos de empregos</h2>
+          <p class="admin-aviso">Esses rascunhos ficam apenas neste navegador até publicar.</p>
+        </div>
+      </div>
+      <div id="admin-lista-empregos-rascunhos" class="admin-lista-noticias">
+        <p class="carregando">Nenhuma vaga adicionada.</p>
+      </div>
+    </section>
+
+
+    <section class="admin-bloco">
+      <div class="admin-lista-topo">
+        <div>
+          <h2>Notícias publicadas</h2>
+          <p class="admin-aviso">Carregue as notícias atuais e exclua somente quando tiver certeza.</p>
+        </div>
+        <button type="button" id="btn-carregar-noticias">Atualizar lista</button>
+      </div>
+      <div id="admin-lista-noticias" class="admin-lista-noticias">
+        <p class="carregando">A lista será carregada após entrar no painel.</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
