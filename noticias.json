@@ -1,5 +1,39 @@
 [
   {
+    "id": 1785451401047,
+    "titulo": "Entrevista do candidato ACM Neto",
+    "resumo": "ACM Neto fala sobre as irresponsabilidades do governo de Jerônimo Rodrigues",
+    "imagem": "img/1785451293436-captura-de-tela-2026-07-30-193927.png",
+    "legendaImagem": "",
+    "imagemSomenteCard": true,
+    "data": "2026-07-30",
+    "categoria": "",
+    "link": "noticia.html?id=1785451401047",
+    "videoYoutube": "https://youtube.com/embed/jT0hEH19AZw?si=sLC4g-AyUMOP37Mi",
+    "fonte": "TV Davi",
+    "linkFonte": "",
+    "conteudo": [
+      "Candidato ACM Neto responde perguntas sobre irresponsabilidade do governo de Jerônimo Rodrigues."
+    ]
+  },
+  {
+    "id": 1785451814427,
+    "titulo": "Prefeito diz Em entrevista que nunca viu falar de gradil Em viadutos",
+    "resumo": "Prefeito diz Em entrevista que nunca viu falar de gradil Em viadutos, aparentemente o prefeito pouco se importa com a questão.",
+    "imagem": "img/1785451632935-captura-de-tela-2026-07-30-194659.png",
+    "legendaImagem": "",
+    "imagemSomenteCard": true,
+    "data": "2026-07-30",
+    "categoria": "Cidade",
+    "link": "noticia.html?id=1785451814427",
+    "videoYoutube": "https://youtube.com/embed/k2klJ6HLFrg?si=lYgahJVwPaoEvcsg",
+    "fonte": "Aconteceu Notícia",
+    "linkFonte": "",
+    "conteudo": [
+      "Prefeito diz Em entrevista que nunca viu falar de gradil Em viadutos, aparentemente o prefeito pouco se importa com a questão que vem se tornando um problema em <span class=\"texto-azul\">Feira de Santana</span>. Cabe aos vereadores e a população continuarem cobrando medidas."
+    ]
+  },
+  {
     "id": 1785450999692,
     "titulo": "viaduto da morte, vários suicídios em feira de Santana",
     "resumo": "Caso do Viaduto sem proteção da Cidade Nova, muitas vidas perdidas aqui e ninguém toma providências",
