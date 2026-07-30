@@ -818,6 +818,7 @@ function criarItemRascunhoAdmin(noticia, indice) {
         <p>${formatarData(noticia.data)}${noticia.categoria ? ` - ${noticia.categoria}` : ""}</p>
       </div>
       <div class="admin-lista-acoes">
+        <button type="button" class="btn-editar-rascunho" data-indice="${indice}">Editar</button>
         <button type="button" class="btn-preview-rascunho" data-indice="${indice}">Prévia</button>
         <button type="button" class="btn-remover-rascunho" data-indice="${indice}">Remover</button>
       </div>
@@ -835,6 +836,77 @@ function renderizarRascunhosAdmin() {
     : "<p class='carregando'>Nenhum rascunho adicionado.</p>";
 }
 
+
+function valorConteudoAdmin(conteudo) {
+  return Array.isArray(conteudo) ? conteudo.join("\n\n") : String(conteudo || "");
+}
+
+function definirValorCampo(id, valor) {
+  const campo = document.getElementById(id);
+  if (campo) campo.value = valor || "";
+}
+
+function definirCheckboxCampo(id, valor) {
+  const campo = document.getElementById(id);
+  if (campo) campo.checked = Boolean(valor);
+}
+
+function preencherFormularioNoticiaAdmin(noticia) {
+  definirValorCampo("admin-titulo", noticia.titulo);
+  definirValorCampo("admin-resumo", noticia.resumo);
+  definirValorCampo("admin-imagem", noticia.imagem);
+  definirValorCampo("admin-legenda-imagem", noticia.legendaImagem);
+  definirCheckboxCampo("admin-imagem-somente-card", noticia.imagemSomenteCard);
+  definirValorCampo("admin-data", noticia.data);
+  definirValorCampo("admin-categoria", noticia.categoria);
+  definirValorCampo("admin-video", noticia.videoYoutube);
+  definirValorCampo("admin-fonte", noticia.fonte);
+  definirValorCampo("admin-link-fonte", noticia.linkFonte);
+  definirValorCampo("admin-conteudo", valorConteudoAdmin(noticia.conteudo));
+  document.getElementById("admin-titulo")?.focus();
+}
+
+function preencherFormularioEmpregoAdmin(emprego) {
+  definirValorCampo("emprego-titulo", emprego.titulo);
+  definirValorCampo("emprego-resumo", emprego.resumo);
+  definirValorCampo("emprego-imagem", emprego.imagem);
+  definirValorCampo("emprego-legenda-imagem", emprego.legendaImagem);
+  definirCheckboxCampo("emprego-imagem-somente-card", emprego.imagemSomenteCard);
+  definirValorCampo("emprego-data", emprego.data);
+  definirValorCampo("emprego-video", emprego.videoYoutube);
+  definirValorCampo("emprego-fonte", emprego.fonte);
+  definirValorCampo("emprego-link-fonte", emprego.linkFonte);
+  definirValorCampo("emprego-conteudo", valorConteudoAdmin(emprego.conteudo));
+  document.getElementById("emprego-titulo")?.focus();
+}
+
+function editarRascunhoNoticiaAdmin(indice) {
+  const rascunhos = obterRascunhosAdmin();
+  const noticia = rascunhos[indice];
+  if (!noticia) return;
+
+  preencherFormularioNoticiaAdmin(noticia);
+  rascunhos.splice(indice, 1);
+  salvarRascunhosAdmin(rascunhos);
+  renderizarRascunhosAdmin();
+  mostrarResultadoAdmin(noticia);
+  mostrarPreviewAdmin(noticia);
+  mostrarStatusAdmin("Rascunho carregado para edição. Ajuste e adicione aos rascunhos novamente.", "sucesso");
+}
+
+function editarRascunhoEmpregoAdmin(indice) {
+  const rascunhos = obterEmpregosRascunhosAdmin();
+  const emprego = rascunhos[indice];
+  if (!emprego) return;
+
+  preencherFormularioEmpregoAdmin(emprego);
+  rascunhos.splice(indice, 1);
+  salvarEmpregosRascunhosAdmin(rascunhos);
+  renderizarEmpregosRascunhosAdmin();
+  mostrarResultadoAdmin(emprego);
+  mostrarPreviewAdmin(emprego);
+  mostrarStatusAdmin("Rascunho de emprego carregado para edição. Ajuste e adicione aos rascunhos novamente.", "sucesso");
+}
 function adicionarRascunhoAdmin(noticia) {
   const rascunhos = obterRascunhosAdmin();
   rascunhos.push(noticia);
@@ -1194,9 +1266,15 @@ function iniciarAdmin() {
   });
 
   document.getElementById("admin-lista-rascunhos")?.addEventListener("click", (evento) => {
+    const botaoEditar = evento.target.closest(".btn-editar-rascunho");
     const botaoPreview = evento.target.closest(".btn-preview-rascunho");
     const botaoRemover = evento.target.closest(".btn-remover-rascunho");
     const rascunhos = obterRascunhosAdmin();
+
+    if (botaoEditar) {
+      editarRascunhoNoticiaAdmin(Number(botaoEditar.dataset.indice));
+      return;
+    }
 
     if (botaoPreview) {
       const noticia = rascunhos[Number(botaoPreview.dataset.indice)];
@@ -1312,9 +1390,15 @@ function iniciarAdmin() {
   });
 
   document.getElementById("admin-lista-empregos-rascunhos")?.addEventListener("click", (evento) => {
+    const botaoEditar = evento.target.closest(".btn-editar-rascunho");
     const botaoPreview = evento.target.closest(".btn-preview-rascunho");
     const botaoRemover = evento.target.closest(".btn-remover-rascunho");
     const rascunhos = obterEmpregosRascunhosAdmin();
+
+    if (botaoEditar) {
+      editarRascunhoEmpregoAdmin(Number(botaoEditar.dataset.indice));
+      return;
+    }
 
     if (botaoPreview) {
       const emprego = rascunhos[Number(botaoPreview.dataset.indice)];
@@ -1375,6 +1459,8 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 atualizarTitulo();
+
+
 
 
 
