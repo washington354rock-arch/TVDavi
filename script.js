@@ -486,27 +486,36 @@ function inserirListaEditor(textarea, tipo) {
 }
 
 
+function normalizarUrlEditor(urlDigitada) {
+  const valor = String(urlDigitada || "").trim();
+  if (!valor) return "";
+
+  const comProtocolo = /^https?:\/\//i.test(valor) ? valor : `https://${valor}`;
+  const url = new URL(comProtocolo);
+
+  if (!["http:", "https:"].includes(url.protocol)) {
+    throw new Error("Protocolo inválido.");
+  }
+
+  return url.toString();
+}
+
 function inserirLinkEditor(textarea) {
   const selecao = textoSelecionado(textarea);
   const texto = selecao.valor || "texto do link";
-  const urlDigitada = prompt("Cole o link:");
+  const urlDigitada = prompt("Cole o link. Exemplo: https://site.com ou www.site.com");
 
   if (!urlDigitada) return;
 
   let url;
   try {
-    url = new URL(urlDigitada.trim());
+    url = normalizarUrlEditor(urlDigitada);
   } catch (erro) {
-    alert("Link inválido. Use um endereço começando com https:// ou http://");
+    alert("Link inválido. Use um endereço como https://site.com ou www.site.com");
     return;
   }
 
-  if (!["http:", "https:"].includes(url.protocol)) {
-    alert("Link inválido. Use apenas links http ou https.");
-    return;
-  }
-
-  const link = `<a href="${url.toString()}" target="_blank" rel="noopener noreferrer">${texto}</a>`;
+  const link = `<a href="${url}" target="_blank" rel="noopener noreferrer">${texto}</a>`;
 
   textarea.value =
     textarea.value.slice(0, selecao.inicio) +
@@ -778,7 +787,7 @@ async function editarNoticiaPublicadaAdmin(id) {
       return;
     }
 
-    preencherFormularioNoticiaAdmin(noticia);
+    preencherFormularioNoticiaAdmin(noticia, true);
     mostrarResultadoAdmin(noticia);
     mostrarPreviewAdmin(noticia);
     mostrarStatusAdmin("Notícia publicada carregada. Depois de ajustar, adicione aos rascunhos e publique para substituir a versão atual.", "sucesso");
@@ -872,9 +881,28 @@ function definirCheckboxCampo(id, valor) {
   if (campo) campo.checked = Boolean(valor);
 }
 
-function preencherFormularioNoticiaAdmin(noticia) {
+function atualizarModoEdicaoNoticiaAdmin(editandoPublicado = false) {
+  const botaoSalvar = document.getElementById("btn-salvar-edicao-noticia");
+  const botaoRascunho = document.getElementById("btn-adicionar-rascunho");
+
+  if (botaoSalvar) botaoSalvar.classList.toggle("admin-escondido", !editandoPublicado);
+  if (botaoRascunho) botaoRascunho.textContent = editandoPublicado ? "Salvar nos rascunhos" : "Adicionar aos rascunhos";
+}
+
+function atualizarModoEdicaoEmpregoAdmin(editandoPublicado = false) {
+  const botaoSalvar = document.getElementById("btn-salvar-edicao-emprego");
+  const botaoRascunho = document.getElementById("btn-adicionar-emprego-rascunho");
+
+  if (botaoSalvar) botaoSalvar.classList.toggle("admin-escondido", !editandoPublicado);
+  if (botaoRascunho) botaoRascunho.textContent = editandoPublicado ? "Salvar vaga nos rascunhos" : "Adicionar vaga aos rascunhos";
+}
+function preencherFormularioNoticiaAdmin(noticia, publicado = false) {
   const form = document.getElementById("form-admin");
-  if (form) form.dataset.editandoId = noticia.id || "";
+  if (form) {
+    form.dataset.editandoId = noticia.id || "";
+    form.dataset.editandoPublicado = publicado ? "true" : "";
+  }
+  atualizarModoEdicaoNoticiaAdmin(publicado);
   definirValorCampo("admin-titulo", noticia.titulo);
   definirValorCampo("admin-resumo", noticia.resumo);
   definirValorCampo("admin-imagem", noticia.imagem);
@@ -889,9 +917,13 @@ function preencherFormularioNoticiaAdmin(noticia) {
   document.getElementById("admin-titulo")?.focus();
 }
 
-function preencherFormularioEmpregoAdmin(emprego) {
+function preencherFormularioEmpregoAdmin(emprego, publicado = false) {
   const form = document.getElementById("form-emprego-admin");
-  if (form) form.dataset.editandoId = emprego.id || "";
+  if (form) {
+    form.dataset.editandoId = emprego.id || "";
+    form.dataset.editandoPublicado = publicado ? "true" : "";
+  }
+  atualizarModoEdicaoEmpregoAdmin(publicado);
   definirValorCampo("emprego-titulo", emprego.titulo);
   definirValorCampo("emprego-resumo", emprego.resumo);
   definirValorCampo("emprego-imagem", emprego.imagem);
@@ -1029,7 +1061,7 @@ async function editarEmpregoPublicadoAdmin(id) {
       return;
     }
 
-    preencherFormularioEmpregoAdmin(emprego);
+    preencherFormularioEmpregoAdmin(emprego, true);
     mostrarResultadoAdmin(emprego);
     mostrarPreviewAdmin(emprego);
     mostrarStatusAdmin("Vaga publicada carregada. Depois de ajustar, adicione aos rascunhos e publique para substituir a versão atual.", "sucesso");
@@ -1203,9 +1235,32 @@ function iniciarAdmin() {
     adicionarRascunhoAdmin(noticia);
     form.reset();
     delete form.dataset.editandoId;
+    delete form.dataset.editandoPublicado;
+    atualizarModoEdicaoNoticiaAdmin(false);
     if (campoData) campoData.value = new Date().toISOString().slice(0, 10);
   });
 
+
+  document.getElementById("btn-salvar-edicao-noticia")?.addEventListener("click", async () => {
+    if (form.dataset.editandoPublicado !== "true") return;
+    if (!form.reportValidity()) return;
+
+    try {
+      const noticia = montarNoticiaAdmin();
+      mostrarResultadoAdmin(noticia);
+      mostrarPreviewAdmin(noticia);
+      await publicarNoticiasAdmin([noticia]);
+      form.reset();
+      delete form.dataset.editandoId;
+      delete form.dataset.editandoPublicado;
+      atualizarModoEdicaoNoticiaAdmin(false);
+      if (campoData) campoData.value = new Date().toISOString().slice(0, 10);
+      await carregarNoticiasAdmin();
+      mostrarStatusAdmin("Edição salva no GitHub. A Vercel deve atualizar o site em alguns instantes.", "sucesso");
+    } catch (erro) {
+      mostrarStatusAdmin(erro.message, "erro");
+    }
+  });
   document.getElementById("btn-upload-imagem-principal")?.addEventListener("click", async () => {
     const inputArquivo = document.getElementById("admin-imagem-arquivo");
     const campoImagem = document.getElementById("admin-imagem");
@@ -1368,9 +1423,32 @@ function iniciarAdmin() {
     adicionarEmpregoRascunhoAdmin(emprego);
     formEmprego.reset();
     delete formEmprego.dataset.editandoId;
+    delete formEmprego.dataset.editandoPublicado;
+    atualizarModoEdicaoEmpregoAdmin(false);
     if (campoEmpregoData) campoEmpregoData.value = new Date().toISOString().slice(0, 10);
   });
 
+
+  document.getElementById("btn-salvar-edicao-emprego")?.addEventListener("click", async () => {
+    if (formEmprego.dataset.editandoPublicado !== "true") return;
+    if (!formEmprego.reportValidity()) return;
+
+    try {
+      const emprego = montarEmpregoAdmin();
+      mostrarResultadoAdmin(emprego);
+      mostrarPreviewAdmin(emprego);
+      await publicarEmpregosAdmin([emprego]);
+      formEmprego.reset();
+      delete formEmprego.dataset.editandoId;
+      delete formEmprego.dataset.editandoPublicado;
+      atualizarModoEdicaoEmpregoAdmin(false);
+      if (campoEmpregoData) campoEmpregoData.value = new Date().toISOString().slice(0, 10);
+      await carregarEmpregosAdmin();
+      mostrarStatusAdmin("Edição da vaga salva no GitHub. A Vercel deve atualizar o site em alguns instantes.", "sucesso");
+    } catch (erro) {
+      mostrarStatusAdmin(erro.message, "erro");
+    }
+  });
   document.getElementById("btn-upload-imagem-emprego")?.addEventListener("click", async () => {
     const inputArquivo = document.getElementById("emprego-imagem-arquivo");
     const campoImagem = document.getElementById("emprego-imagem");
