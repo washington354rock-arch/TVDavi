@@ -1,5 +1,30 @@
 [
   {
+    "id": 1785526729829,
+    "titulo": "Periquitos danificam fiação e afetam funcionamento de semáforos em Feira de Santana",
+    "resumo": "Casos foram registrados nas últimas semanas e provocam semáforos piscando durante o dia. Não houve acidentes.",
+    "imagem": "img/1785526095636-periquitos.jpg",
+    "legendaImagem": "Periquitos — Foto: Divulgação",
+    "imagemSomenteCard": false,
+    "data": "2026-07-31",
+    "categoria": "Cidade",
+    "link": "noticia.html?id=1785526729829",
+    "videoYoutube": "",
+    "fonte": "G1",
+    "linkFonte": "https://g1.globo.com/ba/feira-de-santana-regiao/noticia/2026/07/30/fiacao-danificada-bahia.ghtml",
+    "conteudo": [
+      "A presença de periquitos tem causado danos à fiação de semáforos em <span class=\"texto-azul\">Feira de Santana</span>, segunda maior cidade da Bahia. Segundo a Superintendência Municipal de Trânsito (SMT), os casos voltaram a ser registrados nos últimos 15 dias e têm provocado falhas no funcionamento dos equipamentos.",
+      "Os pontos mais afetados ficam nos cruzamentos próximos à Casa de Saúde Santana e à Avenida Castro Alves, na região central da cidade.",
+      "De acordo com o superintendente da SMT, Ricardo Cunha, quando um semáforo aparece piscando durante o dia, uma das possíveis causas é a ação das aves. \"Eles entram no tubo, pela ponta do braço dos semáforos, e acabam danificando a fiação\", explicou.",
+      "Segundo Ricardo Cunha, os periquitos roem os fios por instinto de exploração. Eles não utilizam o plástico ou o cobre como alimento, mas acabam comprometendo a estrutura elétrica dos semáforos, o que pode interromper o funcionamento dos equipamentos.",
+      "Para reduzir o problema sem prejudicar os animais, a SMT substituiu as tampas de acesso à fiação dos semáforos para impedir a entrada das aves. Além disso, foi realizada uma troca preventiva das tampas em todos os pontos semafóricos da cidade.",
+      "O superintendente informou que a incidência varia conforme o período de maior circulação dos periquitos. A situação já havia sido registrada em alguns momentos no ano passado, mas voltou a ocorrer com maior frequência nas últimas semanas.",
+      "Apesar das falhas nos equipamentos, a SMT informou que não há registro de acidentes relacionados ao problema. Os danos, no entanto, geram prejuízo financeiro ao município, devido à necessidade de manutenção e substituição da fiação danificada.",
+      "[imagem:img/1785526656397-periquitos1.jpg|Prsença de pássaros provocou danos em fiações de semáforos em Feira de Santana — Foto: Divulgação | SMT]",
+      "[imagem:img/1785526684003-periquitos2.jpg|Periquitos danificaram fiação de semáforos em Feira de Santana — Foto: Divulgação]"
+    ]
+  },
+  {
     "id": 1785451401047,
     "titulo": "Entrevista do candidato ACM Neto",
     "resumo": "ACM Neto fala sobre as irresponsabilidades do governo de Jerônimo Rodrigues",
