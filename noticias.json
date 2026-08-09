@@ -1,5 +1,50 @@
 [
   {
+    "id": 1786270485214,
+    "titulo": "Homem é executado a tiros dentro de bar em Feira de Santana",
+    "resumo": "Vítima de 32 anos foi surpreendida por dois homens que chegaram de moto. Suspeitos fugiram após o crime e ainda não foram identificados.",
+    "imagem": "img/1786270108778-homem.jpg",
+    "legendaImagem": "A vítima foi identificada como Antônio Carlos Brito de Oliveira. — Foto: Reprodução/Redes Sociais",
+    "imagemSomenteCard": false,
+    "data": "2026-08-09",
+    "categoria": "Polícia",
+    "link": "noticia.html?id=1786270485214",
+    "videoYoutube": "",
+    "fonte": "G1",
+    "linkFonte": "https://g1.globo.com/ba/feira-de-santana-regiao/noticia/2026/08/08/homem-e-executado-a-tiros-dentro-de-bar-em-feira-de-santana.ghtml",
+    "conteudo": [
+      "Um homem de 32 anos foi morto a tiros dentro de um bar na noite de sexta-feira (7), no bairro Campo Limpo, em<span class=\"texto-azul\"> Feira de Santana</span>, a cerca de 100 km de Salvador. A vítima foi identificada como Antônio Carlos Brito de Oliveira.",
+      "O crime aconteceu por volta das 23h13, no estabelecimento localizado na Rua Aeroporto, próximo à Praça do Bom Viver.",
+      "Segundo informações da <span class=\"texto-azul\">Polícia Civil</span>, Antônio Carlos estava no bar, que pertence ao pai de criação dele, ingerindo bebida alcoólica com outras pessoas quando foi surpreendido por dois homens que chegaram ao local em uma motocicleta.",
+      "Os suspeitos deram vários tiros na vítima, que foi atingida principalmente no rosto. Antônio Carlos morreu ainda no local. Após o crime, os dois homens fugiram e não haviam sido identificados até a última atualização desta reportagem.",
+      "Ainda conforme relatos de moradores, Antônio Carlos era usuário de drogas e já teria sido ameaçado por traficantes da região para não permanecer no estabelecimento. Ele teria passado alguns dias fora do bairro e retornado recentemente.",
+      "A motivação do homicídio ainda é investigada. Equipes da Delegacia de Homicídios (DH) de Feira de Santana e do Departamento de Polícia Técnica (DPT) estiveram no local para realizar os primeiros procedimentos de investigação e perícia."
+    ]
+  },
+  {
+    "id": 1786270111237,
+    "titulo": "Jovem de 23 anos morre e pai fica ferido após acidente de motocicleta na BA-052",
+    "resumo": "Acidente aconteceu na noite de sexta-feira (7), na altura do km 90 da rodovia, em Ipirá. Homem de 53 anos foi socorrido consciente para uma UPA.",
+    "imagem": "img/1786269806384-jovem.jpg",
+    "legendaImagem": "",
+    "imagemSomenteCard": true,
+    "data": "2026-08-09",
+    "categoria": "Polícia",
+    "link": "noticia.html?id=1786270111237",
+    "videoYoutube": "https://g1.globo.com/ba/bahia/videos-bahia-meio-dia/video/jovem-morre-em-acidente-de-moto-e-pai-fica-ferido-14852035.ghtml",
+    "fonte": "G1",
+    "linkFonte": "https://g1.globo.com/ba/feira-de-santana-regiao/noticia/2026/08/08/pai-e-filho-sofrem-acidente-de-moto-na-ba-052.ghtml",
+    "conteudo": [
+      "Um jovem de 23 anos morreu após a motocicleta em que estava com o pai cair em uma ribanceira na BA-052, em <span class=\"texto-azul\">Ipirá</span>, no interior da Bahia. O acidente aconteceu no início da noite de sexta-feira (7), na altura do km 90 da rodovia.",
+      "Segundo a Associação dos Bombeiros Voluntários de Ipirá (Abomproci), que atendeu à ocorrência, o condutor perdeu o controle da direção enquanto seguia com o filho. A moto saiu da pista, desceu uma ribanceira e os dois caíram em uma área de vegetação com espinhos.",
+      "O jovem, identificado como <strong>Lucas Oliveira Santana</strong>, já estava sem sinais vitais quando os bombeiros chegaram ao local. O pai dele, <strong>Ademar de Jesus Santana</strong>, de 53 anos, estava consciente e foi retirado da vegetação pelos socorristas. Ele foi encaminhado para uma Unidade de Pronto Atendimento (UPA).",
+      "Os dois seguiam de Ipirá para casa, na região conhecida como Cágados de Dentro, quando o acidente aconteceu.",
+      "[imagem:img/1786269936978-jovem.jpg|O jovem, identificado como Lucas Oliveira Santana, já estava sem sinais vitais quando os bombeiros chegaram ao local — Foto: Reprodução/Redes Sociais]",
+      "A área foi isolada pelos bombeiros, que também sinalizaram a pista até a chegada da <span class=\"texto-azul\">Polícia Militar</span>, da Polícia Rodoviária Estadual (PRE) e do Departamento de Polícia Técnica (DPT). O corpo de Lucas foi levado para necropsia.",
+      "O sepultamento do jovem está previsto para a tarde deste sábado (8), em Ipirá."
+    ]
+  },
+  {
     "id": 1786142002176,
     "titulo": "Homem condenado a 23 anos por morte de vendedora em assalto a joalheria é recapturado após mentir identidade na Bahia",
     "resumo": "Homem descumpriu a saída temporária do Dia das Mães e foi abordado pela Polícia Militar.",
