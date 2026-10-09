@@ -1,5 +1,25 @@
 [
   {
+    "id": 1791578087075,
+    "titulo": "Homem condenado por furto e roubo em Rondônia é preso na Bahia",
+    "resumo": "Suspeito foi sentenciado a mais de 10 anos de prisão em regime fechado e era considerado foragido da Justiça.",
+    "imagem": "img/1791578112874-poli.jpg",
+    "legendaImagem": "Condenado por furto e roubo em Rondônia é preso em Serrinha — Foto: Polícia Civil/Divulgação",
+    "imagemSomenteCard": false,
+    "data": "2026-10-09",
+    "categoria": "Polícia",
+    "link": "noticia.html?id=1791578087075",
+    "videoYoutube": "",
+    "fonte": "G1",
+    "linkFonte": "https://g1.globo.com/ba/feira-de-santana-regiao/noticia/2026/10/09/homem-condenado-por-furto-e-roubo-em-rondonia-e-preso-na-bahia.ghtml",
+    "conteudo": [
+      "Um homem de 37 anos, condenado pelos crimes de furto e roubo em Rondônia, foi preso na quinta-feira (8), no bairro Estação, em <span class=\"texto-azul\">Serrinha</span>, cidade que fica a cerca de 60 km de <span class=\"texto-azul\">Feira de Santana.</span> Ele foi sentenciado a 10 anos, 9 meses e 11 dias de prisão, em regime inicial fechado.",
+      "Segundo a <span class=\"texto-azul\">Polícia Civil</span>, o mandado de prisão definitiva foi expedido em outubro de 2019 pela Vara de Execuções de Penas e Medidas Alternativas de Porto Velho, capital de Rondônia, após o processo transitar em julgado, quando não cabiam mais recursos contra a condenação.",
+      "A prisão foi realizada por equipes do Setor de Investigação (SI) da Delegacia Territorial (DT) de Serrinha, vinculada à 15ª Coordenadoria Regional de Polícia do Interior (Coorpin).",
+      "Após o cumprimento do mandado, o homem foi encaminhado à delegacia para os procedimentos legais. Ele permanece custodiado à disposição da Justiça."
+    ]
+  },
+  {
     "id": 1791577706294,
     "titulo": "Incêndio destrói barracas na feirinha da Estação Nova, em Feira de Santana",
     "resumo": "Fogo começou por volta das 19h de quinta-feira (8) e foi controlado pelo Corpo de Bombeiros. Ninguém ficou ferido.",
