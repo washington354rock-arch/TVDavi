@@ -1,5 +1,28 @@
 [
   {
+    "id": 1791577706294,
+    "titulo": "Incêndio destrói barracas na feirinha da Estação Nova, em Feira de Santana",
+    "resumo": "Fogo começou por volta das 19h de quinta-feira (8) e foi controlado pelo Corpo de Bombeiros. Ninguém ficou ferido.",
+    "imagem": "img/1791577731981-incendio.jpg",
+    "legendaImagem": "Incêndio na feira-livre da Estação Nova, em Feira de Santana — Foto: Redes sociais",
+    "imagemSomenteCard": false,
+    "data": "2026-10-09",
+    "categoria": "Cidade",
+    "link": "noticia.html?id=1791577706294",
+    "videoYoutube": "",
+    "fonte": "G1",
+    "linkFonte": "",
+    "conteudo": [
+      "Duas barracas foram atingidas por um incêndio na noite de quinta-feira (8), na feira-livre da Estação Nova, em <span class=\"texto-azul\">Feira de Santana</span>, segunda maior cidade da Bahia. O fogo começou por volta das 19h e foi controlado pelo Corpo de Bombeiros. Ninguém ficou ferido.",
+      "Uma das barracas era utilizada para a venda de bebidas, como cervejas, refrigerantes e água. A outra estava vazia e tinha apenas a estrutura montada.",
+      "O filho da proprietária de uma das barracas contou para a produção da TV Subaé, que passou o dia trabalhando no local e foi embora após fechar o estabelecimento. Depois das 19h, ele recebeu uma ligação informando que a estrutura estava pegando fogo.",
+      "Um morador da região percebeu o incêndio e acionou o Corpo de Bombeiros. A Guarda Municipal também foi chamada e prestou apoio à ocorrência.",
+      "Segundo relatos iniciais, o fogo pode ter começado após um curto-circuito em um poste de energia. No entanto,<strong> a causa ainda não foi confirmada e será investigada.</strong>",
+      "O secretário municipal de Agricultura, Recursos Hídricos e Desenvolvimento Rural, Silvaney Araújo, esteve no local para acompanhar a situação.",
+      "A Secretaria Municipal de Agricultura, Recursos Hídricos e Desenvolvimento Rural (Seagri), responsável pela administração das feiras-livres do município, informou que o incêndio foi controlado em poucos minutos após a chegada dos bombeiros."
+    ]
+  },
+  {
     "id": 1790886078203,
     "titulo": "Preço do gás de cozinha sobe cerca de 9% na Bahia e botijão pode ficar até R$ 8 mais caro",
     "resumo": "Reajuste passou a valer nesta quinta-feira (1º) após aumento aplicado pela Acelen, responsável pela Refinaria de Mataripe.",
